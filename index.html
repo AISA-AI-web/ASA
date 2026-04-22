@@ -135,11 +135,20 @@ img{max-width:100%}
   overflow:hidden;
 }
 .hero-logo img{width:100%;height:100%;object-fit:contain;border-radius:50%}
-.topbar-logo{height:34px;width:34px;object-fit:contain;border-radius:50%;flex-shrink:0}
-.asa-banner-strip{width:100%;display:block;line-height:0}
-.asa-banner-strip img{width:100%;height:auto;display:block;max-height:160px;object-fit:cover;object-position:center}
-.footer-logo{width:70px;height:70px;object-fit:contain;border-radius:50%;
-  margin:0 auto 14px;display:block;
+.topbar-logo{height:38px;width:38px;object-fit:contain;border-radius:50%;flex-shrink:0;background:#fff;padding:3px}
+.asa-banner-strip{
+  width:100%;display:block;line-height:0;text-align:center;
+  background:linear-gradient(130deg, var(--navy) 0%, #0f4090 55%, var(--blue) 100%);
+  padding:18px 16px;
+}
+.asa-banner-strip img{
+  max-width:100%;width:auto;height:auto;
+  display:inline-block;
+  border-radius:10px;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);
+}
+.footer-logo{width:80px;height:80px;object-fit:contain;border-radius:50%;
+  margin:0 auto 14px;display:block;background:#fff;padding:6px;
   box-shadow:0 4px 16px rgba(0,0,0,.3)}
 
 /* ═══════════════════════════════════════
@@ -458,7 +467,7 @@ footer strong{color:#fff}
 <!-- ═══ TOP BAR ═══ -->
 <div class="topbar no-print" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
   <div style="display:flex;align-items:center;gap:12px">
-    <img src="aisa-logo-circle.png" alt="AISA Logo" class="topbar-logo"/>
+    <img src="aisa-lions-athletics.png" alt="AISA Lions Athletics" class="topbar-logo"/>
     <div class="contact" style="display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem">
       <span>📞 <a href="tel:+97124444333">+971 2 444 4333</a></span>
       <span>🌐 <a href="https://www.aisa.sch.ae/" target="_blank">aisa.sch.ae</a></span>
@@ -1650,7 +1659,7 @@ footer strong{color:#fff}
      FOOTER
 ═══════════════════════════════════════ -->
 <footer>
-  <img src="aisa-logo-circle.png" alt="AISA Logo" class="footer-logo"/>
+  <img src="aisa-lions-athletics.png" alt="AISA Lions Athletics" class="footer-logo"/>
   <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;color:#fff;margin-bottom:8px">
     Explore. Create. Grow.
   </div>
