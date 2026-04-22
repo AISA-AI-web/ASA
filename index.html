@@ -177,6 +177,41 @@ img{max-width:100%}
 .band .section{padding-top:0;padding-bottom:0}
 
 /* ═══════════════════════════════════════
+   TERM TABS
+═══════════════════════════════════════ */
+.term-tabs{
+  display:flex;gap:8px;flex-wrap:wrap;
+  margin:8px 0 28px;
+  padding:6px;
+  background:#fff;
+  border:1px solid #dbe7f3;
+  border-radius:14px;
+  box-shadow:0 2px 8px rgba(10,42,110,.06);
+  width:fit-content;max-width:100%;
+}
+.term-tab{
+  appearance:none;border:0;cursor:pointer;
+  background:transparent;color:var(--navy);
+  padding:10px 20px;border-radius:10px;
+  font-size:.95rem;font-weight:800;letter-spacing:.02em;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:background .18s,color .18s,box-shadow .18s;
+}
+.term-tab:hover{background:var(--light)}
+.term-tab.active{
+  background:var(--navy);color:#fff;
+  box-shadow:0 4px 10px rgba(10,42,110,.18);
+}
+.term-tab:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.term-panel{display:none}
+.term-panel.active{display:block}
+@media print{
+  .term-tabs{display:none}
+  .term-panel{display:block !important;page-break-before:always}
+  .term-panel:first-of-type{page-break-before:auto}
+}
+
+/* ═══════════════════════════════════════
    LEADERSHIP TABLE
 ═══════════════════════════════════════ */
 .staff-grid{display:flex;gap:20px;flex-wrap:wrap}
@@ -456,9 +491,9 @@ footer strong{color:#fff}
   <a href="#welcome">Welcome</a>
   <a href="#categories">Categories</a>
   <a href="#process">Process</a>
-  <a href="#autumn">Autumn Term</a>
-  <a href="#winter">Winter Term</a>
-  <a href="#spring">Spring Term</a>
+  <a href="#autumn" data-term-link="autumn">Autumn Term</a>
+  <a href="#winter" data-term-link="winter">Winter Term</a>
+  <a href="#spring" data-term-link="spring">Spring Term</a>
   <a href="#directory">Directory</a>
   <a href="#faqs">FAQs</a>
 </nav>
@@ -593,13 +628,21 @@ footer strong{color:#fff}
 <!-- Each table: Name | Day | Category | Fee -->
 
 <!-- ═══════════════════════════════════════
-     AUTUMN TERM
+     TERM ASAs (tabbed: Autumn / Winter / Spring)
 ═══════════════════════════════════════ -->
-<div class="band" id="autumn">
+<div class="band" id="terms">
   <div class="section" style="padding-top:56px;padding-bottom:56px">
-    <h2 class="section-title">🍂 <span>Autumn Term</span> ASAs</h2>
+    <h2 class="section-title">📆 <span>Term</span> ASAs</h2>
     <div class="divider"></div>
 
+    <div class="term-tabs no-print" role="tablist" aria-label="Select term">
+      <button type="button" class="term-tab active" role="tab" aria-selected="true" aria-controls="autumn" data-term="autumn">🍂 Autumn</button>
+      <button type="button" class="term-tab" role="tab" aria-selected="false" aria-controls="winter" data-term="winter">❄️ Winter</button>
+      <button type="button" class="term-tab" role="tab" aria-selected="false" aria-controls="spring" data-term="spring">🌸 Spring</button>
+    </div>
+
+    <!-- AUTUMN PANEL -->
+    <div class="term-panel active" id="autumn" role="tabpanel" aria-labelledby="tab-autumn" data-term="autumn">
     <!-- KG1 -->
     <div class="term-section">
       <div class="term-title">KG1 <span class="term-badge">Autumn</span></div>
@@ -694,16 +737,10 @@ footer strong{color:#fff}
       </table>
       <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
     </div>
-  </div>
-</div>
+    </div><!-- /#autumn panel -->
 
-<!-- ═══════════════════════════════════════
-     WINTER TERM
-═══════════════════════════════════════ -->
-<section class="section" id="winter">
-  <h2 class="section-title">❄️ <span>Winter Term</span> ASAs</h2>
-  <div class="divider"></div>
-
+    <!-- WINTER PANEL -->
+    <div class="term-panel" id="winter" role="tabpanel" aria-labelledby="tab-winter" data-term="winter" hidden>
   <!-- KG1 -->
   <div class="term-section">
     <div class="term-title">KG1 <span class="term-badge">Winter</span></div>
@@ -805,16 +842,10 @@ footer strong{color:#fff}
     </table>
     <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
   </div>
-</section>
+    </div><!-- /#winter panel -->
 
-<!-- ═══════════════════════════════════════
-     SPRING TERM
-═══════════════════════════════════════ -->
-<div class="band" id="spring">
-  <div class="section" style="padding-top:56px;padding-bottom:56px">
-    <h2 class="section-title">🌸 <span>Spring Term</span> ASAs</h2>
-    <div class="divider"></div>
-
+    <!-- SPRING PANEL -->
+    <div class="term-panel" id="spring" role="tabpanel" aria-labelledby="tab-spring" data-term="spring" hidden>
     <!-- KG1 -->
     <div class="term-section">
       <div class="term-title">KG1 <span class="term-badge">Spring</span></div>
@@ -910,6 +941,8 @@ footer strong{color:#fff}
       </table>
       <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
     </div>
+    </div><!-- /#spring panel -->
+
   </div>
 </div>
 
@@ -1640,8 +1673,9 @@ document.querySelectorAll('.faq-q').forEach(q=>{
 });
 
 // ── Active nav tab on scroll ──
-const sections=['top','welcome','categories','process','autumn','winter','spring','directory','faqs'];
+const sections=['top','welcome','categories','process','terms','directory','faqs'];
 const navLinks=document.querySelectorAll('.nav-tabs a');
+const TERM_IDS=['autumn','winter','spring'];
 window.addEventListener('scroll',()=>{
   let current='';
   sections.forEach(id=>{
@@ -1649,9 +1683,48 @@ window.addEventListener('scroll',()=>{
     if(el&&window.scrollY>=el.offsetTop-160)current=id;
   });
   navLinks.forEach(a=>{
-    a.classList.toggle('active',a.getAttribute('href')==='#'+current);
+    const href=a.getAttribute('href')||'';
+    const termLink=a.dataset.termLink;
+    let isActive;
+    if(termLink){
+      isActive=current==='terms'&&termLink===activeTerm;
+    }else{
+      isActive=href==='#'+current;
+    }
+    a.classList.toggle('active',isActive);
   });
 },{passive:true});
+
+// ── Term tabs ──
+let activeTerm='autumn';
+function setTerm(term){
+  if(!TERM_IDS.includes(term))return;
+  activeTerm=term;
+  document.querySelectorAll('.term-tab').forEach(btn=>{
+    const on=btn.dataset.term===term;
+    btn.classList.toggle('active',on);
+    btn.setAttribute('aria-selected',on?'true':'false');
+  });
+  document.querySelectorAll('.term-panel').forEach(panel=>{
+    const on=panel.dataset.term===term;
+    panel.classList.toggle('active',on);
+    if(on){panel.removeAttribute('hidden')}else{panel.setAttribute('hidden','')}
+  });
+}
+document.querySelectorAll('.term-tab').forEach(btn=>{
+  btn.addEventListener('click',()=>setTerm(btn.dataset.term));
+});
+// Nav links for terms: switch tab before the browser jumps to the anchor.
+document.querySelectorAll('.nav-tabs a[data-term-link]').forEach(a=>{
+  a.addEventListener('click',()=>setTerm(a.dataset.termLink));
+});
+// Support deep links like #winter / #spring arriving via URL or hash change.
+function syncTermFromHash(){
+  const h=(location.hash||'').replace('#','');
+  if(TERM_IDS.includes(h))setTerm(h);
+}
+window.addEventListener('hashchange',syncTermFromHash);
+syncTermFromHash();
 
 // ── Directory filter ──
 let activeCat='all';
