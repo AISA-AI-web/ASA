@@ -136,17 +136,6 @@ img{max-width:100%}
 }
 .hero-logo img{width:100%;height:100%;object-fit:contain;border-radius:50%}
 .topbar-logo{height:38px;width:38px;object-fit:contain;border-radius:50%;flex-shrink:0;background:#fff;padding:3px}
-.asa-banner-strip{
-  width:100%;display:block;line-height:0;text-align:center;
-  background:linear-gradient(130deg, var(--navy) 0%, #0f4090 55%, var(--blue) 100%);
-  padding:18px 16px;
-}
-.asa-banner-strip img{
-  max-width:100%;width:auto;height:auto;
-  display:inline-block;
-  border-radius:10px;
-  box-shadow:0 6px 20px rgba(0,0,0,.25);
-}
 .footer-logo{width:80px;height:80px;object-fit:contain;border-radius:50%;
   margin:0 auto 14px;display:block;background:#fff;padding:6px;
   box-shadow:0 4px 16px rgba(0,0,0,.3)}
@@ -273,6 +262,122 @@ img{max-width:100%}
 }
 .step-title{font-weight:800;font-size:.9rem;color:var(--navy)}
 .step-desc{font-size:.8rem;color:var(--muted)}
+
+/* ═══════════════════════════════════════
+   SEASON CALENDARS (in Process section)
+═══════════════════════════════════════ */
+.cal-wrap{
+  background:#fff;border:2px solid var(--light);border-radius:16px;
+  padding:20px;margin-bottom:18px;
+  box-shadow:0 2px 10px rgba(10,42,110,.05);
+}
+.cal-wrap.is-next{
+  border-color:var(--orange);
+  box-shadow:0 6px 24px rgba(244,121,32,.18);
+}
+.cal-head{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  justify-content:space-between;margin-bottom:14px;
+}
+.cal-title{
+  font-family:'Montserrat',sans-serif;font-weight:900;
+  font-size:1.05rem;color:var(--navy);display:flex;align-items:center;gap:8px;
+}
+.cal-next-chip{
+  background:var(--orange);color:#fff;border-radius:20px;
+  padding:4px 12px;font-size:.72rem;font-weight:800;letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.cal-facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:10px;margin-bottom:16px;
+}
+.cal-fact{
+  background:var(--light);border-radius:10px;
+  padding:10px 14px;font-size:.8rem;color:var(--navy);
+  border-left:4px solid var(--blue);
+}
+.cal-fact strong{display:block;font-size:.72rem;
+  color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.cal-fact.reg{border-left-color:var(--orange)}
+.cal-fact.asa{border-left-color:var(--wellness-accent)}
+.cal-fact.break{border-left-color:#dc2626}
+.cal-months{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;
+}
+.cal-month{
+  background:#fbfcff;border:1px solid #e3ebf5;border-radius:12px;
+  padding:12px;
+}
+.cal-month-title{
+  font-weight:800;color:var(--navy);font-size:.88rem;
+  text-align:center;margin-bottom:8px;
+  font-family:'Montserrat',sans-serif;
+}
+.cal-dow-row,.cal-day-row{
+  display:grid;grid-template-columns:repeat(7,1fr);gap:3px;
+}
+.cal-dow{
+  font-size:.65rem;font-weight:800;color:var(--muted);
+  text-align:center;padding:4px 0;text-transform:uppercase;letter-spacing:.04em;
+}
+.cal-day{
+  aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;font-weight:700;color:var(--text);
+  border-radius:6px;background:#fff;border:1px solid transparent;
+  min-height:24px;
+}
+.cal-day.empty{background:transparent;color:transparent}
+.cal-day.weekend{color:#b0b8c8}
+.cal-day.asa{background:#e8f8ee;color:#1e7a35}
+.cal-day.noasa{background:#ffe8e8;color:#a02020;text-decoration:line-through}
+.cal-day.reg{
+  background:#fff3e0;color:#a65100;
+  box-shadow:inset 0 0 0 2px var(--orange);
+}
+.cal-day.reg.asa{
+  background:linear-gradient(135deg,#fff3e0 0 50%,#e8f8ee 50% 100%);
+  color:#7a3900;
+}
+.cal-day.today{
+  box-shadow:inset 0 0 0 2px var(--blue);
+  font-weight:900;
+}
+.cal-legend{
+  display:flex;flex-wrap:wrap;gap:12px;margin-top:14px;
+  font-size:.75rem;color:var(--muted);
+}
+.cal-legend span{display:inline-flex;align-items:center;gap:6px}
+.cal-legend i{
+  width:14px;height:14px;border-radius:4px;display:inline-block;
+  border:1px solid #dbe3ef;
+}
+.cal-legend i.reg{background:#fff3e0;box-shadow:inset 0 0 0 2px var(--orange);border-color:transparent}
+.cal-legend i.asa{background:#e8f8ee;border-color:#cfe8d7}
+.cal-legend i.noasa{background:#ffe8e8;border-color:#f3cccc}
+.next-reg-banner{
+  background:linear-gradient(130deg,var(--navy) 0%,#0f4090 55%,var(--blue) 100%);
+  color:#fff;border-radius:14px;padding:16px 20px;margin-bottom:20px;
+  display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;
+  box-shadow:0 6px 20px rgba(10,42,110,.2);
+}
+.next-reg-banner .nrb-label{
+  font-size:.72rem;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--sky);margin-bottom:4px;
+}
+.next-reg-banner .nrb-term{
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.3rem;
+}
+.next-reg-banner .nrb-dates{font-size:.85rem;opacity:.9}
+.next-reg-banner .nrb-count{
+  background:var(--orange);color:#fff;border-radius:10px;
+  padding:8px 14px;font-weight:900;font-family:'Montserrat',sans-serif;
+  font-size:.9rem;
+}
+@media(max-width:600px){
+  .cal-day{font-size:.65rem;min-height:22px}
+  .cal-month{padding:10px 8px}
+}
 
 /* ═══════════════════════════════════════
    TERM / SCHEDULE TABLES
@@ -504,11 +609,6 @@ footer strong{color:#fff}
   </div>
 </div>
 
-<!-- ═══ ASA BANNER ═══ -->
-<div class="asa-banner-strip no-print">
-  <img src="aisa-asa-banner.png" alt="AISA After School Activities 2026–2027"/>
-</div>
-
 <!-- ═══ NAV ═══ -->
 <nav class="nav-tabs no-print">
   <a href="#welcome">Welcome</a>
@@ -643,6 +743,24 @@ footer strong{color:#fff}
   <div class="warning-box">
     ⚠️ <div>Please note that all schedules are subject to change based on decisions made by the UAE Government, ADEK (Abu Dhabi Department of Education and Knowledge), and the School Administration.</div>
   </div>
+
+  <!-- ═══ SEASON CALENDARS ═══ -->
+  <h3 style="font-size:1.15rem;color:var(--navy);margin:40px 0 6px;font-weight:900;font-family:'Montserrat',sans-serif">📅 Season Calendars</h3>
+  <div class="divider"></div>
+  <p style="font-size:.88rem;color:var(--muted);margin-bottom:20px;max-width:760px">
+    Important dates for each ASA season, including registration windows, active ASA weeks, and school breaks. The term with the upcoming registration period is highlighted below.
+  </p>
+
+  <div id="next-reg-banner" class="next-reg-banner no-print" hidden>
+    <div>
+      <div class="nrb-label">Next Registration Period</div>
+      <div class="nrb-term" id="nrb-term">—</div>
+      <div class="nrb-dates" id="nrb-dates">—</div>
+    </div>
+    <div class="nrb-count" id="nrb-count">—</div>
+  </div>
+
+  <div id="season-calendars"></div>
 </section>
 
 <!-- ═══════════════════════════════════════
@@ -1688,6 +1806,181 @@ footer strong{color:#fff}
      JS
 ═══════════════════════════════════════ -->
 <script>
+// ── Season calendars ──
+const SEASONS = [
+  {
+    id:'autumn', label:'Autumn Season', emoji:'🍂',
+    registration:{ start:'2026-09-01', end:'2026-09-08', label:'Sep. 1 – 8, 2026' },
+    asa:{ start:'2026-09-14', end:'2026-11-13', label:'Week of Sep. 14 – Week of Nov. 12, 2026' },
+    breaks:[
+      { start:'2026-10-12', end:'2026-10-16', label:'Mid-Term Break (Oct. 12 – 16)' }
+    ],
+    months:[
+      { year:2026, month:8 },  // Sep
+      { year:2026, month:9 },  // Oct
+      { year:2026, month:10 }  // Nov
+    ]
+  },
+  {
+    id:'winter', label:'Winter Season', emoji:'❄️',
+    registration:{ start:'2026-11-02', end:'2026-11-15', label:'Nov. 2 – 15, 2026' },
+    asa:{ start:'2026-11-23', end:'2027-02-05', label:'Week of Nov. 23, 2026 – Week of Feb. 5, 2027' },
+    breaks:[
+      { start:'2026-11-30', end:'2026-12-04', label:'UAE National Day Celebrations (week of Dec. 1)' },
+      { start:'2026-12-14', end:'2027-01-03', label:'Winter Holiday Break (Dec. 14 – Jan. 3)' }
+    ],
+    months:[
+      { year:2026, month:10 }, // Nov
+      { year:2026, month:11 }, // Dec
+      { year:2027, month:0 },  // Jan
+      { year:2027, month:1 }   // Feb
+    ]
+  },
+  {
+    id:'spring', label:'Spring Season', emoji:'🌸',
+    registration:{ start:'2027-03-01', end:'2027-03-14', label:'March 1 – 14, 2027' },
+    asa:{ start:'2027-03-15', end:'2027-05-14', label:'Week of March 15 – Week of May 14, 2027' },
+    breaks:[
+      { start:'2027-04-05', end:'2027-04-09', label:'Spring Break (Apr. 5 – 9)' }
+    ],
+    months:[
+      { year:2027, month:2 },  // Mar
+      { year:2027, month:3 },  // Apr
+      { year:2027, month:4 }   // May
+    ]
+  }
+];
+
+const MONTH_NAMES=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DOW_SHORT=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+function parseDate(s){
+  const [y,m,d]=s.split('-').map(Number);
+  return new Date(y, m-1, d);
+}
+function weekRange(dateStr){
+  // Returns [Mon, Fri] of the week containing dateStr (Mon-based).
+  const d=parseDate(dateStr);
+  const day=d.getDay();
+  const diffToMon=(day===0?-6:1-day);
+  const mon=new Date(d); mon.setDate(d.getDate()+diffToMon);
+  const fri=new Date(mon); fri.setDate(mon.getDate()+4);
+  return [mon,fri];
+}
+function isBetween(date, start, end){
+  return date.getTime()>=start.getTime() && date.getTime()<=end.getTime();
+}
+
+function buildMonth(year, month, season, today){
+  const first=new Date(year,month,1);
+  const startDow=first.getDay();
+  const daysInMonth=new Date(year,month+1,0).getDate();
+
+  // Compute effective ASA range expanded to week boundaries.
+  const [asaStartMon]=weekRange(season.asa.start);
+  const [,asaEndFri]=weekRange(season.asa.end);
+  const regStart=parseDate(season.registration.start);
+  const regEnd=parseDate(season.registration.end);
+  const breaks=season.breaks.map(b=>{
+    const [ms]=weekRange(b.start);
+    const [,me]=weekRange(b.end);
+    return [ms,me];
+  });
+
+  let html=`<div class="cal-month"><div class="cal-month-title">${MONTH_NAMES[month]} ${year}</div>`;
+  html+=`<div class="cal-dow-row">${DOW_SHORT.map(d=>`<div class="cal-dow">${d.charAt(0)}</div>`).join('')}</div>`;
+  html+=`<div class="cal-day-row">`;
+  for(let i=0;i<startDow;i++) html+=`<div class="cal-day empty"></div>`;
+  for(let d=1;d<=daysInMonth;d++){
+    const cur=new Date(year,month,d);
+    const dow=cur.getDay();
+    const isWeekend=(dow===0||dow===6);
+    const classes=['cal-day'];
+    const inReg=isBetween(cur,regStart,regEnd);
+    const inAsaWindow=isBetween(cur,asaStartMon,asaEndFri) && !isWeekend;
+    const inBreak=breaks.some(([s,e])=>isBetween(cur,s,e)) && !isWeekend;
+    if(inBreak) classes.push('noasa');
+    else if(inAsaWindow) classes.push('asa');
+    if(inReg) classes.push('reg');
+    if(isWeekend && !inReg) classes.push('weekend');
+    if(today && cur.getFullYear()===today.getFullYear() && cur.getMonth()===today.getMonth() && cur.getDate()===today.getDate()){
+      classes.push('today');
+    }
+    html+=`<div class="${classes.join(' ')}">${d}</div>`;
+  }
+  html+=`</div></div>`;
+  return html;
+}
+
+function computeNextRegistration(today){
+  for(const s of SEASONS){
+    const end=parseDate(s.registration.end);
+    // keep current registration as "next" until it ends
+    if(today.getTime()<=end.getTime()) return s;
+  }
+  return null; // past all — next school year
+}
+
+function renderSeasonCalendars(){
+  const root=document.getElementById('season-calendars');
+  if(!root) return;
+  const today=new Date();
+  const next=computeNextRegistration(today);
+
+  // Banner
+  const banner=document.getElementById('next-reg-banner');
+  if(next && banner){
+    banner.hidden=false;
+    document.getElementById('nrb-term').textContent=`${next.emoji} ${next.label}`;
+    document.getElementById('nrb-dates').textContent=`Registration: ${next.registration.label}`;
+    const regStart=parseDate(next.registration.start);
+    const regEnd=parseDate(next.registration.end);
+    const msPerDay=86400000;
+    const t0=new Date(today.getFullYear(),today.getMonth(),today.getDate()).getTime();
+    let countText;
+    if(t0<regStart.getTime()){
+      const days=Math.ceil((regStart.getTime()-t0)/msPerDay);
+      countText=`Opens in ${days} day${days===1?'':'s'}`;
+    }else if(t0<=regEnd.getTime()){
+      const days=Math.ceil((regEnd.getTime()-t0)/msPerDay);
+      countText=`Open now · ${days} day${days===1?'':'s'} left`;
+    }else{
+      countText='Upcoming';
+    }
+    document.getElementById('nrb-count').textContent=countText;
+  }else if(banner){
+    banner.hidden=false;
+    document.getElementById('nrb-term').textContent='🎉 Next year';
+    document.getElementById('nrb-dates').textContent='All 2026–2027 registration periods have closed.';
+    document.getElementById('nrb-count').textContent='—';
+  }
+
+  root.innerHTML=SEASONS.map(s=>{
+    const isNext=next && next.id===s.id;
+    const months=s.months.map(m=>buildMonth(m.year,m.month,s,today)).join('');
+    const breaksHtml=s.breaks.map(b=>`<div class="cal-fact break"><strong>No ASAs</strong>${b.label}</div>`).join('');
+    return `
+      <div class="cal-wrap ${isNext?'is-next':''}" id="cal-${s.id}">
+        <div class="cal-head">
+          <div class="cal-title">${s.emoji} ${s.label}</div>
+          ${isNext?'<div class="cal-next-chip">Next Registration</div>':''}
+        </div>
+        <div class="cal-facts">
+          <div class="cal-fact reg"><strong>Registration</strong>${s.registration.label}</div>
+          <div class="cal-fact asa"><strong>ASAs Active</strong>${s.asa.label}</div>
+          ${breaksHtml}
+        </div>
+        <div class="cal-months">${months}</div>
+        <div class="cal-legend">
+          <span><i class="reg"></i>Registration Period</span>
+          <span><i class="asa"></i>ASAs Active</span>
+          <span><i class="noasa"></i>No ASAs (Break)</span>
+        </div>
+      </div>`;
+  }).join('');
+}
+renderSeasonCalendars();
+
 // ── FAQ accordion ──
 document.querySelectorAll('.faq-q').forEach(q=>{
   q.addEventListener('click',()=>{
