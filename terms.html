@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AISA ASAs — Current Term</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ═══ TOP BAR ═══ -->
+<div class="topbar no-print" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+  <div style="display:flex;align-items:center;gap:12px">
+    <img src="aisa-lions-athletics.png" alt="AISA Lions Athletics" class="topbar-logo"/>
+    <div class="contact" style="display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem">
+      <span>📞 <a href="tel:+97124444333">+971 2 444 4333</a></span>
+      <span>🌐 <a href="https://www.aisa.sch.ae/" target="_blank">aisa.sch.ae</a></span>
+      <span>📧 <a href="mailto:attendance@aisa.sch.ae">attendance@aisa.sch.ae</a></span>
+    </div>
+  </div>
+  <button class="save-btn" onclick="window.print()">🖨️ Save as PDF</button>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero" id="top">
+  <div class="hero-blobs">
+    <div class="blob blob-red"></div>
+    <div class="blob blob-green"></div>
+    <div class="blob blob-orange"></div>
+  </div>
+  <div style="flex:1;min-width:260px;position:relative;z-index:1">
+    <div class="hero-badge">Term Specifics</div>
+    <h1 class="hero-title">Current <span>Term</span></h1>
+    <p class="hero-sub">The calendar for this term, followed by the full list of activities available during this timeframe.</p>
+  </div>
+  <div class="hero-logo">
+    <img src="aisa-lions-athletics.png" alt="AISA Lions Athletics"/>
+  </div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav-tabs no-print">
+  <a href="index.html" data-page="index.html">Welcome</a>
+  <a href="about-asas.html" data-page="about-asas.html">About &amp; Registration</a>
+  <a href="terms.html" data-page="terms.html">Current Term</a>
+  <a href="directory.html" data-page="directory.html">Directory</a>
+  <a href="faqs.html" data-page="faqs.html">FAQs</a>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     CURRENT TERM CALENDAR
+═══════════════════════════════════════ -->
+<section class="section" id="term-calendar">
+  <h2 class="section-title">📅 Current Term <span>Calendar</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">The active term's calendar with registration window, active ASA weeks, and school breaks highlighted.</p>
+
+  <div id="next-reg-banner" class="next-reg-banner no-print" hidden>
+    <div>
+      <div class="nrb-label">Next Registration Period</div>
+      <div class="nrb-term" id="nrb-term">—</div>
+      <div class="nrb-dates" id="nrb-dates">—</div>
+    </div>
+    <div class="nrb-count" id="nrb-count">—</div>
+  </div>
+
+  <div id="season-calendars" data-only="current"></div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TERM ACTIVITIES (tabbed)
+═══════════════════════════════════════ -->
+<div class="band" id="terms">
+  <div class="section" style="padding-top:56px;padding-bottom:56px">
+    <h2 class="section-title">📆 Term <span>Activities</span></h2>
+    <div class="divider"></div>
+    <p class="section-sub">Available selections for the current term. Click any activity for full details.</p>
+
+    <div class="term-tabs no-print" role="tablist" aria-label="Select term" data-default="current">
+      <button type="button" class="term-tab" role="tab" aria-selected="false" aria-controls="autumn" data-term="autumn">🍂 Autumn</button>
+      <button type="button" class="term-tab" role="tab" aria-selected="false" aria-controls="winter" data-term="winter">❄️ Winter</button>
+      <button type="button" class="term-tab" role="tab" aria-selected="false" aria-controls="spring" data-term="spring">🌸 Spring</button>
+    </div>
+
+    <!-- AUTUMN PANEL -->
+    <div class="term-panel" id="autumn" role="tabpanel" aria-labelledby="tab-autumn" data-term="autumn" hidden>
+      <div class="term-section">
+        <div class="term-title">KG1 <span class="term-badge">Autumn</span></div>
+        <table class="asa-table">
+          <thead><tr><th>Activity</th><th>Day</th><th>Category</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr data-act="act-ballet"><td>🩰 Ballet (BodyTree)</td><td>Monday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-football"><td>⚽️ Football Training (PASS)</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-intro-music"><td>🎹 Intro to Music (Notes &amp; Chords)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+          </tbody>
+        </table>
+        <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
+      </div>
+
+      <div class="term-section">
+        <div class="term-title">KG2 – Grade 2 <span class="term-badge">Autumn</span></div>
+        <table class="asa-table">
+          <thead><tr><th>Activity</th><th>Day</th><th>Category</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr data-act="act-learn-swim"><td>🏊 Learn To Swim</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-piano"><td>🎹 Piano Lessons (Notes &amp; Chords)</td><td>Monday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-football"><td>⚽️ Football Training (PASS)</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-quran-elem"><td>🌙 Quran Club</td><td>Tuesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-equestrians"><td>🏇 Equestrian Club</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-basketball"><td>🏀 Basketball Training (GameTime)</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-number-ninjas"><td>➕ Math Ninjas</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-bowling"><td>🎳 Bowling</td><td>Wednesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-storytelling"><td>📖 Storytelling Time</td><td>Wednesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-relax-color"><td>🖍️ Relax &amp; Color Journaling</td><td>Wednesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-ballet"><td>🩰 Ballet (BodyTree)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-power-up"><td>🔋 Power-Up with Affirmations</td><td>Thursday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-drawing"><td>✍️ Drawing &amp; Coloring Practice</td><td>Thursday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-playground"><td>🛝 Playground Games</td><td>Thursday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-intro-chess"><td>♟️ Intro to Chess</td><td>Thursday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+          </tbody>
+        </table>
+        <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
+      </div>
+
+      <div class="term-section">
+        <div class="term-title">Grade 3 – Grade 5 <span class="term-badge">Autumn</span></div>
+        <table class="asa-table">
+          <thead><tr><th>Activity</th><th>Day</th><th>Category</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr data-act="act-learn-swim-g35"><td>🏊 Learn To Swim</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-piano"><td>🎹 Piano Lessons (Notes &amp; Chords)</td><td>Monday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-football"><td>⚽️ Football Training (PASS)</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-quran-elem"><td>🌙 Quran Club</td><td>Tuesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-equestrians"><td>🏇 Equestrian Club</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-basketball"><td>🏀 Basketball Training (GameTime)</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-number-ninjas"><td>➕ Math Ninjas</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-bowling"><td>🎳 Bowling</td><td>Wednesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-storytelling"><td>📖 Storytelling Time</td><td>Wednesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-relax-color"><td>🖍️ Relax &amp; Color Journaling</td><td>Wednesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-ballet"><td>🩰 Ballet (BodyTree)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-power-up"><td>🔋 Power-Up with Affirmations</td><td>Thursday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-drawing"><td>✍️ Drawing &amp; Coloring Practice</td><td>Thursday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-playground"><td>🛝 Playground Games</td><td>Thursday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-intro-chess"><td>♟️ Intro to Chess</td><td>Thursday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+          </tbody>
+        </table>
+        <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
+      </div>
+
+      <div class="term-section">
+        <div class="term-title">Middle School – High School <span class="term-badge">Autumn</span></div>
+        <table class="asa-table">
+          <thead><tr><th>Activity</th><th>Day</th><th>Category</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr data-act="act-piano"><td>🎹 Piano (Notes &amp; Chords)</td><td>Monday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-football"><td>⚽️ Football Training (PASS)</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-quran-elem"><td>🌙 Quran Club</td><td>Tuesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-equestrians"><td>🏇 Equestrian Club</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-basketball"><td>🏀 Basketball Training (GameTime)</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-number-ninjas"><td>➕ Math Ninjas</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-bowling"><td>🎳 Bowling</td><td>Wednesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-storytelling"><td>📖 Storytelling Time</td><td>Wednesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-relax-color"><td>🖍️ Relax &amp; Color Journaling</td><td>Wednesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-ballet"><td>🩰 Ballet (BodyTree)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-power-up"><td>🔋 Power-Up with Affirmations</td><td>Thursday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-drawing"><td>✍️ Drawing &amp; Coloring Practice</td><td>Thursday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-playground"><td>🛝 Playground Games</td><td>Thursday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-intro-chess"><td>♟️ Intro to Chess</td><td>Thursday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+          </tbody>
+        </table>
+        <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
+      </div>
+    </div><!-- /autumn panel -->
+
+    <!-- WINTER PANEL -->
+    <div class="term-panel" id="winter" role="tabpanel" aria-labelledby="tab-winter" data-term="winter" hidden>
+      <div class="term-section">
+        <div class="term-title">KG1 <span class="term-badge">Winter</span></div>
+        <table class="asa-table">
+          <thead><tr><th>Activity</th><th>Day</th><th>Category</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr data-act="act-ballet"><td>🩰 Ballet (BodyTree)</td><td>Monday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-little-ath-kg1"><td>🏃 Little Athletic Program (Origo)</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-football"><td>⚽️ Football Training (PASS)</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-intro-music"><td>🎹 Intro to Music (Notes &amp; Chords)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+          </tbody>
+        </table>
+        <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
+      </div>
+
+      <div class="term-section">
+        <div class="term-title">KG2 – Grade 2 <span class="term-badge">Winter</span></div>
+        <table class="asa-table">
+          <thead><tr><th>Activity</th><th>Day</th><th>Category</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr data-act="act-learn-swim"><td>🏊 Learn To Swim</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-football"><td>⚽️ Football Training (PASS)</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-little-ath-kg2"><td>🏃 Little Athletic Program (Origo)</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-quran-elem"><td>🌙 Quran Club</td><td>Tuesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-diy"><td>💡 DIY Club</td><td>Tuesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-brain-gym"><td>🧠 Brain Gym</td><td>Tuesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-piano"><td>🎹 Piano Lessons (Notes &amp; Chords)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-storytelling"><td>📖 Storytelling Time</td><td>Wednesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-relax-color"><td>🖍️ Relax &amp; Color Journaling</td><td>Wednesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-guitar-g35"><td>🎸 Guitar Lessons (Notes &amp; Chords)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-ballet"><td>🩰 Ballet (BodyTree)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-power-up"><td>🔋 Power-Up with Affirmations</td><td>Thursday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-drawing"><td>✍️ Drawing &amp; Coloring Practice</td><td>Thursday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-playground"><td>🛝 Playground Games</td><td>Thursday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-intro-chess"><td>♟️ Intro to Chess</td><td>Thursday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+          </tbody>
+        </table>
+        <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
+      </div>
+
+      <div class="term-section">
+        <div class="term-title">Grade 3 – Grade 5 <span class="term-badge">Winter</span></div>
+        <table class="asa-table">
+          <thead><tr><th>Activity</th><th>Day</th><th>Category</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr data-act="act-learn-swim-g35"><td>🏊 Learn To Swim</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-piano"><td>🎹 Piano Lessons (Notes &amp; Chords)</td><td>Monday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-robotics"><td>🤖 Robotics Club</td><td>Monday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-football"><td>⚽️ Football Training (PASS)</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-quran-elem"><td>🌙 Quran Club</td><td>Tuesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-creative-writing"><td>✍️ Creative Writing Club</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-equestrians"><td>🏇 Equestrian Club</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-basketball"><td>🏀 Basketball Training (GameTime)</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-number-ninjas"><td>➕ Math Ninjas</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-bowling"><td>🎳 Bowling</td><td>Wednesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-storytelling"><td>📖 Storytelling Time</td><td>Wednesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-relax-color"><td>🖍️ Relax &amp; Color Journaling</td><td>Wednesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-ballet"><td>🩰 Ballet (BodyTree)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-power-up"><td>🔋 Power-Up with Affirmations</td><td>Thursday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-drawing"><td>✍️ Drawing &amp; Coloring Practice</td><td>Thursday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-playground"><td>🛝 Playground Games</td><td>Thursday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-intro-chess"><td>♟️ Intro to Chess</td><td>Thursday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-early-sprouts"><td>🌎 Gardening Club</td><td>Thursday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+          </tbody>
+        </table>
+        <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
+      </div>
+
+      <div class="term-section">
+        <div class="term-title">Middle School – High School <span class="term-badge">Winter</span></div>
+        <table class="asa-table">
+          <thead><tr><th>Activity</th><th>Day</th><th>Category</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr data-act="act-football"><td>⚽️ Football Training (PASS)</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-quran-female"><td>🌙 Quran Club (Female)</td><td>Tuesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-quran-male"><td>🌙 Quran Club (Male)</td><td>Wednesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-basketball"><td>🏀 Basketball Training (GameTime)</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-sh-ib-math"><td>📚 Study Hall – IB Math &amp; Science</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-ibdp-business"><td>📊 IBDP Business Management</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-ib-stem"><td>🔬 IB STEM Support Club</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-sustainability"><td>🌱 Sustainability Club</td><td>Tuesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-bowling"><td>🎳 Bowling</td><td>Wednesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-rubiks-ms"><td>🧩 Rubik's Cube Club</td><td>Wednesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-hip-hop"><td>💃 HipHop Dance Club</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-sh-ib-english"><td>📝 Study Hall – IB English</td><td>Wednesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-greenhouse"><td>🌿 Greenhouse Care</td><td>Thursday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-chess-club-ms"><td>♟️ Chess Club</td><td>Thursday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-sh-academic-math"><td>📐 Study Hall – Academic Assistance (Math)</td><td>Thursday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-sh-am-diploma"><td>📘 Study Hall – American Diploma</td><td>Thursday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-stem-club"><td>🔬 STEM Club</td><td>Thursday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+          </tbody>
+        </table>
+        <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
+      </div>
+    </div><!-- /winter panel -->
+
+    <!-- SPRING PANEL -->
+    <div class="term-panel" id="spring" role="tabpanel" aria-labelledby="tab-spring" data-term="spring" hidden>
+      <div class="term-section">
+        <div class="term-title">KG1 <span class="term-badge">Spring</span></div>
+        <table class="asa-table">
+          <thead><tr><th>Activity</th><th>Day</th><th>Category</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr data-act="act-ballet"><td>🩰 Ballet (BodyTree)</td><td>Monday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-little-ath-kg1"><td>🏃 Little Athletic Program (Origo)</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-football"><td>⚽️ Football Training (PASS)</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-intro-music"><td>🎹 Intro to Music (Notes &amp; Chords)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+          </tbody>
+        </table>
+        <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
+      </div>
+
+      <div class="term-section">
+        <div class="term-title">KG2 – Grade 2 <span class="term-badge">Spring</span></div>
+        <table class="asa-table">
+          <thead><tr><th>Activity</th><th>Day</th><th>Category</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr data-act="act-learn-swim"><td>🏊 Learn To Swim</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-piano"><td>🎹 Piano Lessons (Notes &amp; Chords)</td><td>Monday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-football"><td>⚽️ Football Training (PASS)</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-quran-elem"><td>🌙 Quran Club</td><td>Tuesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-equestrians"><td>🏇 Equestrian Club</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-basketball"><td>🏀 Basketball Training (GameTime)</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-number-ninjas"><td>➕ Math Ninjas</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-bowling"><td>🎳 Bowling</td><td>Wednesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-read-aloud"><td>📖 Read-A-Loud Reading Club</td><td>Wednesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-relax-color"><td>🖍️ Relax &amp; Color Journaling</td><td>Wednesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-ballet"><td>🩰 Ballet (BodyTree)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-lego-club"><td>🧱 LEGO Club</td><td>Wednesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-power-up"><td>🔋 Power-Up with Affirmations</td><td>Thursday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-drawing"><td>✍️ Drawing &amp; Coloring Practice</td><td>Thursday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-playground"><td>🛝 Playground Games</td><td>Thursday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-intro-chess"><td>♟️ Intro to Chess</td><td>Thursday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-hip-hop"><td>💃 HipHop Dance Club (Beginners)</td><td>Thursday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-free">Free</span></td></tr>
+          </tbody>
+        </table>
+        <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
+      </div>
+
+      <div class="term-section">
+        <div class="term-title">Grade 3 – Grade 5 <span class="term-badge">Spring</span></div>
+        <table class="asa-table">
+          <thead><tr><th>Activity</th><th>Day</th><th>Category</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr data-act="act-splash"><td>🏊 Learn To Swim: Splash Day</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-piano"><td>🎹 Piano Lessons (Notes &amp; Chords)</td><td>Monday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-football"><td>⚽️ Football Training (PASS)</td><td>Monday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-quran-elem"><td>🌙 Quran Club</td><td>Tuesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-equestrians"><td>🏇 Equestrian Club</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-basketball"><td>🏀 Basketball Training (GameTime)</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-number-ninjas"><td>➕ Math Ninjas</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-bowling"><td>🎳 Bowling</td><td>Wednesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-read-aloud"><td>📖 Read-A-Loud Reading Club</td><td>Wednesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-relax-color"><td>🖍️ Relax &amp; Color Journaling</td><td>Wednesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-ballet"><td>🩰 Ballet (BodyTree)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-power-up"><td>🔋 Power-Up with Affirmations</td><td>Thursday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-drawing"><td>✍️ Drawing &amp; Coloring Practice</td><td>Thursday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-playground"><td>🛝 Playground Games</td><td>Thursday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-intro-chess"><td>♟️ Intro to Chess</td><td>Thursday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+          </tbody>
+        </table>
+        <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
+      </div>
+
+      <div class="term-section">
+        <div class="term-title">Middle School – High School <span class="term-badge">Spring</span></div>
+        <table class="asa-table">
+          <thead><tr><th>Activity</th><th>Day</th><th>Category</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr data-act="act-sh-ib-math"><td>📚 Study Hall – IB Math &amp; Science</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-sh-ib-english"><td>📝 Study Hall – IB English</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-sh-academic-math"><td>📐 Study Hall – Academic Assistance (Math)</td><td>Tuesday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-quran-female"><td>🌙 Quran Club (Female)</td><td>Tuesday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-equestrians"><td>🏇 Equestrian Club</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-basketball"><td>🏀 Basketball Training (GameTime)</td><td>Tuesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-bowling"><td>🎳 Bowling</td><td>Wednesday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-ballet"><td>🩰 Ballet (BodyTree)</td><td>Wednesday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-paid">Paid</span></td></tr>
+            <tr data-act="act-power-up"><td>🔋 Power-Up with Affirmations</td><td>Thursday</td><td><span class="type-dot type-wellness"></span>Reflective &amp; Wellness</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-drawing"><td>✍️ Drawing &amp; Coloring Practice</td><td>Thursday</td><td><span class="type-dot type-arts"></span>Arts &amp; Creativity</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-playground"><td>🛝 Playground Games</td><td>Thursday</td><td><span class="type-dot type-athletic"></span>Athletics &amp; Movement</td><td><span class="badge-free">Free</span></td></tr>
+            <tr data-act="act-intro-chess"><td>♟️ Intro to Chess</td><td>Thursday</td><td><span class="type-dot type-academic"></span>Academics &amp; Enrichment</td><td><span class="badge-free">Free</span></td></tr>
+          </tbody>
+        </table>
+        <div class="warning-box">⚠️ Some activities may not run if there is no staff member available or if there is not enough student enrollment.</div>
+      </div>
+    </div><!-- /spring panel -->
+
+    <!-- ═══ Activity modal overlay (shared) ═══ -->
+    <div class="act-overlay" id="actOverlay" onclick="handleOverlayClick(event)">
+      <div class="act-box" id="actBox">
+        <button class="act-close" onclick="closeAct()">✕</button>
+        <div id="actContent"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer>
+  <img src="aisa-lions-athletics.png" alt="AISA Lions Athletics" class="footer-logo"/>
+  <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;color:#fff;margin-bottom:8px">
+    Explore. Create. Grow.
+  </div>
+  <p style="margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto">
+    We invite every student to take part in the ASA program — to discover new interests, build lasting relationships, and continue their journey as confident, capable, and caring AISA Lions.
+  </p>
+  <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:12px">
+    <span>📞 <a href="tel:+97124444333">+971 2 444 4333</a></span>
+    <span>🌐 <a href="https://www.aisa.sch.ae/" target="_blank">www.aisa.sch.ae</a></span>
+    <span>📧 <a href="mailto:attendance@aisa.sch.ae">attendance@aisa.sch.ae</a></span>
+  </div>
+  <div style="opacity:.5;font-size:.75rem">American International School Abu Dhabi · ASA Program 2026–2027</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

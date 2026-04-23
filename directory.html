@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AISA ASAs — Directory</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ═══ TOP BAR ═══ -->
+<div class="topbar no-print" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+  <div style="display:flex;align-items:center;gap:12px">
+    <img src="aisa-lions-athletics.png" alt="AISA Lions Athletics" class="topbar-logo"/>
+    <div class="contact" style="display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem">
+      <span>📞 <a href="tel:+97124444333">+971 2 444 4333</a></span>
+      <span>🌐 <a href="https://www.aisa.sch.ae/" target="_blank">aisa.sch.ae</a></span>
+      <span>📧 <a href="mailto:attendance@aisa.sch.ae">attendance@aisa.sch.ae</a></span>
+    </div>
+  </div>
+  <button class="save-btn" onclick="window.print()">🖨️ Save as PDF</button>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero" id="top">
+  <div class="hero-blobs">
+    <div class="blob blob-red"></div>
+    <div class="blob blob-green"></div>
+    <div class="blob blob-orange"></div>
+  </div>
+  <div style="flex:1;min-width:260px;position:relative;z-index:1">
+    <div class="hero-badge">ASA Directory</div>
+    <h1 class="hero-title">Activity <span>Directory</span></h1>
+    <p class="hero-sub">Every ASA, searchable and filterable. Tap the <strong>ⓘ</strong> button on any card to view the ASA Categories reference.</p>
+  </div>
+  <div class="hero-logo">
+    <img src="aisa-lions-athletics.png" alt="AISA Lions Athletics"/>
+  </div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav-tabs no-print">
+  <a href="index.html" data-page="index.html">Welcome</a>
+  <a href="about-asas.html" data-page="about-asas.html">About &amp; Registration</a>
+  <a href="terms.html" data-page="terms.html">Current Term</a>
+  <a href="directory.html" data-page="directory.html">Directory</a>
+  <a href="faqs.html" data-page="faqs.html">FAQs</a>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     DIRECTORY
+═══════════════════════════════════════ -->
+<section class="section" id="directory">
+  <h2 class="section-title">📋 Activity <span>Directory</span></h2>
+  <div class="divider"></div>
+  <p class="section-sub">Detailed descriptions for each ASA. Use the search and filter buttons to find the perfect activity, or tap ⓘ on any card to see the ASA Categories reference.</p>
+
+  <div class="filter-bar no-print">
+    <input type="text" id="dirSearch" placeholder="🔍 Search activities..." oninput="filterDir()"/>
+    <button class="filter-btn active" data-cat="all" onclick="setCat(this,'all')">All</button>
+    <button class="filter-btn" data-cat="wellness" onclick="setCat(this,'wellness')">🌿 Wellness</button>
+    <button class="filter-btn" data-cat="academic" onclick="setCat(this,'academic')">📚 Academic</button>
+    <button class="filter-btn" data-cat="athletic" onclick="setCat(this,'athletic')">⚽️ Athletic</button>
+    <button class="filter-btn" data-cat="arts" onclick="setCat(this,'arts')">🎨 Arts</button>
+  </div>
+
+  <div class="dir-grid" id="dirGrid">
+    <!-- ── ACADEMIC ────────────────────── -->
+    <div class="dir-card ac" id="act-creative-writing" data-cat="academic" data-name="creative writing club writing" data-grades="G3–G5" data-day="Tuesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Share your stories and find your voice!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">📖</div>
+      <div class="dc-name">Creative Writing Club</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students develop writing skills through storytelling, poetry, and creative exercises. Encourages imagination and builds confidence in written expression.</div>
+      <div class="dc-goals">🎯 Improve Writing Skills · Develop Creativity · Build Confidence in Storytelling</div>
+    </div>
+
+    <div class="dir-card ac" id="act-chess-club-ms" data-cat="academic" data-name="chess club strategic thinking middle high school" data-grades="G6–G12" data-day="Wednesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Think ahead and master the game!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">♟️</div>
+      <div class="dc-name">Chess Club</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G6–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students develop strategic thinking and compete in friendly matches while learning new tactics and improving their gameplay. Beginner to advanced players welcome.</div>
+      <div class="dc-goals">🎯 Improve Strategic Thinking · Build Focus · Develop Planning Skills</div>
+    </div>
+
+    <div class="dir-card ac" id="act-ibdp-business" data-cat="academic" data-name="ibdp business management ib diploma" data-grades="G11–G12" data-day="Tuesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Excel in your business studies!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">📊</div>
+      <div class="dc-name">IBDP Business Management</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G11–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students deepen their understanding of business concepts and prepare for IB assessments through discussion, case studies, and guided support.</div>
+      <div class="dc-goals">🎯 Strengthen Business Knowledge · Prepare for IB Assessments · Develop Analytical Thinking</div>
+    </div>
+
+    <div class="dir-card ac" id="act-ib-stem" data-cat="academic" data-name="ib stem support club science technology engineering math g9 g12" data-grades="G9–G12" data-day="Tuesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Get support to succeed in challenging subjects!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🔬</div>
+      <div class="dc-name">IB STEM Support Club</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G9–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students receive targeted support in STEM subjects, helping them understand complex concepts and succeed in their coursework.</div>
+      <div class="dc-goals">🎯 Strengthen STEM Understanding · Improve Academic Performance · Build Confidence</div>
+    </div>
+
+    <div class="dir-card ac" id="act-intro-chess" data-cat="academic" data-name="intro to chess pawn elementary beginner" data-grades="KG2–G5" data-day="Thursday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="A perfect introduction to the world's greatest strategy game!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">♟️</div>
+      <div class="dc-name">Intro to Chess</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">KG2–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students discover the fundamentals of chess in a fun and welcoming environment. Perfect for beginners learning the pieces, rules, and basic strategies.</div>
+      <div class="dc-goals">🎯 Learn Chess Fundamentals · Develop Strategic Thinking · Build Patience &amp; Focus</div>
+    </div>
+
+    <div class="dir-card ac" id="act-lego-club" data-cat="academic" data-name="lego club building engineering stem creative" data-grades="KG2–G2" data-day="Wednesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Build your imagination one brick at a time!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🧱</div>
+      <div class="dc-name">LEGO Club</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">KG2–G2</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students use LEGO bricks to build, design, and engineer imaginative creations. Develops spatial thinking, creativity, and collaborative problem-solving in a hands-on environment.</div>
+      <div class="dc-goals">🎯 Develop Spatial Thinking · Encourage Creativity · Build Collaborative Skills</div>
+    </div>
+
+    <div class="dir-card ac" id="act-number-ninjas" data-cat="academic" data-name="number ninjas math club" data-grades="G3–G5" data-day="Tuesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Become a math champion in a fun, game-based setting!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">➕</div>
+      <div class="dc-name">Number Ninjas Club</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Sharpen math skills through fun games, puzzles, and challenges. Students build confidence while exploring problem-solving in exciting new ways.</div>
+      <div class="dc-goals">🎯 Strengthen Math Fluency · Develop Problem-Solving · Build Confidence in Mathematics</div>
+    </div>
+
+    <div class="dir-card ac" id="act-pawn-palace" data-cat="academic" data-name="chess pawn palace elementary strategy" data-grades="G3–G5" data-day="Thursday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Challenge your mind and grow through every move!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">♟️</div>
+      <div class="dc-name">Pawn's Palace Chess Club</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students learn and practice chess strategies in a fun and supportive setting. Welcomes beginners and experienced players alike.</div>
+      <div class="dc-goals">🎯 Develop Strategic Thinking · Improve Focus · Encourage Problem Solving</div>
+    </div>
+
+    <div class="dir-card ac" id="act-read-aloud" data-cat="academic" data-name="read aloud reading club stories books literacy" data-grades="KG2–G5" data-day="Wednesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Fall in love with books and stories!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">📖</div>
+      <div class="dc-name">Read-A-Loud Reading Club</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">KG2–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students share stories through expressive reading aloud, building fluency, comprehension, and a love of literature in a warm and engaging setting.</div>
+      <div class="dc-goals">🎯 Build Reading Fluency · Develop Comprehension · Foster a Love of Literature</div>
+    </div>
+
+    <div class="dir-card ac" id="act-robotics" data-cat="academic" data-name="robotics coding stem technology" data-grades="G3–G5" data-day="Monday" data-cap="15" data-instructor="Vendor" data-fee="paid" data-feeLabel="Paid – Vendor" data-why="Bring your ideas to life through coding and robotics!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🤖</div>
+      <div class="dc-name">Robotics &amp; Coding</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">Students explore coding and robotics through hands-on activities. The club promotes innovation and problem solving.</div>
+      <div class="dc-goals">🎯 Develop Coding Skills · Encourage Logical Thinking · Explore Technology</div>
+    </div>
+
+    <div class="dir-card ac" id="act-rubiks-elem" data-cat="academic" data-name="rubik cube cubing elementary g5 g8" data-grades="G5–G8" data-day="Wednesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Master the cube and challenge yourself!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🧊</div>
+      <div class="dc-name">Rubik's Cubing</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G5–G8</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Learn techniques to solve the Rubik's Cube while improving memory, concentration, and problem-solving skills. Prepare for time-driven competitions.</div>
+      <div class="dc-goals">🎯 Improve Problem-Solving · Develop Persistence · Enhance Memory &amp; Focus</div>
+    </div>
+
+    <div class="dir-card ac" id="act-rubiks-ms" data-cat="academic" data-name="rubik cube club middle high school g6 g12" data-grades="G6–G12" data-day="Thursday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Master the cube and challenge yourself!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🧩</div>
+      <div class="dc-name">Rubik's Cube Club</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G6–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students learn advanced techniques to solve the Rubik's Cube while building patience, memory, and problem-solving skills. All skill levels welcome.</div>
+      <div class="dc-goals">🎯 Improve Problem-Solving · Develop Persistence · Enhance Concentration</div>
+    </div>
+
+    <div class="dir-card ac" id="act-sh-am-diploma" data-cat="academic" data-name="study hall american diploma g9 g12 homework support" data-grades="G9–G12" data-day="Thursday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-req="American Diploma students" data-why="Stay organized and on top of your work!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">📘</div>
+      <div class="dc-name">Study Hall – American Diploma</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G9–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students receive structured time and support to complete assignments, prepare for assessments, and stay organized in their coursework.</div>
+      <div class="dc-goals">🎯 Improve Organization · Complete Assignments Efficiently · Build Study Habits</div>
+    </div>
+
+    <div class="dir-card ac" id="act-sh-academic-math" data-cat="academic" data-name="study hall academic assistance math support g6 g10" data-grades="G6–G10" data-day="Thursday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Get the help you need to succeed in math!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">📐</div>
+      <div class="dc-name">Study Hall – Academic Assistance (Math)</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G6–G10</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students receive additional support in mathematics through guided practice and individualized help to strengthen understanding and confidence.</div>
+      <div class="dc-goals">🎯 Improve Math Skills · Build Confidence · Develop Problem-Solving Strategies</div>
+    </div>
+
+    <div class="dir-card ac" id="act-sh-ib-english" data-cat="academic" data-name="study hall ib english writing analysis g11 g12" data-grades="G11–G12" data-day="Wednesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-req="IB students recommended" data-why="Enhance your communication and writing skills!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">📝</div>
+      <div class="dc-name">Study Hall – IB English</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G11–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students develop reading, writing, and analysis skills while receiving support for IB English coursework and assessments.</div>
+      <div class="dc-goals">🎯 Improve Writing &amp; Analysis · Strengthen Comprehension · Build Confidence in English</div>
+    </div>
+
+    <div class="dir-card ac" id="act-sh-ib-math" data-cat="academic" data-name="study hall ib math science support g11 g12" data-grades="G11–G12" data-day="Tuesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-req="IB students recommended" data-why="Stay on track and succeed in IB courses!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">📚</div>
+      <div class="dc-name">Study Hall – IB Math &amp; Science</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G11–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students receive targeted academic support in IB Math and Science, with time for guided practice, review, and clarification of key concepts.</div>
+      <div class="dc-goals">🎯 Strengthen Subject Understanding · Improve Academic Performance · Build Independent Study Habits</div>
+    </div>
+
+    <div class="dir-card ac" id="act-stem-club" data-cat="academic" data-name="stem club science technology engineering math g6 g8" data-grades="G6–G8" data-day="Thursday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Create, experiment, and discover!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🔬</div>
+      <div class="dc-name">STEM Club</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">G6–G8</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students explore science, technology, engineering, and math through hands-on projects and engaging challenges that spark curiosity and innovation.</div>
+      <div class="dc-goals">🎯 Encourage Innovation · Develop Problem-Solving Skills · Explore STEM Concepts</div>
+    </div>
+
+    <div class="dir-card ac" id="act-storytelling" data-cat="academic" data-name="storytelling time reading club literacy elementary" data-grades="KG2–G5" data-day="Wednesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Ignite your imagination through the power of stories!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">📖</div>
+      <div class="dc-name">Storytelling Time</div>
+      <div class="dc-meta"><span class="meta-tag">📚 Academic</span><span class="meta-tag">KG2–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students listen to, discuss, and create their own stories in a warm and interactive setting. Develops language, imagination, and a love for literature.</div>
+      <div class="dc-goals">🎯 Develop Language &amp; Vocabulary · Foster Imagination · Build a Love of Reading</div>
+    </div>
+
+    <!-- ── ATHLETIC ────────────────────── -->
+    <div class="dir-card atc" id="act-basketball" data-cat="athletic" data-name="basketball training gametime hoops sport" data-grades="KG2–G12" data-day="Tuesday" data-cap="15" data-instructor="GameTime" data-fee="paid" data-feeLabel="Paid – Vendor" data-why="Develop your game on and off the court!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🏀</div>
+      <div class="dc-name">Basketball Training (GameTime)</div>
+      <div class="dc-meta"><span class="meta-tag">⚽️ Athletic</span><span class="meta-tag">KG2–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">Students develop basketball fundamentals including dribbling, passing, shooting, and game strategies in a structured and high-energy environment. Sessions focus on skill development, teamwork, and sportsmanship.</div>
+      <div class="dc-goals">🎯 Develop Basketball Skills · Build Teamwork &amp; Communication · Improve Fitness &amp; Coordination<br/>📋 Sports Attire Required</div>
+    </div>
+
+    <div class="dir-card atc" id="act-bowling" data-cat="athletic" data-name="bowling sport fun strikes" data-grades="KG2–G12" data-day="Wednesday" data-cap="15" data-instructor="Vendor" data-fee="paid" data-feeLabel="Paid – Vendor" data-why="Roll your way to a great time!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🎳</div>
+      <div class="dc-name">Bowling</div>
+      <div class="dc-meta"><span class="meta-tag">⚽️ Athletic</span><span class="meta-tag">KG2–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">Students enjoy weekly bowling sessions at a local lane, developing technique, focus, and friendly competition. A fun off-campus activity for all skill levels.</div>
+      <div class="dc-goals">🎯 Develop Bowling Technique · Build Focus &amp; Patience · Encourage Friendly Competition</div>
+    </div>
+
+    <div class="dir-card atc" id="act-equestrians" data-cat="athletic" data-name="equestrian horse riding club early" data-grades="G3–G5" data-day="Tuesday" data-cap="8" data-instructor="Vendor" data-fee="paid" data-feeLabel="Paid – Vendor" data-req="Pants &amp; athletic shoes or boots required. Later pick-up due to off-campus location." data-why="An unforgettable experience connecting with horses!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🏇</div>
+      <div class="dc-name">Early Equestrians</div>
+      <div class="dc-meta"><span class="meta-tag">⚽️ Athletic</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 8</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">Introduction to horse riding in a safe, structured environment at the Abu Dhabi Country Club. Students learn basic riding skills and proper etiquette.</div>
+      <div class="dc-goals">🎯 Develop Coordination &amp; Balance · Build Confidence · Learn Basic Riding Skills<br/>📋 Pants &amp; athletic shoes or boots required. Later pick-up due to off-campus location.</div>
+    </div>
+
+    <div class="dir-card atc" id="act-football" data-cat="athletic" data-name="football training pass soccer sport" data-grades="KG1–G12" data-day="Monday, Tuesday" data-cap="15" data-instructor="PASS" data-fee="paid" data-feeLabel="Paid – Vendor" data-req="Sports Attire Required" data-why="Develop your football skills in a fun, supportive environment!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">⚽️</div>
+      <div class="dc-name">Football Training (PASS)</div>
+      <div class="dc-meta"><span class="meta-tag">⚽️ Athletic</span><span class="meta-tag">KG1–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">Students learn core football skills including dribbling, passing, and teamwork in a fun and supportive environment. Sessions focus on skill development and game play.</div>
+      <div class="dc-goals">🎯 Develop Fitness &amp; Coordination · Build Teamwork · Improve Football Skills<br/>📋 Sports Attire Required</div>
+    </div>
+
+    <div class="dir-card atc" id="act-learn-swim" data-cat="athletic" data-name="learn to swim swimming water beginner kg2 g2" data-grades="KG2–G2" data-day="Monday" data-cap="15" data-instructor="AISA Staff" data-fee="paid" data-feeLabel="Paid Program" data-req="Swimwear required. Students must be capable of changing alone." data-why="Build water confidence and essential life skills!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🤿</div>
+      <div class="dc-name">Learn to Swim</div>
+      <div class="dc-meta"><span class="meta-tag">⚽️ Athletic</span><span class="meta-tag">KG2–G2</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid Program</span></div>
+      <div class="dc-desc">Students build confidence in the water while learning basic swimming techniques. Sessions focus on safety, comfort, and skill development.</div>
+      <div class="dc-goals">🎯 Develop Water Confidence · Learn Basic Swimming Skills · Promote Safety in Water<br/>📋 Swimwear required. Students must be capable of changing alone.</div>
+    </div>
+
+    <div class="dir-card atc" id="act-learn-swim-g35" data-cat="athletic" data-name="learn to swim g3 g5 swimming water" data-grades="G3–G5" data-day="Monday" data-cap="15" data-instructor="AISA Staff" data-fee="paid" data-feeLabel="Paid – Lifeguard Fee" data-req="Swimming Attire Required" data-why="Build endurance and confidence in the water!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🏊</div>
+      <div class="dc-name">Learn to Swim (G3–G5)</div>
+      <div class="dc-meta"><span class="meta-tag">⚽️ Athletic</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Lifeguard Fee</span></div>
+      <div class="dc-desc">Students learn and improve swimming techniques while building endurance and confidence. Designed for those who do not yet know how to swim or need practice.</div>
+      <div class="dc-goals">🎯 Increase Water Safety · Build Endurance · Improve Swimming Technique<br/>📋 Swimming Attire Required</div>
+    </div>
+
+    <div class="dir-card atc" id="act-little-ath-kg1" data-cat="athletic" data-name="little athletics origo kg1 movement coordination" data-grades="KG1" data-day="Monday" data-cap="15" data-instructor="Origo" data-fee="paid" data-feeLabel="Paid – Vendor" data-why="A perfect first step into the world of athletics!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🏃</div>
+      <div class="dc-name">Little Athletics Program (KG1)</div>
+      <div class="dc-meta"><span class="meta-tag">⚽️ Athletic</span><span class="meta-tag">KG1</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">Students develop fundamental movement skills through fun, structured activities that build coordination, balance, and confidence. Energetic, engaging, and age-appropriate.</div>
+      <div class="dc-goals">🎯 Develop Motor Skills · Build Confidence in Movement · Encourage Teamwork</div>
+    </div>
+
+    <div class="dir-card atc" id="act-little-ath-kg2" data-cat="athletic" data-name="little athletics origo kg2 g2 movement coordination" data-grades="KG2–G2" data-day="Monday" data-cap="15" data-instructor="Origo" data-fee="paid" data-feeLabel="Paid – Vendor" data-why="Keep moving and growing through structured sport!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🏃</div>
+      <div class="dc-name">Little Athletics Program (KG2–G2)</div>
+      <div class="dc-meta"><span class="meta-tag">⚽️ Athletic</span><span class="meta-tag">KG2–G2</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">Continue developing fundamental movement skills through structured games and activities that enhance coordination, balance, and teamwork.</div>
+      <div class="dc-goals">🎯 Improve Coordination &amp; Balance · Build Confidence in Movement · Encourage Teamwork</div>
+    </div>
+
+    <div class="dir-card atc" id="act-playground" data-cat="athletic" data-name="playground games outdoor fun active elementary" data-grades="KG2–G5" data-day="Thursday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Get outside and have fun with friends!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🛝</div>
+      <div class="dc-name">Playground Games</div>
+      <div class="dc-meta"><span class="meta-tag">⚽️ Athletic</span><span class="meta-tag">KG2–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students enjoy a variety of organised outdoor games that encourage movement, laughter, and teamwork. Activities rotate each week to keep things fresh and engaging.</div>
+      <div class="dc-goals">🎯 Promote Active Play · Build Social Skills · Encourage Teamwork &amp; Fun</div>
+    </div>
+
+    <div class="dir-card atc" id="act-raze" data-cat="athletic" data-name="raze leadership program resilience g3 g5" data-grades="G3–G5" data-cap="15" data-instructor="Vendor" data-fee="paid" data-feeLabel="Paid – Vendor" data-why="Step up, lead, and make your mark!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🌟</div>
+      <div class="dc-name">RAZE Leadership</div>
+      <div class="dc-meta"><span class="meta-tag">⚽️ Athletic</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">A forward-thinking youth leadership program that complements and challenges traditional education. Focused on Resilience, Adaptability, and Zero Excuses.</div>
+      <div class="dc-goals">🎯 Take Ownership of Growth · Build Strong Team Connections · Lead with Confidence &amp; Integrity</div>
+    </div>
+
+    <div class="dir-card atc" id="act-splash" data-cat="athletic" data-name="splash fun day swim water g3 g5" data-grades="G3–G5" data-day="Monday" data-cap="15" data-instructor="AISA Staff" data-fee="paid" data-feeLabel="Paid – Lifeguard Fee" data-req="Students must be able to swim" data-why="Make a splash and have an amazing time!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">💦</div>
+      <div class="dc-name">Splash Fun Day</div>
+      <div class="dc-meta"><span class="meta-tag">⚽️ Athletic</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Lifeguard Fee</span></div>
+      <div class="dc-desc">Game-based water activities that build confidence and reinforce swimming skills in a relaxed setting.</div>
+      <div class="dc-goals">🎯 Build Water Confidence · Reinforce Swimming Skills · Encourage Fun &amp; Teamwork<br/>📋 Students must be able to swim</div>
+    </div>
+
+    <div class="dir-card atc" id="act-zumba" data-cat="athletic" data-name="zumba kids dance fitness kg2 g2" data-grades="KG2–G2" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Move, dance, and have a great time!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">💃</div>
+      <div class="dc-name">ZUMBA Kids</div>
+      <div class="dc-meta"><span class="meta-tag">⚽️ Athletic</span><span class="meta-tag">KG2–G2</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">High-energy dance routines set to fun music while improving fitness and coordination. Sessions are lively and engaging.</div>
+      <div class="dc-goals">🎯 Improve Fitness · Build Confidence · Encourage Self-Expression</div>
+    </div>
+
+    <!-- ── ARTS ────────────────────── -->
+    <div class="dir-card arc" id="act-ballet" data-cat="arts" data-name="ballet bloom bodytree dance kg g2" data-grades="KG1–G5" data-day="Monday, Wednesday" data-cap="15" data-instructor="BodyTree" data-fee="paid" data-feeLabel="Paid – Vendor" data-req="Ballet Attire Required" data-why="Discover the joy of dance and movement!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🩰</div>
+      <div class="dc-name">Ballet Bloom</div>
+      <div class="dc-meta"><span class="meta-tag">🎨 Arts</span><span class="meta-tag">KG1–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">Students learn foundational ballet techniques while expressing themselves through movement and music. Inclusive to all ability levels.</div>
+      <div class="dc-goals">🎯 Develop Coordination · Build Confidence · Learn Dance Fundamentals<br/>📋 Ballet Attire Required</div>
+    </div>
+
+    <div class="dir-card arc" id="act-diy" data-cat="arts" data-name="diy club arts crafts creative make" data-grades="KG2–G2" data-day="Tuesday" data-cap="15" data-instructor="AISA Staff" data-fee="paid" data-feeLabel="Paid – Supplies" data-why="Create something amazing every session!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">💡</div>
+      <div class="dc-name">DIY Club</div>
+      <div class="dc-meta"><span class="meta-tag">🎨 Arts</span><span class="meta-tag">KG2–G2</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Supplies</span></div>
+      <div class="dc-desc">Students explore creativity and hands-on projects using a variety of materials. Each session encourages imagination, problem-solving, and artistic expression.</div>
+      <div class="dc-goals">🎯 Encourage Creativity · Develop Fine Motor Skills · Explore Design &amp; Building</div>
+    </div>
+
+    <div class="dir-card arc" id="act-drawing" data-cat="arts" data-name="drawing coloring practice art creative elementary" data-grades="KG2–G12" data-day="Thursday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Express yourself through art every week!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">✍️</div>
+      <div class="dc-name">Drawing &amp; Coloring Practice</div>
+      <div class="dc-meta"><span class="meta-tag">🎨 Arts</span><span class="meta-tag">KG2–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students practice drawing and coloring techniques in a relaxed and creative setting. Sessions cover a range of styles and subjects that inspire self-expression and artistic growth.</div>
+      <div class="dc-goals">🎯 Develop Drawing Skills · Encourage Self-Expression · Build Artistic Confidence</div>
+    </div>
+
+    <div class="dir-card arc" id="act-guitar-g35" data-cat="arts" data-name="guitar strings g3 g5 notes chords music" data-grades="G3–G5" data-day="Wednesday" data-cap="15" data-instructor="Notes &amp; Chords" data-fee="paid" data-feeLabel="Paid – Vendor" data-req="Guitar Required" data-why="Pick up the guitar and start playing songs you love!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🎸</div>
+      <div class="dc-name">Guitar Strings (G3–G5)</div>
+      <div class="dc-meta"><span class="meta-tag">🎨 Arts</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">Students learn guitar basics including chords, rhythm, and simple songs while building confidence and skills. Built for beginners and those developing their musical skills.</div>
+      <div class="dc-goals">🎯 Learn Guitar Fundamentals · Develop Rhythm &amp; Timing · Explore Creative Side<br/>📋 Guitar Required</div>
+    </div>
+
+    <div class="dir-card arc" id="act-guitar-g68" data-cat="arts" data-name="guitar strings g6 g8 notes chords music middle school" data-grades="G6–G8" data-day="Wednesday" data-cap="15" data-instructor="Notes &amp; Chords" data-fee="paid" data-feeLabel="Paid – Vendor" data-req="Guitar Required" data-why="Pick up the guitar and start playing songs you love!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🎸</div>
+      <div class="dc-name">Guitar Strings (G6–G8)</div>
+      <div class="dc-meta"><span class="meta-tag">🎨 Arts</span><span class="meta-tag">G6–G8</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">Guitar basics including chords, rhythm, and simple songs for middle school students. Built for beginners and those developing their musical skills.</div>
+      <div class="dc-goals">🎯 Learn Guitar Fundamentals · Develop Rhythm &amp; Timing · Explore Creative Side<br/>📋 Guitar Required</div>
+    </div>
+
+    <div class="dir-card arc" id="act-hip-hop" data-cat="arts" data-name="hip hop dance club hiphop g6 g12 movement" data-grades="G6–G12" data-day="Wednesday, Thursday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Move, groove, and express yourself!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">💃</div>
+      <div class="dc-name">Hip-Hop Dance Club</div>
+      <div class="dc-meta"><span class="meta-tag">🎨 Arts</span><span class="meta-tag">G6–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students learn dynamic hip-hop routines while expressing themselves through movement and music in an energetic environment. Open to all experience levels.</div>
+      <div class="dc-goals">🎯 Develop Dance Skills · Build Confidence · Encourage Self-Expression</div>
+    </div>
+
+    <div class="dir-card arc" id="act-intro-music" data-cat="arts" data-name="intro to music notes chords kg1 piano keyboard" data-grades="KG1" data-day="Wednesday" data-cap="15" data-instructor="Notes &amp; Chords" data-fee="paid" data-feeLabel="Paid – Vendor" data-why="Discover the magic of music from the very beginning!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🎹</div>
+      <div class="dc-name">Intro to Music</div>
+      <div class="dc-meta"><span class="meta-tag">🎨 Arts</span><span class="meta-tag">KG1</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">Young learners are introduced to the world of music through fun, age-appropriate activities covering rhythm, melody, and basic keyboard skills. A joyful and engaging start to musical learning.</div>
+      <div class="dc-goals">🎯 Discover Music Fundamentals · Develop Rhythm &amp; Listening · Encourage Creative Expression</div>
+    </div>
+
+    <div class="dir-card arc" id="act-piano" data-cat="arts" data-name="piano lessons practicers notes chords music keyboard" data-grades="G1–G5" data-day="Monday, Wednesday" data-cap="15" data-instructor="Notes &amp; Chords" data-fee="paid" data-feeLabel="Paid – Vendor" data-why="Learn to play beautiful music on the piano!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🎹</div>
+      <div class="dc-name">Piano Practicers</div>
+      <div class="dc-meta"><span class="meta-tag">🎨 Arts</span><span class="meta-tag">G1–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-paid">Paid – Vendor</span></div>
+      <div class="dc-desc">Learn the fundamentals of keyboard playing including rhythm, melody, and basic music reading in a fun and engaging way. Suitable for beginners and those developing skills.</div>
+      <div class="dc-goals">🎯 Learn Basic Keyboard Skills · Develop Musical Understanding · Promote Memorization &amp; Routines</div>
+    </div>
+
+    <div class="dir-card arc" id="act-stop-motion" data-cat="arts" data-name="stop motion animation film club creative technology" data-grades="G3–G5" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Bring your imagination to life, frame by frame!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🎭</div>
+      <div class="dc-name">Stop Motion Animation Club</div>
+      <div class="dc-meta"><span class="meta-tag">🎨 Arts</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students create their own animated videos using stop-motion techniques. This club blends storytelling, design, and technology.</div>
+      <div class="dc-goals">🎯 Develop Creativity · Learn Animation Techniques · Build Storytelling Skills</div>
+    </div>
+
+    <!-- ── WELLNESS ────────────────────── -->
+    <div class="dir-card wc" id="act-brain-gym" data-cat="wellness" data-name="brain gym focus coordination mental exercises" data-grades="KG2–G2" data-day="Tuesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="A fun and active way to sharpen your mind!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🧠</div>
+      <div class="dc-name">Brain Gym</div>
+      <div class="dc-meta"><span class="meta-tag">🌿 Wellness</span><span class="meta-tag">KG2–G2</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Fun physical and mental exercises to improve focus, coordination, and learning readiness. Activities are playful and engaging.</div>
+      <div class="dc-goals">🎯 Improve Concentration · Enhance Coordination · Support Learning Readiness</div>
+    </div>
+
+    <div class="dir-card wc" id="act-early-sprouts" data-cat="wellness" data-name="early sprouts gardening plants nature greenhouse kg2 g3" data-grades="KG2–G3" data-day="Thursday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Get your hands in the soil and grow something incredible!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🌱</div>
+      <div class="dc-name">Early Sprouts Club</div>
+      <div class="dc-meta"><span class="meta-tag">🌿 Wellness</span><span class="meta-tag">KG2–G3</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students explore nature by planting, growing, and caring for plants in the AISA greenhouse. Develops a deeper understanding of biological processes.</div>
+      <div class="dc-goals">🎯 Learn about Plants &amp; Nature · Build Responsibility · Promote Sustainability</div>
+    </div>
+
+    <div class="dir-card wc" id="act-every-piece" data-cat="wellness" data-name="every piece fits puzzle wellness mindfulness" data-grades="KG2–G2" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Find calm, focus, and fun through puzzles!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🧩</div>
+      <div class="dc-name">Every Piece Fits</div>
+      <div class="dc-meta"><span class="meta-tag">🌿 Wellness</span><span class="meta-tag">KG2–G2</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students solve puzzles and challenges that build logic and critical thinking in an environment that encourages wellness-based conversation.</div>
+      <div class="dc-goals">🎯 Improve Problem-Solving · Develop Logical Thinking · Relaxing Environment</div>
+    </div>
+
+    <div class="dir-card wc" id="act-greenhouse" data-cat="wellness" data-name="greenhouse care plants gardening sustainability g6 g12" data-grades="G6–G12" data-day="Thursday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Grow something meaningful and make a difference!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🌿</div>
+      <div class="dc-name">Greenhouse Care</div>
+      <div class="dc-meta"><span class="meta-tag">🌿 Wellness</span><span class="meta-tag">G6–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students take care of plants and learn about sustainability through hands-on gardening and environmental stewardship in the AISA greenhouse.</div>
+      <div class="dc-goals">🎯 Learn Plant Care · Build Responsibility · Promote Sustainability</div>
+    </div>
+
+    <div class="dir-card wc" id="act-peace-leader" data-cat="wellness" data-name="peace leader academy conflict resolution empathy leadership" data-grades="G3–G5" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Be the change your school community needs!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">☮️</div>
+      <div class="dc-name">Peace Leader Academy</div>
+      <div class="dc-meta"><span class="meta-tag">🌿 Wellness</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students learn conflict resolution, empathy, and leadership through interactive activities and discussions that promote a positive school culture.</div>
+      <div class="dc-goals">🎯 Develop Leadership Skills · Build Empathy · Encourage Positive Communication</div>
+    </div>
+
+    <div class="dir-card wc" id="act-power-up" data-cat="wellness" data-name="power up affirmations mindset wellness positive" data-grades="KG2–G12" data-day="Thursday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Start strong with a positive mindset every week!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🔋</div>
+      <div class="dc-name">Power-Up with Affirmations</div>
+      <div class="dc-meta"><span class="meta-tag">🌿 Wellness</span><span class="meta-tag">KG2–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students build a positive mindset through guided affirmations, reflection, and wellbeing activities. Each session fosters self-confidence, gratitude, and emotional resilience.</div>
+      <div class="dc-goals">🎯 Build a Positive Mindset · Develop Emotional Resilience · Promote Self-Confidence &amp; Gratitude</div>
+    </div>
+
+    <div class="dir-card wc" id="act-puzzle-nook" data-cat="wellness" data-name="puzzle nook logic relaxation mindfulness" data-grades="G3–G5" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Relax, focus, and enjoy the satisfying click of every piece!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🧩</div>
+      <div class="dc-name">Puzzle Nook</div>
+      <div class="dc-meta"><span class="meta-tag">🌿 Wellness</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">A variety of puzzles including speed completions, problem solving, and relaxation challenges. A perfect piece of mind to relax.</div>
+      <div class="dc-goals">🎯 Improve Problem-Solving · Develop Logical Thinking · Relaxing Environment</div>
+    </div>
+
+    <div class="dir-card wc" id="act-quran-elem" data-cat="wellness" data-name="quran club islamic reflection recitation elementary g3 g5" data-grades="G3–G5" data-day="Tuesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="A meaningful space for reflection and growth.">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🌙</div>
+      <div class="dc-name">Quran Club</div>
+      <div class="dc-meta"><span class="meta-tag">🌿 Wellness</span><span class="meta-tag">G3–G5</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students engage in reflection, recitation, and discussion in a calm and respectful environment. The club promotes personal growth and mindfulness.</div>
+      <div class="dc-goals">🎯 Encourage Respectful Discussion · Build Personal Discipline · Develop Understanding &amp; Reflection</div>
+    </div>
+
+    <div class="dir-card wc" id="act-quran-female" data-cat="wellness" data-name="quran club female girls islamic reflection recitation g6 g12" data-grades="G6–G12" data-day="Tuesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-req="Open to female students" data-why="A meaningful space for reflection and connection.">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🌙</div>
+      <div class="dc-name">Quran Club (Female)</div>
+      <div class="dc-meta"><span class="meta-tag">🌿 Wellness</span><span class="meta-tag">G6–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students engage in reflection, recitation, and discussion in a supportive and respectful environment. The club promotes personal growth, mindfulness, and community.</div>
+      <div class="dc-goals">🎯 Develop Understanding &amp; Reflection · Encourage Respectful Dialogue · Build Personal Discipline</div>
+    </div>
+
+    <div class="dir-card wc" id="act-quran-male" data-cat="wellness" data-name="quran club male boys islamic reflection recitation g6 g12" data-grades="G6–G12" data-day="Wednesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-req="Open to male students" data-why="Grow through reflection in a supportive environment.">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🌙</div>
+      <div class="dc-name">Quran Club (Male)</div>
+      <div class="dc-meta"><span class="meta-tag">🌿 Wellness</span><span class="meta-tag">G6–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students explore recitation and reflection in a structured and respectful setting. The club encourages mindfulness, discipline, and personal growth.</div>
+      <div class="dc-goals">🎯 Strengthen Reflection &amp; Understanding · Build Discipline · Encourage Respectful Engagement</div>
+    </div>
+
+    <div class="dir-card wc" id="act-relax-color" data-cat="wellness" data-name="relax color journaling art mindfulness calm elementary" data-grades="KG2–G12" data-day="Wednesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Unwind and express yourself through color!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🖍️</div>
+      <div class="dc-name">Relax &amp; Color Journaling</div>
+      <div class="dc-meta"><span class="meta-tag">🌿 Wellness</span><span class="meta-tag">KG2–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students engage in mindful coloring and reflective journaling to decompress, express their feelings, and develop a healthy creative outlet. A calming, structured activity.</div>
+      <div class="dc-goals">🎯 Promote Mindfulness · Encourage Self-Expression · Build Emotional Awareness</div>
+    </div>
+
+    <div class="dir-card wc" id="act-sustainability" data-cat="wellness" data-name="sustainability club environment green eco g6 g12" data-grades="G6–G12" data-day="Tuesday" data-cap="15" data-instructor="AISA Staff" data-fee="free" data-why="Make a positive impact on the world!">
+      <button class="dir-info-btn no-print" aria-label="ASA Categories reference">ⓘ</button>
+      <div class="dc-icon">🌱</div>
+      <div class="dc-name">Sustainability Club</div>
+      <div class="dc-meta"><span class="meta-tag">🌿 Wellness</span><span class="meta-tag">G6–G12</span><span class="meta-tag">Cap: 15</span><span class="badge-free">Free</span></div>
+      <div class="dc-desc">Students explore environmental issues and lead initiatives that promote sustainability within the school and community. Hands-on projects and discussions drive real change.</div>
+      <div class="dc-goals">🎯 Build Environmental Awareness · Encourage Leadership · Promote Sustainable Practices</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Activity modal overlay ═══ -->
+<div class="act-overlay" id="actOverlay" onclick="handleOverlayClick(event)">
+  <div class="act-box" id="actBox">
+    <button class="act-close" onclick="closeAct()">✕</button>
+    <div id="actContent"></div>
+  </div>
+</div>
+
+<!-- ═══ ASA Categories reference modal ═══ -->
+<div class="cat-overlay" id="catOverlay" onclick="handleCatOverlayClick(event)">
+  <div class="cat-box">
+    <button class="cat-close" onclick="closeCatModal()">✕</button>
+    <div class="cat-modal-title">ASA Categories</div>
+    <div class="cat-modal-sub">Every activity belongs to one of these four categories. Use this as a quick reference while browsing the directory.</div>
+    <div class="cat-modal-list">
+      <div class="cat-modal-item wellness">
+        <div class="cmi-icon">🌿</div>
+        <div>
+          <div class="cmi-name">Reflective &amp; Wellness</div>
+          <div class="cmi-desc">Nurturing balance, mindfulness, and well-being (e.g. Sustainability Club, Quran Club, Peace Leaders).</div>
+        </div>
+      </div>
+      <div class="cat-modal-item academic">
+        <div class="cmi-icon">📚</div>
+        <div>
+          <div class="cmi-name">Academics &amp; Enrichment</div>
+          <div class="cmi-desc">Extending learning beyond the classroom (e.g. STEM Club, Number Ninjas, Robotics, Study Halls).</div>
+        </div>
+      </div>
+      <div class="cat-modal-item athletic">
+        <div class="cmi-icon">⚽️</div>
+        <div>
+          <div class="cmi-name">Athletics &amp; Movement</div>
+          <div class="cmi-desc">Physical fitness and teamwork (e.g. PASS Football, Zumba, Learn To Swim, Basketball).</div>
+        </div>
+      </div>
+      <div class="cat-modal-item arts">
+        <div class="cmi-icon">🎨</div>
+        <div>
+          <div class="cmi-name">Arts &amp; Creativity</div>
+          <div class="cmi-desc">Imagination and self-expression (e.g. Creative Writing, DIY Club, Ballet, Guitar).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer>
+  <img src="aisa-lions-athletics.png" alt="AISA Lions Athletics" class="footer-logo"/>
+  <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;color:#fff;margin-bottom:8px">
+    Explore. Create. Grow.
+  </div>
+  <p style="margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto">
+    We invite every student to take part in the ASA program — to discover new interests, build lasting relationships, and continue their journey as confident, capable, and caring AISA Lions.
+  </p>
+  <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:12px">
+    <span>📞 <a href="tel:+97124444333">+971 2 444 4333</a></span>
+    <span>🌐 <a href="https://www.aisa.sch.ae/" target="_blank">www.aisa.sch.ae</a></span>
+    <span>📧 <a href="mailto:attendance@aisa.sch.ae">attendance@aisa.sch.ae</a></span>
+  </div>
+  <div style="opacity:.5;font-size:.75rem">American International School Abu Dhabi · ASA Program 2026–2027</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
