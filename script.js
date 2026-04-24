@@ -55,6 +55,54 @@ const DAY_CLASS={
   'Wednesday':'day-wednesday','Thursday':'day-thursday','Friday':'day-friday'
 };
 
+/* ── Translations — shared UI strings ── */
+const TRANSLATIONS = {
+  en: {
+    /* nav */
+    nav_welcome:   'Welcome',
+    nav_about:     'About & Registration',
+    nav_terms:     'Current Term',
+    nav_directory: 'Directory',
+    nav_faqs:      'FAQs',
+    /* topbar */
+    save_pdf:  '🖨️ Save as PDF',
+    lang_btn:  'العربية',
+    /* footer */
+    footer_tagline: 'Explore. Create. Grow.',
+    footer_invite:  'We invite every student to take part in the ASA program — to discover new interests, build lasting relationships, and continue their journey as confident, capable, and caring AISA Lions.',
+    footer_copy:    'American International School Abu Dhabi · ASA Program 2026–2027',
+    /* chatbot */
+    chatbot_title:       'AISA ASA Assistant',
+    chatbot_greeting:    "Hi! I'm the AISA ASA Assistant. Ask me about registration, activities, fees, or schedules.",
+    chatbot_placeholder: 'Type a message…',
+    chatbot_reply:       'Thanks! A staff member will follow up via email. For urgent questions, call +971 2 444 4333.',
+    /* next-reg banner */
+    nrb_label: 'Next Registration Period',
+  },
+  ar: {
+    /* nav */
+    nav_welcome:   'الرئيسية',
+    nav_about:     'حول البرنامج والتسجيل',
+    nav_terms:     'الفصل الحالي',
+    nav_directory: 'الدليل',
+    nav_faqs:      'الأسئلة الشائعة',
+    /* topbar */
+    save_pdf:  '🖨️ حفظ كـ PDF',
+    lang_btn:  'English',
+    /* footer */
+    footer_tagline: 'استكشف. ابتكر. انمُ.',
+    footer_invite:  'ندعو كل طالب للمشاركة في برنامج الأنشطة — لاستكشاف اهتمامات جديدة وبناء علاقات دائمة ومواصلة رحلته كأسد أيسا واثق وقادر ومُهتم.',
+    footer_copy:    'المدرسة الدولية الأمريكية أبوظبي · برنامج الأنشطة 2026–2027',
+    /* chatbot */
+    chatbot_title:       'مساعد أنشطة أيسا',
+    chatbot_greeting:    'مرحباً! أنا مساعد أنشطة أيسا. اسألني عن التسجيل والأنشطة والرسوم أو الجداول.',
+    chatbot_placeholder: 'اكتب رسالتك…',
+    chatbot_reply:       'شكراً! سيتابع معك أحد أعضاء الفريق عبر البريد الإلكتروني. للاستفسارات العاجلة اتصل على: 4333 444 2 971+.',
+    /* next-reg banner */
+    nrb_label: 'فترة التسجيل التالية',
+  }
+};
+
 function parseDate(s){
   const [y,m,d]=s.split('-').map(Number);
   return new Date(y, m-1, d);
