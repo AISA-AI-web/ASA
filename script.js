@@ -753,28 +753,97 @@ function initLanguageToggle(){
   setLanguage(saved);
 }
 
-/* ── AI Chatbot widget (placeholder) ── */
+/* ── Animated Lion Chatbot ── */
+const LION_SVG = `
+<svg class="lion-face" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Mane (layered tufts for a fluffy look) -->
+  <g class="lion-mane">
+    <circle cx="50" cy="52" r="46" fill="#8B4513"/>
+    <circle cx="50" cy="52" r="42" fill="#B8651A"/>
+    <g fill="#A0531C">
+      <circle cx="18" cy="36" r="9"/><circle cx="82" cy="36" r="9"/>
+      <circle cx="14" cy="56" r="9"/><circle cx="86" cy="56" r="9"/>
+      <circle cx="22" cy="76" r="9"/><circle cx="78" cy="76" r="9"/>
+      <circle cx="50" cy="12" r="8"/><circle cx="50" cy="92" r="8"/>
+      <circle cx="32" cy="18" r="8"/><circle cx="68" cy="18" r="8"/>
+      <circle cx="30" cy="86" r="8"/><circle cx="70" cy="86" r="8"/>
+    </g>
+  </g>
+  <!-- Ears -->
+  <g class="lion-ears">
+    <polygon points="22,22 34,40 12,38" fill="#B8651A"/>
+    <polygon points="78,22 66,40 88,38" fill="#B8651A"/>
+    <polygon points="23,26 31,38 17,36" fill="#F5C88A"/>
+    <polygon points="77,26 69,38 83,36" fill="#F5C88A"/>
+  </g>
+  <!-- Head/face -->
+  <circle cx="50" cy="52" r="32" fill="#F5C842"/>
+  <ellipse cx="50" cy="44" rx="24" ry="18" fill="#FFD96A"/>
+  <!-- Cheeks -->
+  <ellipse cx="28" cy="62" rx="7" ry="5" fill="rgba(240,100,100,.28)"/>
+  <ellipse cx="72" cy="62" rx="7" ry="5" fill="rgba(240,100,100,.28)"/>
+  <!-- Eyes -->
+  <g class="lion-eyes">
+    <ellipse cx="38" cy="48" rx="6" ry="6.5" fill="#fff"/>
+    <ellipse cx="62" cy="48" rx="6" ry="6.5" fill="#fff"/>
+    <circle cx="39" cy="49" r="4" fill="#3D2010"/>
+    <circle cx="63" cy="49" r="4" fill="#3D2010"/>
+    <circle cx="40.5" cy="47" r="1.5" fill="#fff"/>
+    <circle cx="64.5" cy="47" r="1.5" fill="#fff"/>
+  </g>
+  <!-- Brows -->
+  <path d="M 31 40 Q 38 36 45 40" stroke="#5A3410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M 55 40 Q 62 36 69 40" stroke="#5A3410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Nose -->
+  <path d="M 46 58 Q 50 63 54 58 Q 50 60 46 58 Z" fill="#5A3410"/>
+  <ellipse cx="50" cy="57" rx="4.5" ry="3" fill="#8B4513"/>
+  <!-- Nose-to-mouth line -->
+  <line x1="50" y1="60" x2="50" y2="65" stroke="#5A3410" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Mouth: closed (smile) -->
+  <path class="lion-mouth-closed" d="M 40 66 Q 45 72 50 68 Q 55 72 60 66" stroke="#5A3410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Mouth: open (talking) -->
+  <g class="lion-mouth-open" opacity="0">
+    <path d="M 40 65 Q 50 82 60 65 Q 50 72 40 65 Z" fill="#3D1010"/>
+    <ellipse cx="50" cy="73" rx="5" ry="4" fill="#D4425A"/>
+    <rect x="44" y="65" width="4" height="5" rx="1" fill="#fff"/>
+    <rect x="52" y="65" width="4" height="5" rx="1" fill="#fff"/>
+  </g>
+  <!-- Whiskers -->
+  <g class="lion-whiskers" stroke="#8B4513" stroke-width="1.2" stroke-linecap="round" fill="none">
+    <line x1="6"  y1="58" x2="30" y2="60"/>
+    <line x1="4"  y1="64" x2="28" y2="64"/>
+    <line x1="6"  y1="70" x2="30" y2="68"/>
+    <line x1="94" y1="58" x2="70" y2="60"/>
+    <line x1="96" y1="64" x2="72" y2="64"/>
+    <line x1="94" y1="70" x2="70" y2="68"/>
+  </g>
+</svg>`;
+
 function initChatbot(){
   if(document.getElementById('chatbot-launcher'))return;
   const launcher=document.createElement('button');
   launcher.id='chatbot-launcher';
-  launcher.className='chatbot-launcher no-print';
+  launcher.className='chatbot-launcher lion-launcher no-print';
   launcher.setAttribute('aria-label','Open AI assistant');
-  launcher.innerHTML='💬<span class="chatbot-dot"></span>';
+  launcher.setAttribute('data-i18n-aria-label','chatbot_title');
+  launcher.innerHTML = LION_SVG + '<span class="chatbot-dot"></span>';
 
   const panel=document.createElement('div');
   panel.id='chatbot-panel';
   panel.className='chatbot-panel no-print';
   panel.innerHTML=`
     <div class="chatbot-head">
-      <div class="chatbot-title">🤖 AISA ASA Assistant</div>
+      <div class="chatbot-title">
+        <span class="chatbot-title-lion">${LION_SVG}</span>
+        <span data-i18n="chatbot_title">AISA ASA Assistant</span>
+      </div>
       <button class="chatbot-close" aria-label="Close">✕</button>
     </div>
     <div class="chatbot-body" id="chatbot-body">
-      <div class="chatbot-msg bot">Hi! I'm the AISA ASA Assistant. Ask me about registration, activities, fees, or schedules.</div>
+      <div class="chatbot-msg bot greeting" data-i18n="chatbot_greeting">Hi! I'm the AISA ASA Assistant. Ask me about registration, activities, fees, or schedules.</div>
     </div>
     <form class="chatbot-input-row" id="chatbot-form">
-      <input type="text" id="chatbot-input" placeholder="Type a message..." autocomplete="off"/>
+      <input type="text" id="chatbot-input" data-i18n-placeholder="chatbot_placeholder" placeholder="Type a message…" autocomplete="off"/>
       <button type="submit" aria-label="Send">➤</button>
     </form>
   `;
