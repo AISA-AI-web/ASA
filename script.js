@@ -498,6 +498,51 @@ function renderSeasonCalendars(filterIds){
   }).join('');
 }
 
+/* ── Language (i18n) ── */
+let currentLang = 'en';
+
+function applyTranslations(lang){
+  const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[key] != null) el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-html');
+    if(dict[key] != null) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-placeholder');
+    if(dict[key] != null) el.setAttribute('placeholder', dict[key]);
+  });
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-aria-label');
+    if(dict[key] != null) el.setAttribute('aria-label', dict[key]);
+  });
+}
+
+function setLanguage(lang){
+  if(!TRANSLATIONS[lang]) lang = 'en';
+  currentLang = lang;
+  const html = document.documentElement;
+  html.setAttribute('lang', lang);
+  html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  document.body.classList.toggle('lang-ar', lang === 'ar');
+  applyTranslations(lang);
+  try{ localStorage.setItem('asa_lang', lang); }catch(_e){}
+  // Update toggle button label
+  const btn = document.getElementById('lang-toggle');
+  if(btn){
+    const dict = TRANSLATIONS[lang];
+    if(dict && dict.lang_btn) btn.textContent = dict.lang_btn;
+  }
+  // Refresh chatbot dynamic content if it exists
+  const greeting = document.querySelector('#chatbot-body .chatbot-msg.bot.greeting');
+  if(greeting && TRANSLATIONS[lang].chatbot_greeting){
+    greeting.textContent = TRANSLATIONS[lang].chatbot_greeting;
+  }
+}
+
 /* ── FAQ accordion ── */
 function initFaqAccordion(){
   document.querySelectorAll('.faq-q').forEach(q=>{
