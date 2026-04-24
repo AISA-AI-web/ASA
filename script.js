@@ -851,7 +851,11 @@ function initChatbot(){
   document.body.appendChild(launcher);
   document.body.appendChild(panel);
 
-  launcher.addEventListener('click',()=>panel.classList.toggle('open'));
+  launcher.addEventListener('click',()=>{
+    panel.classList.toggle('open');
+    // A little greeting roar when the lion is opened
+    if(panel.classList.contains('open')) roar(1200);
+  });
   panel.querySelector('.chatbot-close').addEventListener('click',()=>panel.classList.remove('open'));
 
   const form=panel.querySelector('#chatbot-form');
@@ -867,14 +871,51 @@ function initChatbot(){
     body.appendChild(u);
     input.value='';
     body.scrollTop=body.scrollHeight;
+
+    // Lion "thinks"… then "talks" for a beat while the reply appears
+    startTalking();
     setTimeout(()=>{
       const b=document.createElement('div');
       b.className='chatbot-msg bot';
-      b.textContent="Thanks! A staff member will follow up via email. For urgent questions, call +971 2 444 4333.";
+      const dict = TRANSLATIONS[currentLang] || TRANSLATIONS.en;
+      b.textContent = dict.chatbot_reply;
       body.appendChild(b);
       body.scrollTop=body.scrollHeight;
+      // Keep the mouth moving for the length of the reply
+      setTimeout(stopTalking, 1400);
     },600);
   });
+}
+
+/* ── Lion talking animation ── */
+let _talkInterval = null;
+function startTalking(){
+  stopTalking();
+  document.querySelectorAll('.lion-face').forEach(el => el.classList.add('talking'));
+  let open = false;
+  _talkInterval = setInterval(()=>{
+    open = !open;
+    document.querySelectorAll('.lion-face').forEach(el=>{
+      const closed = el.querySelector('.lion-mouth-closed');
+      const openEl = el.querySelector('.lion-mouth-open');
+      if(closed) closed.style.opacity = open ? '0' : '1';
+      if(openEl) openEl.style.opacity = open ? '1' : '0';
+    });
+  }, 160);
+}
+function stopTalking(){
+  if(_talkInterval){ clearInterval(_talkInterval); _talkInterval = null; }
+  document.querySelectorAll('.lion-face').forEach(el=>{
+    el.classList.remove('talking');
+    const closed = el.querySelector('.lion-mouth-closed');
+    const openEl = el.querySelector('.lion-mouth-open');
+    if(closed) closed.style.opacity = '1';
+    if(openEl) openEl.style.opacity = '0';
+  });
+}
+function roar(ms){
+  startTalking();
+  setTimeout(stopTalking, ms || 900);
 }
 
 /* ── Boot ── */
