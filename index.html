@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>AISA After School Activities 2026–2027</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&family=Noto+Sans+Arabic:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 /* ═══════════════════════════════════════
    VARIABLES — easy to update
@@ -451,6 +451,208 @@ footer strong{color:#fff}
   table.asa-table{font-size:.75rem}
   table.asa-table td,table.asa-table th{padding:8px 10px}
 }
+
+/* ═══════════════════════════════════════
+   LANGUAGE TOGGLE
+═══════════════════════════════════════ */
+.lang-btn{
+  background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.35);
+  color:#fff;border-radius:8px;padding:5px 14px;
+  font-size:.78rem;font-weight:800;cursor:pointer;letter-spacing:.06em;
+  transition:background .2s;font-family:'Montserrat',sans-serif;
+  flex-shrink:0;
+}
+.lang-btn:hover{background:rgba(255,255,255,.22)}
+[dir=rtl]{font-family:'Noto Sans Arabic','Nunito',sans-serif}
+[dir=rtl] .section-title,[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h3{font-family:'Noto Sans Arabic',sans-serif}
+[dir=rtl] .hero-pills{flex-direction:row-reverse}
+[dir=rtl] .term-tabs{flex-direction:row-reverse}
+[dir=rtl] .tmc-row,[dir=rtl] .term-cal-row{direction:rtl}
+[dir=rtl] .cat-card{text-align:right}
+[dir=rtl] .step{border-left:none;border-right:3px solid var(--blue);padding-left:0;padding-right:16px}
+[dir=rtl] .warning-box{border-left:none;border-right:4px solid #f5a623}
+[dir=rtl] .divider{margin-right:0}
+[dir=rtl] footer{direction:rtl}
+
+/* ═══════════════════════════════════════
+   TERM CALENDARS
+═══════════════════════════════════════ */
+.term-cal-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;margin:20px 0 8px;
+}
+.term-cal-card{
+  border-radius:16px;overflow:hidden;background:#fff;
+  border:2px solid #dbe7f3;
+}
+.term-cal-card.autumn{border-color:#f4c07a}
+.term-cal-card.winter{border-color:#90b8f8}
+.term-cal-card.spring{border-color:#7dd87a}
+.term-cal-header{
+  padding:13px 18px;font-family:'Montserrat',sans-serif;font-weight:900;font-size:.95rem;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.term-cal-card.autumn .term-cal-header{background:#fff3e8;color:#9a3800}
+.term-cal-card.winter .term-cal-header{background:#e8efff;color:#0a2a6e}
+.term-cal-card.spring  .term-cal-header{background:#edfff0;color:#155a1e}
+.term-cal-row{
+  padding:10px 18px;border-top:1px solid #f0f2f6;
+  display:grid;grid-template-columns:26px 1fr;gap:8px;align-items:start;font-size:.84rem;
+}
+.term-cal-icon{font-size:1rem;line-height:1.5;text-align:center}
+.term-cal-label{
+  font-weight:800;font-size:.7rem;text-transform:uppercase;
+  letter-spacing:.06em;color:var(--muted);margin-bottom:2px;
+}
+.term-cal-value{color:var(--text);line-height:1.55}
+.term-cal-break{color:#c0392b}
+.next-reg-banner{
+  background:linear-gradient(130deg,var(--navy) 0%,var(--blue) 100%);
+  color:#fff;border-radius:14px;padding:16px 20px;margin-bottom:20px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.nrb-badge{
+  background:var(--orange);color:#fff;border-radius:8px;
+  padding:5px 14px;font-weight:900;font-size:.78rem;
+  letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;flex-shrink:0;
+}
+.nrb-text{flex:1;font-size:.88rem}
+.nrb-text strong{display:block;font-size:.98rem;margin-bottom:2px}
+/* mini-calendar inside each term panel */
+.term-mini-cal{
+  background:#fff;border-radius:14px;border:1px solid #dbe7f3;
+  padding:16px 18px;margin-bottom:24px;
+}
+.term-mini-cal h4{
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:.82rem;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--navy);margin-bottom:10px;
+}
+.tmc-rows{display:flex;flex-direction:column;gap:7px}
+.tmc-row{
+  display:grid;grid-template-columns:22px 100px 1fr;gap:8px;
+  align-items:baseline;font-size:.84rem;
+}
+.tmc-icon{text-align:center;font-size:.9rem}
+.tmc-lbl{font-weight:800;font-size:.72rem;text-transform:uppercase;
+  letter-spacing:.05em;color:var(--muted);}
+.tmc-val{color:var(--text);line-height:1.5}
+.tmc-row.break .tmc-val{color:#c0392b}
+
+/* ═══════════════════════════════════════
+   ANIMATED LION CHATBOT
+═══════════════════════════════════════ */
+.lion-btn{
+  position:fixed;bottom:24px;right:24px;z-index:9000;
+  background:none;border:none;cursor:pointer;padding:0;
+  width:68px;height:68px;
+  display:flex;align-items:center;justify-content:center;
+  animation:lion-idle 3.2s ease-in-out infinite;
+  filter:drop-shadow(0 4px 14px rgba(0,0,0,.28));
+}
+@keyframes lion-idle{
+  0%,100%{transform:translateY(0) scale(1)}
+  50%{transform:translateY(-7px) scale(1.06)}
+}
+.lion-btn:hover{animation:lion-excited .45s ease-in-out infinite}
+@keyframes lion-excited{
+  0%,100%{transform:scale(1) rotate(0deg)}
+  25%{transform:scale(1.18) rotate(-6deg)}
+  75%{transform:scale(1.18) rotate(6deg)}
+}
+.lion-face{
+  width:58px;height:58px;background:linear-gradient(135deg,#f5c842,#f47920);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:2.2rem;line-height:1;position:relative;
+  border:3px solid #fff;box-shadow:0 4px 16px rgba(244,121,32,.4);
+}
+.lion-notif{
+  position:absolute;top:-3px;right:-3px;
+  background:var(--navy);color:#fff;border-radius:50%;
+  width:18px;height:18px;font-size:.6rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid #fff;
+}
+.chat-panel{
+  position:fixed;bottom:102px;right:24px;z-index:9000;
+  width:330px;background:#fff;border-radius:22px;
+  box-shadow:0 10px 50px rgba(0,0,0,.18);
+  display:flex;flex-direction:column;overflow:hidden;
+  transform:scale(0) translateY(16px);transform-origin:bottom right;
+  transition:transform .28s cubic-bezier(.34,1.56,.64,1),opacity .2s;
+  opacity:0;pointer-events:none;
+  max-height:480px;
+}
+.chat-panel.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+.chat-header{
+  background:linear-gradient(130deg,var(--navy),var(--blue));
+  color:#fff;padding:14px 16px;
+  display:flex;align-items:center;gap:10px;flex-shrink:0;
+}
+.chat-lion-icon{
+  width:42px;height:42px;background:linear-gradient(135deg,#f5c842,#f47920);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;line-height:1;flex-shrink:0;
+  animation:lion-idle-sm 2.5s ease-in-out infinite;
+}
+.chat-lion-icon.talking{animation:lion-talk .3s ease-in-out infinite}
+@keyframes lion-idle-sm{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@keyframes lion-talk{
+  0%,100%{transform:scaleY(1) scaleX(1)}
+  50%{transform:scaleY(.82) scaleX(1.08)}
+}
+.chat-hdr-text .chat-name{font-family:'Montserrat',sans-serif;font-weight:900;font-size:.95rem}
+.chat-hdr-text .chat-sub{font-size:.72rem;opacity:.72}
+.chat-close{margin-left:auto;background:rgba(255,255,255,.18);border:none;
+  color:#fff;border-radius:8px;padding:5px 11px;cursor:pointer;font-size:.82rem;font-weight:700}
+.chat-close:hover{background:rgba(255,255,255,.28)}
+.chat-messages{
+  flex:1;overflow-y:auto;padding:12px;
+  display:flex;flex-direction:column;gap:8px;
+  min-height:160px;max-height:240px;
+}
+.chat-msg{
+  max-width:90%;padding:8px 12px;border-radius:14px;
+  font-size:.83rem;line-height:1.55;
+  animation:msg-pop .2s ease;
+}
+@keyframes msg-pop{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.chat-msg.bot{background:var(--light);color:var(--navy);align-self:flex-start;
+  border-radius:14px 14px 14px 0}
+.chat-msg.user{background:var(--navy);color:#fff;align-self:flex-end;
+  border-radius:14px 14px 0 14px}
+.chat-typing{align-self:flex-start;background:var(--light);border-radius:14px 14px 14px 0;
+  padding:10px 16px;font-size:1.2rem;letter-spacing:3px;color:var(--muted);
+  animation:msg-pop .2s ease}
+.chat-suggestions{
+  padding:8px 12px 4px;display:flex;flex-wrap:wrap;gap:5px;
+  border-top:1px solid #f0f2f6;flex-shrink:0;
+}
+.sug-btn{
+  background:var(--light);border:1.5px solid #d0dff0;color:var(--navy);
+  border-radius:20px;padding:4px 11px;font-size:.74rem;font-weight:700;
+  cursor:pointer;transition:background .15s;white-space:nowrap;
+}
+.sug-btn:hover{background:#dceeff}
+.chat-input-row{
+  padding:8px 12px 10px;display:flex;gap:6px;
+  border-top:1px solid #f0f2f6;flex-shrink:0;
+}
+.chat-input{
+  flex:1;border:1.5px solid #d0dff0;border-radius:20px;
+  padding:7px 14px;font-size:.82rem;outline:none;font-family:inherit;
+}
+.chat-input:focus{border-color:var(--blue)}
+.chat-send{
+  background:var(--navy);color:#fff;border:none;
+  border-radius:20px;padding:7px 15px;
+  font-size:.82rem;font-weight:800;cursor:pointer;
+  transition:background .15s;
+}
+.chat-send:hover{background:var(--blue)}
+@media(max-width:600px){
+  .lion-btn{bottom:16px;right:16px}
+  .chat-panel{right:10px;left:10px;width:auto;bottom:94px}
+}
 </style>
 </head>
 <body>
@@ -465,7 +667,10 @@ footer strong{color:#fff}
       <span>📧 <a href="mailto:attendance@aisa.sch.ae">attendance@aisa.sch.ae</a></span>
     </div>
   </div>
-  <button class="save-btn" onclick="window.print()">🖨️ Save as PDF</button>
+  <div style="display:flex;gap:8px;align-items:center">
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()" data-i18n="lang-btn">عربي</button>
+    <button class="save-btn" onclick="window.print()" data-i18n="save-btn">🖨️ Save as PDF</button>
+  </div>
 </div>
 
 <!-- ═══ HERO ═══ -->
@@ -476,9 +681,9 @@ footer strong{color:#fff}
     <div class="blob blob-orange"></div>
   </div>
   <div style="flex:1;min-width:260px;position:relative;z-index:1">
-    <div class="hero-badge">2026 – 2027 Academic Year</div>
-    <h1 class="hero-title">After School<br/><span>Activities</span></h1>
-    <p class="hero-sub">American International School Abu Dhabi — expanding learning through passion, creativity, and movement.</p>
+    <div class="hero-badge" data-i18n="hero-badge">2026 – 2027 Academic Year</div>
+    <h1 class="hero-title" data-i18n="hero-title" data-i18n-html="1">After School<br/><span>Activities</span></h1>
+    <p class="hero-sub" data-i18n="hero-sub">American International School Abu Dhabi — expanding learning through passion, creativity, and movement.</p>
     <div class="hero-pills">
       <div class="pill">🌿 Reflective &amp; Wellness</div>
       <div class="pill">📚 Academics &amp; Enrichment</div>
@@ -495,21 +700,16 @@ footer strong{color:#fff}
   </div>
 </div>
 
-<!-- ═══ ASA BANNER ═══ -->
-<div class="asa-banner-strip no-print">
-  <img src="aisa-asa-banner.png" alt="AISA After School Activities 2026–2027"/>
-</div>
-
 <!-- ═══ NAV ═══ -->
 <nav class="nav-tabs no-print">
-  <a href="#welcome">Welcome</a>
-  <a href="#categories">Categories</a>
-  <a href="#process">Process</a>
-  <a href="#autumn" data-term-link="autumn">Autumn Term</a>
-  <a href="#winter" data-term-link="winter">Winter Term</a>
-  <a href="#spring" data-term-link="spring">Spring Term</a>
-  <a href="#directory">Directory</a>
-  <a href="#faqs">FAQs</a>
+  <a href="#welcome" data-i18n="nav-welcome">Welcome</a>
+  <a href="#categories" data-i18n="nav-categories">Categories</a>
+  <a href="#process" data-i18n="nav-process">Process</a>
+  <a href="#autumn" data-term-link="autumn" data-i18n="nav-autumn">Autumn Term</a>
+  <a href="#winter" data-term-link="winter" data-i18n="nav-winter">Winter Term</a>
+  <a href="#spring" data-term-link="spring" data-i18n="nav-spring">Spring Term</a>
+  <a href="#directory" data-i18n="nav-directory">Directory</a>
+  <a href="#faqs" data-i18n="nav-faqs">FAQs</a>
 </nav>
 
 <!-- ═══════════════════════════════════════
@@ -575,7 +775,7 @@ footer strong{color:#fff}
 ═══════════════════════════════════════ -->
 <div class="band" id="categories">
   <div class="section" style="padding-top:56px;padding-bottom:56px">
-    <h2 class="section-title">Types of <span>ASAs</span></h2>
+    <h2 class="section-title" data-i18n="cat-title" data-i18n-html="1">Types of <span>ASAs</span></h2>
     <div class="divider"></div>
     <div class="cat-grid">
       <div class="cat-card wellness">
@@ -610,7 +810,7 @@ footer strong{color:#fff}
      PROCESS
 ═══════════════════════════════════════ -->
 <section class="section" id="process">
-  <h2 class="section-title">ASA <span>Process</span></h2>
+  <h2 class="section-title" data-i18n="process-title" data-i18n-html="1">ASA <span>Process</span></h2>
   <div class="divider"></div>
 
   <h3 style="font-size:1rem;color:var(--blue);margin-bottom:12px;font-weight:800">🏫 Elementary Process</h3>
@@ -634,6 +834,114 @@ footer strong{color:#fff}
   <div class="warning-box">
     ⚠️ <div>Please note that all schedules are subject to change based on decisions made by the UAE Government, ADEK (Abu Dhabi Department of Education and Knowledge), and the School Administration.</div>
   </div>
+
+  <!-- ─── ACADEMIC CALENDAR ─── -->
+  <div style="margin-top:40px">
+    <h3 class="section-title" style="font-size:1.4rem">📅 Academic <span>Calendar</span></h3>
+    <div class="divider"></div>
+
+    <!-- Next registration banner — populated by JS -->
+    <div id="next-reg-banner" class="next-reg-banner" style="display:none">
+      <div style="font-size:1.6rem">📝</div>
+      <div class="nrb-text">
+        <strong data-i18n="cal-next-heading">Next Registration Period</strong>
+        <span id="next-reg-text"></span>
+      </div>
+      <div class="nrb-badge" id="next-reg-badge"></div>
+    </div>
+
+    <div class="term-cal-grid">
+      <!-- Autumn -->
+      <div class="term-cal-card autumn">
+        <div class="term-cal-header">
+          🍂 Autumn Term
+          <span id="cal-badge-autumn"></span>
+        </div>
+        <div class="term-cal-row">
+          <div class="term-cal-icon">📝</div>
+          <div>
+            <div class="term-cal-label" data-i18n="cal-reg-label">Registration</div>
+            <div class="term-cal-value">Sep 1 – Sep 8</div>
+          </div>
+        </div>
+        <div class="term-cal-row">
+          <div class="term-cal-icon">📅</div>
+          <div>
+            <div class="term-cal-label" data-i18n="cal-asa-label">ASA Season</div>
+            <div class="term-cal-value">Sep 14 – Nov 12</div>
+          </div>
+        </div>
+        <div class="term-cal-row">
+          <div class="term-cal-icon">🚫</div>
+          <div>
+            <div class="term-cal-label" data-i18n="cal-break-label">No ASAs</div>
+            <div class="term-cal-value term-cal-break">Oct 12–16 · Mid-Term Break</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Winter -->
+      <div class="term-cal-card winter">
+        <div class="term-cal-header">
+          ❄️ Winter Term
+          <span id="cal-badge-winter"></span>
+        </div>
+        <div class="term-cal-row">
+          <div class="term-cal-icon">📝</div>
+          <div>
+            <div class="term-cal-label" data-i18n="cal-reg-label">Registration</div>
+            <div class="term-cal-value">Nov 2 – Nov 15</div>
+          </div>
+        </div>
+        <div class="term-cal-row">
+          <div class="term-cal-icon">📅</div>
+          <div>
+            <div class="term-cal-label" data-i18n="cal-asa-label">ASA Season</div>
+            <div class="term-cal-value">Nov 23 – Feb 5</div>
+          </div>
+        </div>
+        <div class="term-cal-row">
+          <div class="term-cal-icon">🚫</div>
+          <div>
+            <div class="term-cal-label" data-i18n="cal-break-label">No ASAs</div>
+            <div class="term-cal-value term-cal-break">
+              Week of Dec 1 · UAE National Day<br/>
+              Dec 14 – Jan 3 · Winter Holiday Break
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spring -->
+      <div class="term-cal-card spring">
+        <div class="term-cal-header">
+          🌸 Spring Term
+          <span id="cal-badge-spring"></span>
+        </div>
+        <div class="term-cal-row">
+          <div class="term-cal-icon">📝</div>
+          <div>
+            <div class="term-cal-label" data-i18n="cal-reg-label">Registration</div>
+            <div class="term-cal-value">Mar 1 – Mar 14</div>
+          </div>
+        </div>
+        <div class="term-cal-row">
+          <div class="term-cal-icon">📅</div>
+          <div>
+            <div class="term-cal-label" data-i18n="cal-asa-label">ASA Season</div>
+            <div class="term-cal-value">Mar 15 – May 14</div>
+          </div>
+        </div>
+        <div class="term-cal-row">
+          <div class="term-cal-icon">🚫</div>
+          <div>
+            <div class="term-cal-label" data-i18n="cal-break-label">No ASAs</div>
+            <div class="term-cal-value term-cal-break">Apr 5–9 · Spring Break</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ═══════════════════════════════════════
@@ -646,17 +954,25 @@ footer strong{color:#fff}
 ═══════════════════════════════════════ -->
 <div class="band" id="terms">
   <div class="section" style="padding-top:56px;padding-bottom:56px">
-    <h2 class="section-title">📆 <span>Term</span> ASAs</h2>
+    <h2 class="section-title" data-i18n="terms-title" data-i18n-html="1">📆 <span>Term</span> ASAs</h2>
     <div class="divider"></div>
 
     <div class="term-tabs no-print" role="tablist" aria-label="Select term">
-      <button type="button" class="term-tab active" role="tab" aria-selected="true" aria-controls="autumn" data-term="autumn">🍂 Autumn</button>
-      <button type="button" class="term-tab" role="tab" aria-selected="false" aria-controls="winter" data-term="winter">❄️ Winter</button>
-      <button type="button" class="term-tab" role="tab" aria-selected="false" aria-controls="spring" data-term="spring">🌸 Spring</button>
+      <button type="button" class="term-tab active" role="tab" aria-selected="true" aria-controls="autumn" data-term="autumn" data-i18n="tab-autumn">🍂 Autumn</button>
+      <button type="button" class="term-tab" role="tab" aria-selected="false" aria-controls="winter" data-term="winter" data-i18n="tab-winter">❄️ Winter</button>
+      <button type="button" class="term-tab" role="tab" aria-selected="false" aria-controls="spring" data-term="spring" data-i18n="tab-spring">🌸 Spring</button>
     </div>
 
     <!-- AUTUMN PANEL -->
     <div class="term-panel active" id="autumn" role="tabpanel" aria-labelledby="tab-autumn" data-term="autumn">
+    <div class="term-mini-cal">
+      <h4 data-i18n="cal-autumn-heading">📅 Autumn Term Calendar</h4>
+      <div class="tmc-rows">
+        <div class="tmc-row"><div class="tmc-icon">📝</div><div class="tmc-lbl" data-i18n="cal-reg-label">Registration</div><div class="tmc-val">Sep 1 – Sep 8</div></div>
+        <div class="tmc-row"><div class="tmc-icon">📅</div><div class="tmc-lbl" data-i18n="cal-asa-label">ASA Season</div><div class="tmc-val">Sep 14 – Nov 12</div></div>
+        <div class="tmc-row break"><div class="tmc-icon">🚫</div><div class="tmc-lbl" data-i18n="cal-break-label">No ASAs</div><div class="tmc-val">Oct 12–16 · Mid-Term Break</div></div>
+      </div>
+    </div>
     <!-- KG1 -->
     <div class="term-section">
       <div class="term-title">KG1 <span class="term-badge">Autumn</span></div>
@@ -755,6 +1071,14 @@ footer strong{color:#fff}
 
     <!-- WINTER PANEL -->
     <div class="term-panel" id="winter" role="tabpanel" aria-labelledby="tab-winter" data-term="winter" hidden>
+    <div class="term-mini-cal">
+      <h4 data-i18n="cal-winter-heading">📅 Winter Term Calendar</h4>
+      <div class="tmc-rows">
+        <div class="tmc-row"><div class="tmc-icon">📝</div><div class="tmc-lbl" data-i18n="cal-reg-label">Registration</div><div class="tmc-val">Nov 2 – Nov 15</div></div>
+        <div class="tmc-row"><div class="tmc-icon">📅</div><div class="tmc-lbl" data-i18n="cal-asa-label">ASA Season</div><div class="tmc-val">Nov 23 – Feb 5</div></div>
+        <div class="tmc-row break"><div class="tmc-icon">🚫</div><div class="tmc-lbl" data-i18n="cal-break-label">No ASAs</div><div class="tmc-val">Week of Dec 1 · UAE National Day &nbsp;|&nbsp; Dec 14 – Jan 3 · Winter Holiday Break</div></div>
+      </div>
+    </div>
   <!-- KG1 -->
   <div class="term-section">
     <div class="term-title">KG1 <span class="term-badge">Winter</span></div>
@@ -860,6 +1184,14 @@ footer strong{color:#fff}
 
     <!-- SPRING PANEL -->
     <div class="term-panel" id="spring" role="tabpanel" aria-labelledby="tab-spring" data-term="spring" hidden>
+    <div class="term-mini-cal">
+      <h4 data-i18n="cal-spring-heading">📅 Spring Term Calendar</h4>
+      <div class="tmc-rows">
+        <div class="tmc-row"><div class="tmc-icon">📝</div><div class="tmc-lbl" data-i18n="cal-reg-label">Registration</div><div class="tmc-val">Mar 1 – Mar 14</div></div>
+        <div class="tmc-row"><div class="tmc-icon">📅</div><div class="tmc-lbl" data-i18n="cal-asa-label">ASA Season</div><div class="tmc-val">Mar 15 – May 14</div></div>
+        <div class="tmc-row break"><div class="tmc-icon">🚫</div><div class="tmc-lbl" data-i18n="cal-break-label">No ASAs</div><div class="tmc-val">Apr 5–9 · Spring Break</div></div>
+      </div>
+    </div>
     <!-- KG1 -->
     <div class="term-section">
       <div class="term-title">KG1 <span class="term-badge">Spring</span></div>
@@ -1651,7 +1983,7 @@ footer strong{color:#fff}
 ═══════════════════════════════════════ -->
 <footer>
   <img src="aisa-logo-circle.png" alt="AISA Logo" class="footer-logo"/>
-  <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;color:#fff;margin-bottom:8px">
+  <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;color:#fff;margin-bottom:8px" data-i18n="footer-quote">
     Explore. Create. Grow.
   </div>
   <p style="margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto">
@@ -1835,7 +2167,225 @@ document.querySelectorAll('table.asa-table tbody tr[data-act]').forEach(row=>{
   row.style.cursor='pointer';
   row.addEventListener('click',()=>openAct(row.dataset.act));
 });
+
+// ═══════════════════════════════════════
+// CALENDAR — auto-detect next registration
+// ═══════════════════════════════════════
+(function initCalendar(){
+  const now=new Date();
+  const y=now.getFullYear();
+  const REG=[
+    {term:'autumn',label:'Autumn',emoji:'🍂',
+     start:new Date(y,8,1), end:new Date(y,8,8),
+     dateStr:'Sep 1 – Sep 8'},
+    {term:'winter',label:'Winter',emoji:'❄️',
+     start:new Date(y,10,2), end:new Date(y,10,15),
+     dateStr:'Nov 2 – Nov 15'},
+    {term:'spring',label:'Spring',emoji:'🌸',
+     start:new Date(y,2,1),  end:new Date(y,2,14),
+     dateStr:'Mar 1 – Mar 14'},
+  ];
+  // sort by start date so we can find next
+  const sorted=[...REG].sort((a,b)=>a.start-b.start);
+
+  let found=null,status='';
+  for(const p of sorted){
+    if(now>=p.start&&now<=p.end){found=p;status='open';break;}
+    if(now<p.start){found=p;status='upcoming';break;}
+  }
+  // wrap to next year autumn if all passed
+  if(!found){
+    const r=REG[0];
+    found={...r,start:new Date(y+1,8,1),end:new Date(y+1,8,8),dateStr:'Sep 1 – Sep 8 ('+(y+1)+')'};
+    status='upcoming';
+  }
+
+  // banner
+  const banner=document.getElementById('next-reg-banner');
+  const txt=document.getElementById('next-reg-text');
+  const badge=document.getElementById('next-reg-badge');
+  if(banner&&txt&&badge){
+    banner.style.display='flex';
+    txt.textContent=` ${found.emoji} ${found.label} Term — ${found.dateStr}`;
+    badge.textContent=status==='open'?'Open Now':'Coming Up';
+    if(status==='open')badge.style.background='#2dba4e';
+  }
+
+  // highlight the relevant card badge
+  REG.forEach(p=>{
+    const el=document.getElementById('cal-badge-'+p.term);
+    if(!el)return;
+    if(p.term===found.term){
+      el.innerHTML=`<span style="background:${status==='open'?'#2dba4e':'var(--orange)'};color:#fff;border-radius:6px;padding:2px 8px;font-size:.7rem;font-weight:900">${status==='open'?'Open':'Next'}</span>`;
+    }
+  });
+})();
+
+// ═══════════════════════════════════════
+// i18n — language toggle
+// ═══════════════════════════════════════
+const TRANS={
+  'lang-btn':           {en:'عربي', ar:'English'},
+  'save-btn':           {en:'🖨️ Save as PDF', ar:'🖨️ حفظ كـ PDF'},
+  'nav-welcome':        {en:'Welcome', ar:'مرحباً'},
+  'nav-categories':     {en:'Categories', ar:'الفئات'},
+  'nav-process':        {en:'Process', ar:'العملية'},
+  'nav-autumn':         {en:'Autumn Term', ar:'الفصل الخريفي'},
+  'nav-winter':         {en:'Winter Term', ar:'الفصل الشتوي'},
+  'nav-spring':         {en:'Spring Term', ar:'الفصل الربيعي'},
+  'nav-directory':      {en:'Directory', ar:'الدليل'},
+  'nav-faqs':           {en:'FAQs', ar:'الأسئلة الشائعة'},
+  'hero-badge':         {en:'2026 – 2027 Academic Year', ar:'العام الدراسي ٢٠٢٦ – ٢٠٢٧'},
+  'hero-title':         {en:'After School<br/><span>Activities</span>', ar:'أنشطة<br/><span>ما بعد المدرسة</span>'},
+  'hero-sub':           {en:'American International School Abu Dhabi — expanding learning through passion, creativity, and movement.', ar:'المدرسة الأمريكية الدولية أبوظبي — نُوسِّع آفاق التعلم بالشغف والإبداع والحركة.'},
+  'cat-title':          {en:'Types of <span>ASAs</span>', ar:'أنواع <span>الأنشطة</span>'},
+  'process-title':      {en:'ASA <span>Process</span>', ar:'<span>عملية</span> الأنشطة'},
+  'terms-title':        {en:'📆 <span>Term</span> ASAs', ar:'📆 أنشطة <span>الفصول</span>'},
+  'tab-autumn':         {en:'🍂 Autumn', ar:'🍂 الخريف'},
+  'tab-winter':         {en:'❄️ Winter', ar:'❄️ الشتاء'},
+  'tab-spring':         {en:'🌸 Spring', ar:'🌸 الربيع'},
+  'footer-quote':       {en:'Explore. Create. Grow.', ar:'استكشف. أبدع. انمُ.'},
+  'cal-next-heading':   {en:'Next Registration Period', ar:'فترة التسجيل القادمة'},
+  'cal-reg-label':      {en:'Registration', ar:'التسجيل'},
+  'cal-asa-label':      {en:'ASA Season', ar:'موسم الأنشطة'},
+  'cal-break-label':    {en:'No ASAs', ar:'لا أنشطة'},
+  'cal-autumn-heading': {en:'📅 Autumn Term Calendar', ar:'📅 تقويم الفصل الخريفي'},
+  'cal-winter-heading': {en:'📅 Winter Term Calendar', ar:'📅 تقويم الفصل الشتوي'},
+  'cal-spring-heading': {en:'📅 Spring Term Calendar', ar:'📅 تقويم الفصل الربيعي'},
+  'chat-name':          {en:'Leo the Lion', ar:'ليو الأسد'},
+  'chat-sub':           {en:'AISA ASA Assistant', ar:'مساعد أنشطة AISA'},
+  'chat-send':          {en:'Send', ar:'إرسال'},
+};
+let currentLang='en';
+function toggleLang(){
+  currentLang=currentLang==='en'?'ar':'en';
+  applyLang(currentLang);
+}
+function applyLang(lang){
+  document.documentElement.setAttribute('lang',lang);
+  document.documentElement.setAttribute('dir',lang==='ar'?'rtl':'ltr');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;
+    if(!TRANS[key]||!TRANS[key][lang])return;
+    if(el.dataset.i18nHtml){el.innerHTML=TRANS[key][lang];}
+    else{el.textContent=TRANS[key][lang];}
+  });
+  const inp=document.getElementById('chat-input');
+  if(inp)inp.placeholder=lang==='ar'?'اسأل أي شيء…':'Ask me anything…';
+}
+
+// ═══════════════════════════════════════
+// LION CHATBOT
+// ═══════════════════════════════════════
+const CHAT_QA=[
+  {kw:['hello','hi','hey','مرحبا','هلا','السلام'],
+   ans:'Hi there! 👋 I\'m Leo, your AISA ASA guide. Ask me about registration, schedules, fees, or how to get started!'},
+  {kw:['register','registration','sign up','enroll','التسجيل','تسجيل'],
+   ans:'📝 Registration opens each term:\n🍂 Autumn: Sep 1–8\n❄️ Winter: Nov 2–15\n🌸 Spring: Mar 1–14\n\nRegister through the school\'s Mograsys system.'},
+  {kw:['autumn','fall','خريف'],
+   ans:'🍂 Autumn Term ASAs run Sep 14 – Nov 12. Registration opens Sep 1–8. No ASAs during Mid-Term Break (Oct 12–16).'},
+  {kw:['winter','شتاء'],
+   ans:'❄️ Winter Term ASAs run Nov 23 – Feb 5. Registration opens Nov 2–15. Breaks: UAE National Day week (Dec 1) and Winter Holiday (Dec 14–Jan 3).'},
+  {kw:['spring','ربيع'],
+   ans:'🌸 Spring Term ASAs run Mar 15 – May 14. Registration opens Mar 1–14. No ASAs during Spring Break (Apr 5–9).'},
+  {kw:['free','cost','fee','paid','price','مجاني','رسوم','تكلفة'],
+   ans:'Some ASAs are 🟢 Free and others are 🟠 Paid through external providers. Each activity shows its fee status in the schedule tables.'},
+  {kw:['time','when','hours','timing','schedule','وقت','موعد'],
+   ans:'⏰ All ASAs run 15:00–16:00 (3–4 PM) on weekdays. Students are dismissed from Gate 4 at 16:00.'},
+  {kw:['pickup','pick up','gate','dismiss','collect','استقبال','بوابة'],
+   ans:'🚪 Students are dismissed from Gate 4 at 16:00. Please be prompt — timely pick-up is important!'},
+  {kw:['contact','phone','email','call','تواصل','هاتف','بريد'],
+   ans:'📞 +971 2 444 4333\n📧 attendance@aisa.sch.ae\n\nOr reach the Athletics & Activities team directly through the school portal.'},
+  {kw:['grade','kg','elementary','secondary','middle','high','school','صف','ابتدائي','ثانوي'],
+   ans:'🏫 ASAs are available for all levels:\n• KG1\n• KG2 – Grade 2\n• Grade 3 – Grade 5\n• Middle School – High School\n\nCheck each term tab for grade-specific activities!'},
+  {kw:['cancel','postpone','change','changes','تغيير','إلغاء'],
+   ans:'⚠️ Any changes or cancellations are communicated via your registered email (Mograsys). Activities may be affected by school events or government directives.'},
+  {kw:['football','soccer','كرة','قدم'],
+   ans:'⚽️ Football Training (PASS) is available for all grade levels, offered on Mondays. It\'s a paid activity.'},
+  {kw:['swim','swimming','pool','سباحة'],
+   ans:'🏊 Learn To Swim is available in Autumn and Spring terms for KG2–Grade 5. It\'s a free activity!'},
+];
+function matchChat(text){
+  const t=text.toLowerCase();
+  for(const q of CHAT_QA){
+    if(q.kw.some(k=>t.includes(k)))return q.ans;
+  }
+  return '🦁 I\'m not sure about that one! Try asking about registration dates, fees, timing, or specific activities. Or call us at 📞 +971 2 444 4333.';
+}
+let chatOpen=false;
+function toggleChat(){
+  chatOpen=!chatOpen;
+  document.getElementById('chat-panel').classList.toggle('open',chatOpen);
+  if(chatOpen&&document.getElementById('chat-messages').children.length===0){
+    addMsg('bot','Hi! I\'m Leo 🦁 — your AISA ASA guide. How can I help you today?');
+  }
+}
+function addMsg(role,text){
+  const wrap=document.getElementById('chat-messages');
+  const div=document.createElement('div');
+  div.className='chat-msg '+role;
+  div.textContent=text;
+  wrap.appendChild(div);
+  wrap.scrollTop=wrap.scrollHeight;
+}
+function lionTalk(){
+  const icon=document.getElementById('chat-lion-icon');
+  icon.classList.add('talking');
+  setTimeout(()=>icon.classList.remove('talking'),1200);
+}
+function sendChat(){
+  const inp=document.getElementById('chat-input');
+  const text=(inp.value||'').trim();
+  if(!text)return;
+  addMsg('user',text);
+  inp.value='';
+  // typing indicator
+  const wrap=document.getElementById('chat-messages');
+  const typing=document.createElement('div');
+  typing.className='chat-typing';typing.textContent='● ● ●';
+  wrap.appendChild(typing);wrap.scrollTop=wrap.scrollHeight;
+  lionTalk();
+  setTimeout(()=>{
+    typing.remove();
+    addMsg('bot',matchChat(text));
+    wrap.scrollTop=wrap.scrollHeight;
+  },750);
+}
+function askSug(btn){
+  document.getElementById('chat-input').value=btn.textContent.replace(/^[^\s]+\s/,'');
+  sendChat();
+}
 </script>
+
+<!-- ═══════════════════════════════════════
+     LION CHATBOT
+═══════════════════════════════════════ -->
+<button class="lion-btn no-print" id="lion-btn" onclick="toggleChat()" aria-label="Chat with Leo">
+  <div class="lion-face">🦁<div class="lion-notif">?</div></div>
+</button>
+
+<div class="chat-panel no-print" id="chat-panel" role="dialog" aria-label="Leo the Lion – ASA Assistant">
+  <div class="chat-header">
+    <div class="chat-lion-icon" id="chat-lion-icon">🦁</div>
+    <div class="chat-hdr-text">
+      <div class="chat-name" data-i18n="chat-name">Leo the Lion</div>
+      <div class="chat-sub" data-i18n="chat-sub">AISA ASA Assistant</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-suggestions" id="chat-suggestions">
+    <button class="sug-btn" onclick="askSug(this)">📝 Registration dates</button>
+    <button class="sug-btn" onclick="askSug(this)">⏰ ASA timing</button>
+    <button class="sug-btn" onclick="askSug(this)">💰 Fees</button>
+    <button class="sug-btn" onclick="askSug(this)">🚪 Pick-up</button>
+    <button class="sug-btn" onclick="askSug(this)">📞 Contact</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chat-input" type="text" placeholder="Ask me anything…" onkeydown="if(event.key==='Enter')sendChat()"/>
+    <button class="chat-send" onclick="sendChat()" data-i18n="chat-send">Send</button>
+  </div>
+</div>
 
 </body>
 </html>
