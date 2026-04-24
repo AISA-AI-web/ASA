@@ -75,6 +75,30 @@ img{max-width:100%}
 .save-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(244,121,32,.5)}
 
 /* ═══════════════════════════════════════
+   LANGUAGE TOGGLE BUTTON
+═══════════════════════════════════════ */
+.lang-btn{
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  border:1.5px solid rgba(255,255,255,.35);
+  border-radius:8px;
+  padding:6px 14px;
+  font-size:.78rem;font-weight:800;letter-spacing:.03em;
+  cursor:pointer;
+  font-family:'Nunito',sans-serif;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:background .15s,border-color .15s,transform .12s;
+  margin-right:6px;
+}
+.lang-btn:hover{
+  background:rgba(255,255,255,.22);
+  border-color:rgba(255,255,255,.6);
+  transform:translateY(-1px);
+}
+.lang-btn:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.lang-btn #lang-btn-label{font-weight:800}
+
+/* ═══════════════════════════════════════
    HERO
 ═══════════════════════════════════════ */
 .hero{
@@ -153,6 +177,60 @@ img{max-width:100%}
   transition:color .2s,border-color .2s;
 }
 .nav-tabs a:hover,.nav-tabs a.active{color:#fff;border-color:var(--orange)}
+
+/* ═══════════════════════════════════════
+   ARABIC (RTL) OVERRIDES
+═══════════════════════════════════════ */
+html[dir="rtl"] body,
+body.lang-ar{
+  font-family:'Nunito','Tajawal','Cairo','Segoe UI',sans-serif;
+}
+html[dir="rtl"] .topbar .contact{direction:rtl}
+html[dir="rtl"] .lang-btn{margin-right:0;margin-left:6px}
+html[dir="rtl"] .hero-blobs{right:auto;left:32px}
+html[dir="rtl"] .hero::before{right:auto;left:-80px}
+html[dir="rtl"] .hero::after{right:auto;left:80px}
+html[dir="rtl"] .divider{margin-right:0;margin-left:auto}
+html[dir="rtl"] .cat-card.wellness,
+html[dir="rtl"] .cat-card.academic,
+html[dir="rtl"] .cat-card.athletic,
+html[dir="rtl"] .cat-card.arts{
+  border-left:none;border-right:5px solid currentColor;
+}
+html[dir="rtl"] .cat-card.wellness{border-right-color:var(--wellness-accent)}
+html[dir="rtl"] .cat-card.academic{border-right-color:var(--academic-accent)}
+html[dir="rtl"] .cat-card.athletic{border-right-color:var(--athletic-accent)}
+html[dir="rtl"] .cat-card.arts{border-right-color:var(--arts-accent)}
+html[dir="rtl"] .cal-fact{border-left:none;border-right:4px solid var(--blue)}
+html[dir="rtl"] .cal-fact.reg{border-right-color:var(--orange)}
+html[dir="rtl"] .cal-fact.asa{border-right-color:var(--wellness-accent)}
+html[dir="rtl"] .cal-fact.break{border-right-color:#dc2626}
+html[dir="rtl"] .cat-modal-item.wellness,
+html[dir="rtl"] .cat-modal-item.academic,
+html[dir="rtl"] .cat-modal-item.athletic,
+html[dir="rtl"] .cat-modal-item.arts{
+  border-left:none;border-right:4px solid currentColor;
+}
+html[dir="rtl"] .cat-modal-item.wellness{border-right-color:var(--wellness-accent)}
+html[dir="rtl"] .cat-modal-item.academic{border-right-color:var(--academic-accent)}
+html[dir="rtl"] .cat-modal-item.athletic{border-right-color:var(--athletic-accent)}
+html[dir="rtl"] .cat-modal-item.arts{border-right-color:var(--arts-accent)}
+html[dir="rtl"] table.asa-table th,
+html[dir="rtl"] table.asa-table td{text-align:right}
+html[dir="rtl"] .faq-q::after{content:'＋'}
+html[dir="rtl"] .dir-info-btn{right:auto;left:12px}
+html[dir="rtl"] .dir-card .dc-name{padding-right:0;padding-left:40px}
+html[dir="rtl"] .act-goals-list{padding-left:0;padding-right:18px}
+html[dir="rtl"] .act-close{right:auto;left:16px}
+html[dir="rtl"] .cat-close{right:auto;left:16px}
+html[dir="rtl"] .chatbot-launcher{right:auto;left:24px}
+html[dir="rtl"] .chatbot-panel{right:auto;left:24px}
+html[dir="rtl"] .chatbot-msg.bot{align-self:flex-end;border-bottom-left-radius:14px;border-bottom-right-radius:4px}
+html[dir="rtl"] .chatbot-msg.user{align-self:flex-start;border-bottom-right-radius:14px;border-bottom-left-radius:4px}
+html[dir="rtl"] .step-num{margin-right:0}
+html[dir="rtl"] .next-reg-banner{direction:rtl}
+html[dir="rtl"] .hero-pills,
+html[dir="rtl"] .pill{direction:rtl}
 
 /* ═══════════════════════════════════════
    SECTION WRAPPER
@@ -633,6 +711,66 @@ footer strong{color:#fff}
 }
 .chatbot-input-row button:hover{background:var(--navy)}
 @media print{.chatbot-launcher,.chatbot-panel{display:none!important}}
+
+/* ═══════════════════════════════════════
+   ANIMATED LION (chatbot avatar)
+═══════════════════════════════════════ */
+.chatbot-launcher.lion-launcher{
+  background:linear-gradient(135deg,#F5C842 0%,#D4920A 60%,#8B4513 100%);
+  box-shadow:0 8px 24px rgba(139,69,19,.45),0 2px 6px rgba(0,0,0,.15);
+  padding:0;overflow:visible;
+  width:68px;height:68px;
+  animation:lion-float 3.2s ease-in-out infinite;
+}
+.chatbot-launcher.lion-launcher:hover{
+  transform:translateY(-3px) scale(1.08);
+  box-shadow:0 14px 32px rgba(139,69,19,.55);
+}
+.chatbot-launcher.lion-launcher:hover .lion-face{
+  animation:lion-wiggle .6s ease-in-out;
+}
+.lion-face{
+  width:100%;height:100%;display:block;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,.15));
+}
+.lion-face .lion-mouth-closed,
+.lion-face .lion-mouth-open{
+  transition:opacity .08s linear;
+}
+.lion-face.talking{
+  animation:lion-head-nod .32s ease-in-out infinite alternate;
+}
+
+/* Idle breath + subtle mane shimmer */
+@keyframes lion-float{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%    {transform:translateY(-4px) rotate(-1.5deg)}
+}
+@keyframes lion-wiggle{
+  0%,100%{transform:rotate(0deg)}
+  25%    {transform:rotate(-6deg)}
+  75%    {transform:rotate(6deg)}
+}
+@keyframes lion-head-nod{
+  from{transform:translateY(0)}
+  to  {transform:translateY(1.5px) rotate(1deg)}
+}
+
+/* Lion in the panel header (small) */
+.chatbot-title-lion{
+  display:inline-flex;width:34px;height:34px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#F5C842,#D4920A);
+  padding:2px;flex-shrink:0;
+  box-shadow:0 2px 6px rgba(0,0,0,.2);
+}
+.chatbot-title-lion .lion-face{width:100%;height:100%}
+.chatbot-head .chatbot-title{gap:10px}
+
+/* Ensure dot stays visible on top of the SVG launcher */
+.chatbot-launcher .chatbot-dot{z-index:2}
+
+@media print{.lion-face{display:none}}
 
 /* ═══════════════════════════════════════
    DIRECTORY INFO BUTTON (categories ref)

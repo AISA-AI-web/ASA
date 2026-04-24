@@ -78,6 +78,129 @@ const TRANSLATIONS = {
     chatbot_reply:       'Thanks! A staff member will follow up via email. For urgent questions, call +971 2 444 4333.',
     /* next-reg banner */
     nrb_label: 'Next Registration Period',
+
+    /* ── index.html ── */
+    hero_badge_index:   '2026 – 2027 Academic Year',
+    hero_h1_index:      'After School<br/><span>Activities</span>',
+    hero_sub_index:     'American International School Abu Dhabi — expanding learning through passion, creativity, and movement.',
+    pill_wellness:      '🌿 Reflective & Wellness',
+    pill_academic:      '📚 Academics & Enrichment',
+    pill_athletic:      '⚽️ Athletics & Movement',
+    pill_arts:          '🎨 Arts & Creativity',
+    welcome_badge:      'Welcome',
+    welcome_h2:         'Welcome to AISA<br/><span>After School Activities</span>',
+    welcome_p1:         'At the American International School Abu Dhabi, learning does not end when the school day finishes — it expands, deepens, and comes alive through our After School Activities (ASA) program.',
+    welcome_p2:         'Our ASAs are a natural extension of our mission: <strong>Developing resilient learners and compassionate leaders for a dynamic world.</strong>',
+    welcome_p3:         'Each activity — whether athletic, creative, academic, or reflective — is intentionally designed to provide students with opportunities to explore their passions, challenge themselves, and grow as individuals within a supportive community.',
+    card_lion_title:    'The AISA Lion Way',
+    card_lion_desc:     'Be Responsible. Be Safe. Be Respectful. Be Kind.',
+    card_learn_title:   'Learning Beyond the Classroom',
+    card_learn_desc:    'Academic growth, creative expression, physical development & well-being.',
+    card_comm_title:    'A Community of Belonging',
+    card_comm_desc:     'Students build friendships, develop empathy & strengthen their sense of belonging.',
+    card_globe_title:   'Growing Global Citizens',
+    card_globe_desc:    'Collaboration, leadership & intercultural understanding prepare students for the world.',
+    staff_heading:      'Athletics & Activities Leadership',
+    cat_h2:             'Categories of <span>ASAs</span>',
+    cat_sub:            'Four categories cover the breadth of the ASA program. Every activity in the directory belongs to one of these.',
+    cat_wellness_name:  'Reflective & Wellness',
+    cat_wellness_desc:  'Nurturing balance, mindfulness, and well-being through activities that support a healthy body and mind.',
+    cat_wellness_eg:    'Examples: Sustainability Club, Greenhouse Care, Quran Club, Peace Leaders',
+    cat_academic_name:  'Academics & Enrichment',
+    cat_academic_desc:  'Extending learning beyond the classroom by building knowledge, curiosity, and critical thinking skills.',
+    cat_academic_eg:    'Examples: STEM Club, Number Ninjas, Robotics & Coding, IB English Study Hall',
+    cat_athletic_name:  'Athletics & Movement',
+    cat_athletic_desc:  'Promoting physical fitness, teamwork, and resilience through active and engaging movement experiences.',
+    cat_athletic_eg:    'Examples: PASS Football, Zumba, Learn To Swim, CUBS Sports',
+    cat_arts_name:      'Arts & Creativity',
+    cat_arts_desc:      'Inspiring imagination and self-expression through artistic exploration, design, and creative thinking.',
+    cat_arts_eg:        'Examples: Creative Writing, DIY Club, Ballet, Guitar Lessons',
+
+    /* ── about-asas.html ── */
+    hero_badge_about:   'About the ASA Program',
+    hero_h1_about:      'Registration <span>& Calendar</span>',
+    hero_sub_about:     'Everything you need to know about the step-by-step registration process and the full yearly ASA calendar.',
+    proc_h2:            'Registration <span>Process</span>',
+    proc_sub:           'Follow the steps below to register your child for an ASA. Times differ slightly between Elementary and Secondary programs.',
+    elem_heading:       '🏫 Elementary Process',
+    sec_heading:        '🏫 Secondary Process',
+    step1_title:        'End of School Day',     step1_desc:  'School finishes at 14:50.',
+    step2_title:        'ASA Meet-Up',
+    step2_elem_desc:    'Students with an ASA meet their instructor on the Lower Basketball Court.',
+    step2_sec_desc:     'Secondary students head to their assigned ASA location (HS Library, Homeroom, Greenhouse, Soccer Field, etc.)',
+    step3_title:        'Attendance',            step3_desc:  'Attendance completed on Mograsys by ASA Instructor.',
+    step4_title:        'ASA Timing',            step4_desc:  '15:00–16:00 — Students will be in their ASAs!',
+    step5_title:        'Dismissal & Pick-Up',   step5_desc:  'Dismissed at 16:00 from their ASA. Pick-up at Gate 4. Please be prompt!',
+    warning_schedule:   'Please note that all schedules are subject to change based on decisions made by the UAE Government, ADEK (Abu Dhabi Department of Education and Knowledge), and the School Administration.',
+    cal_h2:             '📅 Yearly <span>Calendar</span>',
+    cal_sub:            'All ASA terms and registration windows for the 2026–2027 academic year. The next registration period is highlighted in orange.',
+
+    /* ── terms.html ── */
+    hero_badge_terms:   'Term Specifics',
+    hero_h1_terms:      'Current <span>Term</span>',
+    hero_sub_terms:     'The calendar for this term, followed by the full list of activities available during this timeframe.',
+    term_cal_h2:        '📅 Current Term <span>Calendar</span>',
+    term_cal_sub:       'The active term\'s calendar with registration window, active ASA weeks, and school breaks highlighted.',
+    term_sched_h2:      '📋 Current Term <span>Schedule</span>',
+    term_sched_sub:     'Click any row to open the full activity details.',
+
+    /* ── directory.html ── */
+    hero_badge_dir:     'ASA Directory',
+    hero_h1_dir:        'Activity <span>Directory</span>',
+    hero_sub_dir:       'Every ASA, searchable and filterable. Tap the <strong>ⓘ</strong> button on any card to view the ASA Categories reference.',
+    dir_h2:             '📋 Activity <span>Directory</span>',
+    dir_sub:            'Detailed descriptions for each ASA. Use the search and filter buttons to find the perfect activity, or tap ⓘ on any card to see the ASA Categories reference.',
+    dir_search:         '🔍 Search activities…',
+    filter_all:         'All',
+    filter_wellness:    '🌿 Wellness',
+    filter_academic:    '📚 Academic',
+    filter_athletic:    '⚽ Athletic',
+    filter_arts:        '🎨 Arts',
+
+    /* ── faqs.html ── */
+    hero_badge_faqs:    'Themed Support',
+    hero_h1_faqs:       'Frequently Asked <span>Questions</span>',
+    hero_sub_faqs:      'Answers organised by theme — Payments, Transportation, Scheduling, Requirements, Communication, and Safety.',
+    faq_h2:             '❓ FAQs by <span>Theme</span>',
+    faq_sub:            'Tap any question to reveal the answer. Still need help? Reach us at <a href="mailto:attendance@aisa.sch.ae" style="color:var(--blue);font-weight:700">attendance@aisa.sch.ae</a>.',
+    faq_pay_title:      'Payments & Fees',
+    faq_pay_sub:        'Costs, free activities, and material fees.',
+    faq_pay_q1:         'Are there fees involved when joining an activity?',
+    faq_pay_a1:         'Some activities require full payment upon registration. Certain activities may collect a partial fee to cover materials. A range of free activities is also available; however, registration is still required. Detailed instructions will be shared in the Welcome Letter from the activity coordinator.',
+    faq_trans_title:    'Transportation & Pick-Up',
+    faq_trans_sub:      'Off-campus activities and end-of-session pick-up.',
+    faq_trans_q1:       'Is transportation provided for off-campus activities?',
+    faq_trans_a1:       'Transportation is available for selected off-campus activities (e.g., bowling, equestrian club, Cubs sports). Parents/guardians are kindly asked to collect their children from AISA campus after the activity.',
+    faq_sched_title:    'Scheduling & Duration',
+    faq_sched_sub:      'Registration, session length, and cancellations.',
+    faq_sched_q1:       'How can my child join an activity?',
+    faq_sched_a1:       'Please scan the QR code provided or follow the link shared via email. You may select activities based on your child\'s grade-level offerings.',
+    faq_sched_q2:       'How long does an activity run?',
+    faq_sched_a2:       'Most activities are scheduled to last for approximately 8 weeks. Any changes will be communicated in advance through email.',
+    faq_sched_q3:       'What happens if activities are canceled or postponed?',
+    faq_sched_a3:       'Any changes or cancellations will be communicated to your registered email address as early as possible. Adjustments may occur due to operational needs or external factors.',
+    faq_req_title:      'Requirements & Preparation',
+    faq_req_sub:        'What to bring and what parents should do.',
+    faq_req_q1:         'What should my child bring or prepare for each session?',
+    faq_req_a1:         'Any specific requirements will be shared ahead of time by the activity coordinator via email to ensure students are well-prepared.',
+    faq_req_q2:         'What are the expectations for parents and guardians?',
+    faq_req_a2:         'Parents and guardians are kindly requested to:<br/>• Notify the activity coordinator in advance if their child will be absent.<br/>• Ensure timely collection of their child at the conclusion of each session (typically one hour after school dismissal).<br/>• Prepare any necessary requirements prior to their child\'s participation.',
+    faq_comm_title:     'Communication & Updates',
+    faq_comm_sub:       'How we notify you and how to raise concerns.',
+    faq_comm_q1:        'What should I do if my child cannot attend a session?',
+    faq_comm_a1:        'Notify the school and your child\'s teacher via email or by calling the school.<br/><br/>📧 Elementary: <a href="mailto:attendance@aisa.sch.ae">attendance@aisa.sch.ae</a><br/>📧 Secondary: <a href="mailto:secondaryattendance@aisa.sch.ae">secondaryattendance@aisa.sch.ae</a><br/>📞 <a href="tel:+97124444333">+971 2 4444 333</a> (Elementary and Secondary)',
+    faq_comm_q2:        'How will I receive updates about schedules and events?',
+    faq_comm_a2:        'Updates and any changes will be shared via email through Mograsys by the staff leading the activity.',
+    faq_comm_q3:        'Will I be notified about my child\'s attendance?',
+    faq_comm_a3:        'Yes, you will receive email notifications confirming whether your child has attended or missed a session.',
+    faq_comm_q4:        'What is the process for raising concerns or providing feedback?',
+    faq_comm_a4:        'We prioritize open communication and invite parents to share any concerns or feedback through our official school email channels. Please direct your concerns or feedback to the Athletics and Activities department.',
+    faq_safe_title:     'Safety & Well-Being',
+    faq_safe_sub:       'Supervision, vetting, and student benefits.',
+    faq_safe_q1:        'How are student safety and well-being ensured?',
+    faq_safe_a1:        'AISA has implemented the following measures:<br/>• A maximum ratio of 15 students per supervising adult<br/>• All activity personnel are thoroughly vetted and approved as per ADEK requirements<br/>• Staff members are trained in health and safety protocols<br/>• On-site school nurses are available to provide support<br/>• Upon successful allocation, parents must provide acknowledgment of consent prior to a student participating.',
+    faq_safe_q2:        'How does participation benefit my child?',
+    faq_safe_a2:        'Participation in activities supports students in developing confidence, teamwork, and a strong sense of responsibility. It also encourages positive social interaction, builds resilience, and helps students discover and grow their individual interests in a supportive environment.',
   },
   ar: {
     /* nav */
@@ -100,6 +223,135 @@ const TRANSLATIONS = {
     chatbot_reply:       'شكراً! سيتابع معك أحد أعضاء الفريق عبر البريد الإلكتروني. للاستفسارات العاجلة اتصل على: 4333 444 2 971+.',
     /* next-reg banner */
     nrb_label: 'فترة التسجيل التالية',
+
+    /* ── index.html ── */
+    hero_badge_index:   'العام الدراسي 2026 – 2027',
+    hero_h1_index:      'الأنشطة<br/><span>بعد المدرسة</span>',
+    hero_sub_index:     'المدرسة الدولية الأمريكية أبوظبي — توسيع آفاق التعلم من خلال الشغف والإبداع والحركة.',
+    pill_wellness:      '🌿 الانعكاس والصحة',
+    pill_academic:      '📚 الدراسة والإثراء',
+    pill_athletic:      '⚽️ الرياضة والحركة',
+    pill_arts:          '🎨 الفنون والإبداع',
+    welcome_badge:      'مرحباً',
+    welcome_h2:         'مرحباً بكم في أيسا<br/><span>الأنشطة بعد المدرسة</span>',
+    welcome_p1:         'في المدرسة الدولية الأمريكية أبوظبي، لا ينتهي التعلم مع انتهاء يوم الدراسة — بل يتوسع ويتعمق وينبض بالحياة من خلال برنامج الأنشطة بعد المدرسة.',
+    welcome_p2:         'تُمثّل أنشطتنا امتداداً طبيعياً لرسالتنا: <strong>تنمية متعلمين مرنين وقادة متعاطفين لعالم ديناميكي.</strong>',
+    welcome_p3:         'كل نشاط — سواء كان رياضياً أو إبداعياً أو أكاديمياً أو تأملياً — مُصمَّم بشكل مقصود لمنح الطلاب فرصاً لاستكشاف شغفهم وتحدي أنفسهم والنمو كأفراد ضمن مجتمع داعم.',
+    card_lion_title:    'طريقة أسد أيسا',
+    card_lion_desc:     'كن مسؤولاً. كن آمناً. كن محترماً. كن لطيفاً.',
+    card_learn_title:   'التعلم خارج الفصل الدراسي',
+    card_learn_desc:    'النمو الأكاديمي والتعبير الإبداعي والتطور البدني والرفاهية.',
+    card_comm_title:    'مجتمع الانتماء',
+    card_comm_desc:     'يبني الطلاب الصداقات ويطوّرون التعاطف ويُعزّزون إحساسهم بالانتماء.',
+    card_globe_title:   'تنشئة مواطنين عالميين',
+    card_globe_desc:    'التعاون والقيادة والتفاهم بين الثقافات تُعدّ الطلاب لعالم متغير.',
+    staff_heading:      'قيادة قسم الرياضة والأنشطة',
+    cat_h2:             'فئات <span>الأنشطة</span>',
+    cat_sub:            'تغطي أربع فئات نطاق برنامج الأنشطة. كل نشاط في الدليل ينتمي إلى إحداها.',
+    cat_wellness_name:  'الانعكاس والصحة',
+    cat_wellness_desc:  'تعزيز التوازن واليقظة الذهنية والرفاهية من خلال أنشطة تدعم الجسم والعقل.',
+    cat_wellness_eg:    'أمثلة: نادي الاستدامة، رعاية البيت الزجاجي، نادي القرآن، قادة السلام',
+    cat_academic_name:  'الدراسة والإثراء',
+    cat_academic_desc:  'توسيع التعلم خارج الفصل الدراسي من خلال بناء المعرفة والفضول ومهارات التفكير النقدي.',
+    cat_academic_eg:    'أمثلة: نادي العلوم والتقنية، عباقرة الأرقام، الروبوتات والبرمجة، قاعة دراسة اللغة الإنجليزية IB',
+    cat_athletic_name:  'الرياضة والحركة',
+    cat_athletic_desc:  'تعزيز اللياقة البدنية والعمل الجماعي والمرونة من خلال تجارب حركية نشطة وجذابة.',
+    cat_athletic_eg:    'أمثلة: كرة قدم PASS، الزومبا، تعلم السباحة، رياضة CUBS',
+    cat_arts_name:      'الفنون والإبداع',
+    cat_arts_desc:      'إلهام الخيال والتعبير الذاتي من خلال الاستكشاف الفني والتصميم والتفكير الإبداعي.',
+    cat_arts_eg:        'أمثلة: الكتابة الإبداعية، نادي اصنع بنفسك، الباليه، دروس الغيتار',
+
+    /* ── about-asas.html ── */
+    hero_badge_about:   'حول برنامج الأنشطة',
+    hero_h1_about:      'التسجيل <span>والتقويم</span>',
+    hero_sub_about:     'كل ما تحتاج معرفته حول عملية التسجيل خطوة بخطوة والتقويم السنوي الكامل لبرنامج الأنشطة.',
+    proc_h2:            'عملية <span>التسجيل</span>',
+    proc_sub:           'اتبع الخطوات التالية لتسجيل طفلك في أحد الأنشطة. تختلف الأوقات قليلاً بين برنامجَي الابتدائية والثانوية.',
+    elem_heading:       '🏫 مراحل الابتدائية',
+    sec_heading:        '🏫 مراحل الثانوية',
+    step1_title:        'نهاية يوم الدراسة',             step1_desc:  'تنتهي الدراسة في الساعة 14:50.',
+    step2_title:        'نقطة التجمع',
+    step2_elem_desc:    'يلتقي الطلاب المسجّلون في نشاط ما بمدرّبهم في ملعب كرة السلة السفلي.',
+    step2_sec_desc:     'يتوجّه طلاب الثانوية إلى موقع النشاط المخصَّص لهم (مكتبة الثانوية، الفصل، البيت الزجاجي، ملعب كرة القدم، إلخ).',
+    step3_title:        'تسجيل الحضور',                  step3_desc:  'يُسجِّل مدرِّب النشاط الحضور عبر نظام Mograsys.',
+    step4_title:        'توقيت النشاط',                  step4_desc:  '15:00–16:00 — يكون الطلاب منخرطين في أنشطتهم!',
+    step5_title:        'الانصراف والاستقبال',           step5_desc:  'الانصراف في الساعة 16:00 من موقع النشاط. الاستقبال عند البوابة 4. يُرجى الحضور في الوقت المحدد!',
+    warning_schedule:   'يُرجى ملاحظة أن جميع الجداول قابلة للتغيير بناءً على قرارات حكومة الإمارات العربية المتحدة ودائرة التعليم والمعرفة في أبوظبي (أدك) وإدارة المدرسة.',
+    cal_h2:             '📅 التقويم <span>السنوي</span>',
+    cal_sub:            'جميع فصول الأنشطة ونوافذ التسجيل للعام الدراسي 2026–2027. فترة التسجيل التالية مُبرَزة باللون البرتقالي.',
+
+    /* ── terms.html ── */
+    hero_badge_terms:   'تفاصيل الفصل',
+    hero_h1_terms:      'الفصل <span>الحالي</span>',
+    hero_sub_terms:     'تقويم هذا الفصل، يليه القائمة الكاملة للأنشطة المتاحة خلال هذه الفترة.',
+    term_cal_h2:        '📅 تقويم <span>الفصل الحالي</span>',
+    term_cal_sub:       'تقويم الفصل النشط مع نافذة التسجيل وأسابيع الأنشطة النشطة والعطلات المدرسية مُبرَزة.',
+    term_sched_h2:      '📋 جدول <span>الفصل الحالي</span>',
+    term_sched_sub:     'انقر على أي صف لفتح تفاصيل النشاط الكاملة.',
+
+    /* ── directory.html ── */
+    hero_badge_dir:     'دليل الأنشطة',
+    hero_h1_dir:        'دليل <span>الأنشطة</span>',
+    hero_sub_dir:       'كل الأنشطة قابلة للبحث والتصفية. اضغط زر <strong>ⓘ</strong> على أي بطاقة لعرض مرجع فئات الأنشطة.',
+    dir_h2:             '📋 دليل <span>الأنشطة</span>',
+    dir_sub:            'أوصاف مُفصَّلة لكل نشاط. استخدم أزرار البحث والتصفية للعثور على النشاط المناسب، أو اضغط ⓘ على أي بطاقة لعرض مرجع فئات الأنشطة.',
+    dir_search:         '🔍 ابحث عن نشاط…',
+    filter_all:         'الكل',
+    filter_wellness:    '🌿 الصحة',
+    filter_academic:    '📚 الدراسة',
+    filter_athletic:    '⚽ الرياضة',
+    filter_arts:        '🎨 الفنون',
+
+    /* ── faqs.html ── */
+    hero_badge_faqs:    'دعم منظَّم حسب الموضوع',
+    hero_h1_faqs:       'الأسئلة <span>الشائعة</span>',
+    hero_sub_faqs:      'إجابات مُنظَّمة حسب المواضيع — المدفوعات والمواصلات والجداول والمتطلبات والتواصل والسلامة.',
+    faq_h2:             '❓ الأسئلة الشائعة حسب <span>الموضوع</span>',
+    faq_sub:            'اضغط على أي سؤال لعرض الإجابة. لا تزال بحاجة إلى مساعدة؟ تواصل معنا على <a href="mailto:attendance@aisa.sch.ae" style="color:var(--blue);font-weight:700">attendance@aisa.sch.ae</a>.',
+
+    faq_pay_title:      'المدفوعات والرسوم',
+    faq_pay_sub:        'التكاليف والأنشطة المجانية ورسوم المواد.',
+    faq_pay_q1:         'هل هناك رسوم للانضمام إلى نشاط؟',
+    faq_pay_a1:         'تتطلب بعض الأنشطة دفعاً كاملاً عند التسجيل. وقد تتطلب أنشطة معينة رسوماً جزئية لتغطية المواد. كما تتوفر مجموعة من الأنشطة المجانية؛ غير أنه لا يزال من الضروري التسجيل فيها. وستُشارَك التعليمات التفصيلية في رسالة الترحيب من منسِّق النشاط.',
+
+    faq_trans_title:    'المواصلات والاستقبال',
+    faq_trans_sub:      'الأنشطة خارج الحرم المدرسي والاستقبال بعد انتهاء النشاط.',
+    faq_trans_q1:       'هل تتوفر المواصلات للأنشطة خارج الحرم المدرسي؟',
+    faq_trans_a1:       'المواصلات متوفرة لأنشطة مُختارة خارج الحرم المدرسي (مثل البولينغ ونادي الفروسية ورياضة Cubs). يُرجى من أولياء الأمور/الأوصياء اصطحاب أبنائهم من حرم أيسا بعد انتهاء النشاط.',
+
+    faq_sched_title:    'الجدولة والمدة',
+    faq_sched_sub:      'التسجيل ومدة الجلسة وحالات الإلغاء.',
+    faq_sched_q1:       'كيف يمكن لطفلي الانضمام إلى نشاط؟',
+    faq_sched_a1:       'يُرجى مسح رمز QR المُقدَّم أو اتباع الرابط المُشارَك عبر البريد الإلكتروني. يمكنك اختيار الأنشطة بناءً على العروض المتاحة للصف الدراسي لطفلك.',
+    faq_sched_q2:       'ما مدة النشاط؟',
+    faq_sched_a2:       'تستمر معظم الأنشطة لمدة 8 أسابيع تقريباً. وسيتم إبلاغكم بأي تغييرات مسبقاً عبر البريد الإلكتروني.',
+    faq_sched_q3:       'ماذا يحدث إذا تم إلغاء الأنشطة أو تأجيلها؟',
+    faq_sched_a3:       'سيتم إبلاغكم بأي تغييرات أو إلغاءات عبر عنوان بريدكم الإلكتروني المُسجَّل في أقرب وقت ممكن. قد تحدث تعديلات بسبب الاحتياجات التشغيلية أو العوامل الخارجية.',
+
+    faq_req_title:      'المتطلبات والاستعداد',
+    faq_req_sub:        'ما يجب إحضاره وما يجب على الوالدين القيام به.',
+    faq_req_q1:         'ماذا يجب أن يُحضِر طفلي أو يُحضِّر لكل جلسة؟',
+    faq_req_a1:         'سيتم مشاركة أي متطلبات محددة مسبقاً من قِبل منسِّق النشاط عبر البريد الإلكتروني لضمان استعداد الطلاب جيداً.',
+    faq_req_q2:         'ما هي التوقعات من أولياء الأمور والأوصياء؟',
+    faq_req_a2:         'يُرجى من أولياء الأمور والأوصياء التكرم بما يلي:<br/>• إبلاغ منسِّق النشاط مسبقاً في حال غياب طفلهم.<br/>• ضمان استقبال طفلهم في الوقت المحدد عند انتهاء كل جلسة (عادةً بعد ساعة من انصراف المدرسة).<br/>• إعداد أي متطلبات ضرورية قبل مشاركة طفلهم.',
+
+    faq_comm_title:     'التواصل والتحديثات',
+    faq_comm_sub:       'كيف نُبلغكم وكيفية إبداء الملاحظات.',
+    faq_comm_q1:        'ماذا أفعل إذا لم يتمكن طفلي من حضور جلسة؟',
+    faq_comm_a1:        'يُرجى إبلاغ المدرسة ومُعلِّم طفلك عبر البريد الإلكتروني أو بالاتصال بالمدرسة.<br/><br/>📧 الابتدائية: <a href="mailto:attendance@aisa.sch.ae">attendance@aisa.sch.ae</a><br/>📧 الثانوية: <a href="mailto:secondaryattendance@aisa.sch.ae">secondaryattendance@aisa.sch.ae</a><br/>📞 <a href="tel:+97124444333">+971 2 4444 333</a> (الابتدائية والثانوية)',
+    faq_comm_q2:        'كيف سأتلقى التحديثات حول الجداول والفعاليات؟',
+    faq_comm_a2:        'ستتم مشاركة التحديثات وأي تغييرات عبر البريد الإلكتروني من خلال نظام Mograsys بواسطة الفريق الذي يقود النشاط.',
+    faq_comm_q3:        'هل سأُخطَر بحضور طفلي؟',
+    faq_comm_a3:        'نعم، ستصلك إشعارات بالبريد الإلكتروني تؤكد ما إذا حضر طفلك الجلسة أم غاب عنها.',
+    faq_comm_q4:        'ما إجراءات إبداء المخاوف أو تقديم الملاحظات؟',
+    faq_comm_a4:        'نحرص على التواصل المفتوح وندعو الآباء لمشاركة أي مخاوف أو ملاحظات عبر قنوات البريد الإلكتروني الرسمية للمدرسة. يُرجى توجيه المخاوف أو الملاحظات إلى قسم الرياضة والأنشطة.',
+
+    faq_safe_title:     'السلامة والرفاهية',
+    faq_safe_sub:       'الإشراف والتحقق ومنافع الطلاب.',
+    faq_safe_q1:        'كيف يتم ضمان سلامة الطلاب ورفاهيتهم؟',
+    faq_safe_a1:        'نفّذت أيسا التدابير التالية:<br/>• نسبة قصوى 15 طالباً لكل بالغ مُشرف<br/>• تم التحقق من جميع موظفي الأنشطة واعتمادهم وفقاً لمتطلبات دائرة التعليم والمعرفة (أدك)<br/>• تم تدريب الموظفين على بروتوكولات الصحة والسلامة<br/>• يتوفر ممرضو مدرسة في الموقع لتقديم الدعم<br/>• عند التخصيص الناجح، يجب على الآباء تقديم إقرار الموافقة قبل مشاركة الطالب.',
+    faq_safe_q2:        'كيف تفيد المشاركة طفلي؟',
+    faq_safe_a2:        'تدعم المشاركة في الأنشطة الطلاب في تطوير الثقة والعمل الجماعي وحس المسؤولية القوي. كما تُشجِّع التفاعل الاجتماعي الإيجابي وتبني المرونة وتساعد الطلاب على اكتشاف وتنمية اهتماماتهم الفردية في بيئة داعمة.',
   }
 };
 
@@ -244,6 +496,51 @@ function renderSeasonCalendars(filterIds){
         </div>
       </div>`;
   }).join('');
+}
+
+/* ── Language (i18n) ── */
+let currentLang = 'en';
+
+function applyTranslations(lang){
+  const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.getAttribute('data-i18n');
+    if(dict[key] != null) el.textContent = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-html');
+    if(dict[key] != null) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-placeholder');
+    if(dict[key] != null) el.setAttribute('placeholder', dict[key]);
+  });
+  document.querySelectorAll('[data-i18n-aria-label]').forEach(el=>{
+    const key = el.getAttribute('data-i18n-aria-label');
+    if(dict[key] != null) el.setAttribute('aria-label', dict[key]);
+  });
+}
+
+function setLanguage(lang){
+  if(!TRANSLATIONS[lang]) lang = 'en';
+  currentLang = lang;
+  const html = document.documentElement;
+  html.setAttribute('lang', lang);
+  html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  document.body.classList.toggle('lang-ar', lang === 'ar');
+  applyTranslations(lang);
+  try{ localStorage.setItem('asa_lang', lang); }catch(_e){}
+  // Update toggle button label
+  const btn = document.getElementById('lang-toggle');
+  if(btn){
+    const dict = TRANSLATIONS[lang];
+    if(dict && dict.lang_btn) btn.textContent = dict.lang_btn;
+  }
+  // Refresh chatbot dynamic content if it exists
+  const greeting = document.querySelector('#chatbot-body .chatbot-msg.bot.greeting');
+  if(greeting && TRANSLATIONS[lang].chatbot_greeting){
+    greeting.textContent = TRANSLATIONS[lang].chatbot_greeting;
+  }
 }
 
 /* ── FAQ accordion ── */
@@ -428,28 +725,125 @@ function initActivePageNav(){
   });
 }
 
-/* ── AI Chatbot widget (placeholder) ── */
+/* ── Language toggle button (auto-injected into every topbar) ── */
+function initLanguageToggle(){
+  // Read saved preference
+  let saved = 'en';
+  try{ saved = localStorage.getItem('asa_lang') || 'en'; }catch(_e){}
+
+  // Inject the toggle button if a topbar exists and it's not already there
+  const topbar = document.querySelector('.topbar');
+  if(topbar && !document.getElementById('lang-toggle')){
+    const btn = document.createElement('button');
+    btn.id = 'lang-toggle';
+    btn.className = 'lang-btn no-print';
+    btn.type = 'button';
+    btn.setAttribute('aria-label','Change language');
+    btn.innerHTML = '🌐 <span id="lang-btn-label">العربية</span>';
+    // Place it just before the save-btn if present, else append
+    const saveBtn = topbar.querySelector('.save-btn');
+    if(saveBtn) topbar.insertBefore(btn, saveBtn);
+    else topbar.appendChild(btn);
+    btn.addEventListener('click', ()=>{
+      setLanguage(currentLang === 'ar' ? 'en' : 'ar');
+    });
+  }
+
+  // Apply saved language on load
+  setLanguage(saved);
+}
+
+/* ── Animated Lion Chatbot ── */
+const LION_SVG = `
+<svg class="lion-face" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Mane (layered tufts for a fluffy look) -->
+  <g class="lion-mane">
+    <circle cx="50" cy="52" r="46" fill="#8B4513"/>
+    <circle cx="50" cy="52" r="42" fill="#B8651A"/>
+    <g fill="#A0531C">
+      <circle cx="18" cy="36" r="9"/><circle cx="82" cy="36" r="9"/>
+      <circle cx="14" cy="56" r="9"/><circle cx="86" cy="56" r="9"/>
+      <circle cx="22" cy="76" r="9"/><circle cx="78" cy="76" r="9"/>
+      <circle cx="50" cy="12" r="8"/><circle cx="50" cy="92" r="8"/>
+      <circle cx="32" cy="18" r="8"/><circle cx="68" cy="18" r="8"/>
+      <circle cx="30" cy="86" r="8"/><circle cx="70" cy="86" r="8"/>
+    </g>
+  </g>
+  <!-- Ears -->
+  <g class="lion-ears">
+    <polygon points="22,22 34,40 12,38" fill="#B8651A"/>
+    <polygon points="78,22 66,40 88,38" fill="#B8651A"/>
+    <polygon points="23,26 31,38 17,36" fill="#F5C88A"/>
+    <polygon points="77,26 69,38 83,36" fill="#F5C88A"/>
+  </g>
+  <!-- Head/face -->
+  <circle cx="50" cy="52" r="32" fill="#F5C842"/>
+  <ellipse cx="50" cy="44" rx="24" ry="18" fill="#FFD96A"/>
+  <!-- Cheeks -->
+  <ellipse cx="28" cy="62" rx="7" ry="5" fill="rgba(240,100,100,.28)"/>
+  <ellipse cx="72" cy="62" rx="7" ry="5" fill="rgba(240,100,100,.28)"/>
+  <!-- Eyes -->
+  <g class="lion-eyes">
+    <ellipse cx="38" cy="48" rx="6" ry="6.5" fill="#fff"/>
+    <ellipse cx="62" cy="48" rx="6" ry="6.5" fill="#fff"/>
+    <circle cx="39" cy="49" r="4" fill="#3D2010"/>
+    <circle cx="63" cy="49" r="4" fill="#3D2010"/>
+    <circle cx="40.5" cy="47" r="1.5" fill="#fff"/>
+    <circle cx="64.5" cy="47" r="1.5" fill="#fff"/>
+  </g>
+  <!-- Brows -->
+  <path d="M 31 40 Q 38 36 45 40" stroke="#5A3410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M 55 40 Q 62 36 69 40" stroke="#5A3410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Nose -->
+  <path d="M 46 58 Q 50 63 54 58 Q 50 60 46 58 Z" fill="#5A3410"/>
+  <ellipse cx="50" cy="57" rx="4.5" ry="3" fill="#8B4513"/>
+  <!-- Nose-to-mouth line -->
+  <line x1="50" y1="60" x2="50" y2="65" stroke="#5A3410" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Mouth: closed (smile) -->
+  <path class="lion-mouth-closed" d="M 40 66 Q 45 72 50 68 Q 55 72 60 66" stroke="#5A3410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Mouth: open (talking) -->
+  <g class="lion-mouth-open" opacity="0">
+    <path d="M 40 65 Q 50 82 60 65 Q 50 72 40 65 Z" fill="#3D1010"/>
+    <ellipse cx="50" cy="73" rx="5" ry="4" fill="#D4425A"/>
+    <rect x="44" y="65" width="4" height="5" rx="1" fill="#fff"/>
+    <rect x="52" y="65" width="4" height="5" rx="1" fill="#fff"/>
+  </g>
+  <!-- Whiskers -->
+  <g class="lion-whiskers" stroke="#8B4513" stroke-width="1.2" stroke-linecap="round" fill="none">
+    <line x1="6"  y1="58" x2="30" y2="60"/>
+    <line x1="4"  y1="64" x2="28" y2="64"/>
+    <line x1="6"  y1="70" x2="30" y2="68"/>
+    <line x1="94" y1="58" x2="70" y2="60"/>
+    <line x1="96" y1="64" x2="72" y2="64"/>
+    <line x1="94" y1="70" x2="70" y2="68"/>
+  </g>
+</svg>`;
+
 function initChatbot(){
   if(document.getElementById('chatbot-launcher'))return;
   const launcher=document.createElement('button');
   launcher.id='chatbot-launcher';
-  launcher.className='chatbot-launcher no-print';
+  launcher.className='chatbot-launcher lion-launcher no-print';
   launcher.setAttribute('aria-label','Open AI assistant');
-  launcher.innerHTML='💬<span class="chatbot-dot"></span>';
+  launcher.setAttribute('data-i18n-aria-label','chatbot_title');
+  launcher.innerHTML = LION_SVG + '<span class="chatbot-dot"></span>';
 
   const panel=document.createElement('div');
   panel.id='chatbot-panel';
   panel.className='chatbot-panel no-print';
   panel.innerHTML=`
     <div class="chatbot-head">
-      <div class="chatbot-title">🤖 AISA ASA Assistant</div>
+      <div class="chatbot-title">
+        <span class="chatbot-title-lion">${LION_SVG}</span>
+        <span data-i18n="chatbot_title">AISA ASA Assistant</span>
+      </div>
       <button class="chatbot-close" aria-label="Close">✕</button>
     </div>
     <div class="chatbot-body" id="chatbot-body">
-      <div class="chatbot-msg bot">Hi! I'm the AISA ASA Assistant. Ask me about registration, activities, fees, or schedules.</div>
+      <div class="chatbot-msg bot greeting" data-i18n="chatbot_greeting">Hi! I'm the AISA ASA Assistant. Ask me about registration, activities, fees, or schedules.</div>
     </div>
     <form class="chatbot-input-row" id="chatbot-form">
-      <input type="text" id="chatbot-input" placeholder="Type a message..." autocomplete="off"/>
+      <input type="text" id="chatbot-input" data-i18n-placeholder="chatbot_placeholder" placeholder="Type a message…" autocomplete="off"/>
       <button type="submit" aria-label="Send">➤</button>
     </form>
   `;
@@ -457,7 +851,11 @@ function initChatbot(){
   document.body.appendChild(launcher);
   document.body.appendChild(panel);
 
-  launcher.addEventListener('click',()=>panel.classList.toggle('open'));
+  launcher.addEventListener('click',()=>{
+    panel.classList.toggle('open');
+    // A little greeting roar when the lion is opened
+    if(panel.classList.contains('open')) roar(1200);
+  });
   panel.querySelector('.chatbot-close').addEventListener('click',()=>panel.classList.remove('open'));
 
   const form=panel.querySelector('#chatbot-form');
@@ -473,18 +871,56 @@ function initChatbot(){
     body.appendChild(u);
     input.value='';
     body.scrollTop=body.scrollHeight;
+
+    // Lion "thinks"… then "talks" for a beat while the reply appears
+    startTalking();
     setTimeout(()=>{
       const b=document.createElement('div');
       b.className='chatbot-msg bot';
-      b.textContent="Thanks! A staff member will follow up via email. For urgent questions, call +971 2 444 4333.";
+      const dict = TRANSLATIONS[currentLang] || TRANSLATIONS.en;
+      b.textContent = dict.chatbot_reply;
       body.appendChild(b);
       body.scrollTop=body.scrollHeight;
+      // Keep the mouth moving for the length of the reply
+      setTimeout(stopTalking, 1400);
     },600);
   });
 }
 
+/* ── Lion talking animation ── */
+let _talkInterval = null;
+function startTalking(){
+  stopTalking();
+  document.querySelectorAll('.lion-face').forEach(el => el.classList.add('talking'));
+  let open = false;
+  _talkInterval = setInterval(()=>{
+    open = !open;
+    document.querySelectorAll('.lion-face').forEach(el=>{
+      const closed = el.querySelector('.lion-mouth-closed');
+      const openEl = el.querySelector('.lion-mouth-open');
+      if(closed) closed.style.opacity = open ? '0' : '1';
+      if(openEl) openEl.style.opacity = open ? '1' : '0';
+    });
+  }, 160);
+}
+function stopTalking(){
+  if(_talkInterval){ clearInterval(_talkInterval); _talkInterval = null; }
+  document.querySelectorAll('.lion-face').forEach(el=>{
+    el.classList.remove('talking');
+    const closed = el.querySelector('.lion-mouth-closed');
+    const openEl = el.querySelector('.lion-mouth-open');
+    if(closed) closed.style.opacity = '1';
+    if(openEl) openEl.style.opacity = '0';
+  });
+}
+function roar(ms){
+  startTalking();
+  setTimeout(stopTalking, ms || 900);
+}
+
 /* ── Boot ── */
 document.addEventListener('DOMContentLoaded',()=>{
+  initLanguageToggle();
   renderSeasonCalendars();
   initFaqAccordion();
   initTermTabs();
@@ -493,6 +929,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   initCatInfoButtons();
   initActivePageNav();
   initChatbot();
+  // Re-apply translations after chatbot is injected so its strings get translated too
+  applyTranslations(currentLang);
   const params=new URLSearchParams(location.search);
   const openId=params.get('open');
   if(openId) setTimeout(()=>openAct(openId),50);
