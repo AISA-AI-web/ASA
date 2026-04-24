@@ -75,6 +75,30 @@ img{max-width:100%}
 .save-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(244,121,32,.5)}
 
 /* ═══════════════════════════════════════
+   LANGUAGE TOGGLE BUTTON
+═══════════════════════════════════════ */
+.lang-btn{
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  border:1.5px solid rgba(255,255,255,.35);
+  border-radius:8px;
+  padding:6px 14px;
+  font-size:.78rem;font-weight:800;letter-spacing:.03em;
+  cursor:pointer;
+  font-family:'Nunito',sans-serif;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:background .15s,border-color .15s,transform .12s;
+  margin-right:6px;
+}
+.lang-btn:hover{
+  background:rgba(255,255,255,.22);
+  border-color:rgba(255,255,255,.6);
+  transform:translateY(-1px);
+}
+.lang-btn:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.lang-btn #lang-btn-label{font-weight:800}
+
+/* ═══════════════════════════════════════
    HERO
 ═══════════════════════════════════════ */
 .hero{
