@@ -725,6 +725,34 @@ function initActivePageNav(){
   });
 }
 
+/* ── Language toggle button (auto-injected into every topbar) ── */
+function initLanguageToggle(){
+  // Read saved preference
+  let saved = 'en';
+  try{ saved = localStorage.getItem('asa_lang') || 'en'; }catch(_e){}
+
+  // Inject the toggle button if a topbar exists and it's not already there
+  const topbar = document.querySelector('.topbar');
+  if(topbar && !document.getElementById('lang-toggle')){
+    const btn = document.createElement('button');
+    btn.id = 'lang-toggle';
+    btn.className = 'lang-btn no-print';
+    btn.type = 'button';
+    btn.setAttribute('aria-label','Change language');
+    btn.innerHTML = '🌐 <span id="lang-btn-label">العربية</span>';
+    // Place it just before the save-btn if present, else append
+    const saveBtn = topbar.querySelector('.save-btn');
+    if(saveBtn) topbar.insertBefore(btn, saveBtn);
+    else topbar.appendChild(btn);
+    btn.addEventListener('click', ()=>{
+      setLanguage(currentLang === 'ar' ? 'en' : 'ar');
+    });
+  }
+
+  // Apply saved language on load
+  setLanguage(saved);
+}
+
 /* ── AI Chatbot widget (placeholder) ── */
 function initChatbot(){
   if(document.getElementById('chatbot-launcher'))return;
@@ -782,6 +810,7 @@ function initChatbot(){
 
 /* ── Boot ── */
 document.addEventListener('DOMContentLoaded',()=>{
+  initLanguageToggle();
   renderSeasonCalendars();
   initFaqAccordion();
   initTermTabs();
@@ -790,6 +819,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   initCatInfoButtons();
   initActivePageNav();
   initChatbot();
+  // Re-apply translations after chatbot is injected so its strings get translated too
+  applyTranslations(currentLang);
   const params=new URLSearchParams(location.search);
   const openId=params.get('open');
   if(openId) setTimeout(()=>openAct(openId),50);
