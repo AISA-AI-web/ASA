@@ -179,6 +179,60 @@ img{max-width:100%}
 .nav-tabs a:hover,.nav-tabs a.active{color:#fff;border-color:var(--orange)}
 
 /* ═══════════════════════════════════════
+   ARABIC (RTL) OVERRIDES
+═══════════════════════════════════════ */
+html[dir="rtl"] body,
+body.lang-ar{
+  font-family:'Nunito','Tajawal','Cairo','Segoe UI',sans-serif;
+}
+html[dir="rtl"] .topbar .contact{direction:rtl}
+html[dir="rtl"] .lang-btn{margin-right:0;margin-left:6px}
+html[dir="rtl"] .hero-blobs{right:auto;left:32px}
+html[dir="rtl"] .hero::before{right:auto;left:-80px}
+html[dir="rtl"] .hero::after{right:auto;left:80px}
+html[dir="rtl"] .divider{margin-right:0;margin-left:auto}
+html[dir="rtl"] .cat-card.wellness,
+html[dir="rtl"] .cat-card.academic,
+html[dir="rtl"] .cat-card.athletic,
+html[dir="rtl"] .cat-card.arts{
+  border-left:none;border-right:5px solid currentColor;
+}
+html[dir="rtl"] .cat-card.wellness{border-right-color:var(--wellness-accent)}
+html[dir="rtl"] .cat-card.academic{border-right-color:var(--academic-accent)}
+html[dir="rtl"] .cat-card.athletic{border-right-color:var(--athletic-accent)}
+html[dir="rtl"] .cat-card.arts{border-right-color:var(--arts-accent)}
+html[dir="rtl"] .cal-fact{border-left:none;border-right:4px solid var(--blue)}
+html[dir="rtl"] .cal-fact.reg{border-right-color:var(--orange)}
+html[dir="rtl"] .cal-fact.asa{border-right-color:var(--wellness-accent)}
+html[dir="rtl"] .cal-fact.break{border-right-color:#dc2626}
+html[dir="rtl"] .cat-modal-item.wellness,
+html[dir="rtl"] .cat-modal-item.academic,
+html[dir="rtl"] .cat-modal-item.athletic,
+html[dir="rtl"] .cat-modal-item.arts{
+  border-left:none;border-right:4px solid currentColor;
+}
+html[dir="rtl"] .cat-modal-item.wellness{border-right-color:var(--wellness-accent)}
+html[dir="rtl"] .cat-modal-item.academic{border-right-color:var(--academic-accent)}
+html[dir="rtl"] .cat-modal-item.athletic{border-right-color:var(--athletic-accent)}
+html[dir="rtl"] .cat-modal-item.arts{border-right-color:var(--arts-accent)}
+html[dir="rtl"] table.asa-table th,
+html[dir="rtl"] table.asa-table td{text-align:right}
+html[dir="rtl"] .faq-q::after{content:'＋'}
+html[dir="rtl"] .dir-info-btn{right:auto;left:12px}
+html[dir="rtl"] .dir-card .dc-name{padding-right:0;padding-left:40px}
+html[dir="rtl"] .act-goals-list{padding-left:0;padding-right:18px}
+html[dir="rtl"] .act-close{right:auto;left:16px}
+html[dir="rtl"] .cat-close{right:auto;left:16px}
+html[dir="rtl"] .chatbot-launcher{right:auto;left:24px}
+html[dir="rtl"] .chatbot-panel{right:auto;left:24px}
+html[dir="rtl"] .chatbot-msg.bot{align-self:flex-end;border-bottom-left-radius:14px;border-bottom-right-radius:4px}
+html[dir="rtl"] .chatbot-msg.user{align-self:flex-start;border-bottom-right-radius:14px;border-bottom-left-radius:4px}
+html[dir="rtl"] .step-num{margin-right:0}
+html[dir="rtl"] .next-reg-banner{direction:rtl}
+html[dir="rtl"] .hero-pills,
+html[dir="rtl"] .pill{direction:rtl}
+
+/* ═══════════════════════════════════════
    SECTION WRAPPER
 ═══════════════════════════════════════ */
 .section{padding:56px 32px;max-width:1100px;margin:0 auto}
