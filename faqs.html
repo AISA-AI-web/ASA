@@ -19,7 +19,7 @@
       <span>📧 <a href="mailto:attendance@aisa.sch.ae">attendance@aisa.sch.ae</a></span>
     </div>
   </div>
-  <button class="save-btn" onclick="window.print()">🖨️ Save as PDF</button>
+  <button class="save-btn" onclick="window.print()" data-i18n="save_pdf">🖨️ Save as PDF</button>
 </div>
 
 <!-- ═══ HERO ═══ -->
@@ -30,9 +30,9 @@
     <div class="blob blob-orange"></div>
   </div>
   <div style="flex:1;min-width:260px;position:relative;z-index:1">
-    <div class="hero-badge">Themed Support</div>
-    <h1 class="hero-title">Frequently Asked <span>Questions</span></h1>
-    <p class="hero-sub">Answers organised by theme — Payments, Transportation, Scheduling, Requirements, Communication, and Safety.</p>
+    <div class="hero-badge" data-i18n="hero_badge_faqs">Themed Support</div>
+    <h1 class="hero-title" data-i18n-html="hero_h1_faqs">Frequently Asked <span>Questions</span></h1>
+    <p class="hero-sub" data-i18n="hero_sub_faqs">Answers organised by theme — Payments, Transportation, Scheduling, Requirements, Communication, and Safety.</p>
   </div>
   <div class="hero-logo">
     <img src="aisa-lions-athletics.png" alt="AISA Lions Athletics"/>
@@ -41,34 +41,34 @@
 
 <!-- ═══ NAV ═══ -->
 <nav class="nav-tabs no-print">
-  <a href="index.html" data-page="index.html">Welcome</a>
-  <a href="about-asas.html" data-page="about-asas.html">About &amp; Registration</a>
-  <a href="terms.html" data-page="terms.html">Current Term</a>
-  <a href="directory.html" data-page="directory.html">Directory</a>
-  <a href="faqs.html" data-page="faqs.html">FAQs</a>
+  <a href="index.html" data-page="index.html" data-i18n="nav_welcome">Welcome</a>
+  <a href="about-asas.html" data-page="about-asas.html" data-i18n="nav_about">About &amp; Registration</a>
+  <a href="terms.html" data-page="terms.html" data-i18n="nav_terms">Current Term</a>
+  <a href="directory.html" data-page="directory.html" data-i18n="nav_directory">Directory</a>
+  <a href="faqs.html" data-page="faqs.html" data-i18n="nav_faqs">FAQs</a>
 </nav>
 
 <!-- ═══════════════════════════════════════
      THEMED FAQs
 ═══════════════════════════════════════ -->
 <section class="section" id="faqs">
-  <h2 class="section-title">❓ FAQs by <span>Theme</span></h2>
+  <h2 class="section-title" data-i18n-html="faq_h2">❓ FAQs by <span>Theme</span></h2>
   <div class="divider"></div>
-  <p class="section-sub">Tap any question to reveal the answer. Still need help? Reach us at <a href="mailto:attendance@aisa.sch.ae" style="color:var(--blue);font-weight:700">attendance@aisa.sch.ae</a>.</p>
+  <p class="section-sub" data-i18n-html="faq_sub">Tap any question to reveal the answer. Still need help? Reach us at <a href="mailto:attendance@aisa.sch.ae" style="color:var(--blue);font-weight:700">attendance@aisa.sch.ae</a>.</p>
 
   <!-- Theme: Payments -->
   <div class="faq-theme payments">
     <div class="faq-theme-head">
       <div class="faq-theme-icon">💳</div>
       <div>
-        <div class="faq-theme-title">Payments &amp; Fees</div>
-        <div class="faq-theme-sub">Costs, free activities, and material fees.</div>
+        <div class="faq-theme-title" data-i18n="faq_pay_title">Payments &amp; Fees</div>
+        <div class="faq-theme-sub" data-i18n="faq_pay_sub">Costs, free activities, and material fees.</div>
       </div>
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">Are there fees involved when joining an activity?</div>
-        <div class="faq-a">Some activities require full payment upon registration. Certain activities may collect a partial fee to cover materials. A range of free activities is also available; however, registration is still required. Detailed instructions will be shared in the Welcome Letter from the activity coordinator.</div>
+        <div class="faq-q" data-i18n="faq_pay_q1">Are there fees involved when joining an activity?</div>
+        <div class="faq-a" data-i18n="faq_pay_a1">Some activities require full payment upon registration. Certain activities may collect a partial fee to cover materials. A range of free activities is also available; however, registration is still required. Detailed instructions will be shared in the Welcome Letter from the activity coordinator.</div>
       </div>
     </div>
   </div>
@@ -78,14 +78,14 @@
     <div class="faq-theme-head">
       <div class="faq-theme-icon">🚌</div>
       <div>
-        <div class="faq-theme-title">Transportation &amp; Pick-Up</div>
-        <div class="faq-theme-sub">Off-campus activities and end-of-session pick-up.</div>
+        <div class="faq-theme-title" data-i18n="faq_trans_title">Transportation &amp; Pick-Up</div>
+        <div class="faq-theme-sub" data-i18n="faq_trans_sub">Off-campus activities and end-of-session pick-up.</div>
       </div>
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">Is transportation provided for off-campus activities?</div>
-        <div class="faq-a">Transportation is available for selected off-campus activities (e.g., bowling, equestrian club, Cubs sports). Parents/guardians are kindly asked to collect their children from AISA campus after the activity.</div>
+        <div class="faq-q" data-i18n="faq_trans_q1">Is transportation provided for off-campus activities?</div>
+        <div class="faq-a" data-i18n="faq_trans_a1">Transportation is available for selected off-campus activities (e.g., bowling, equestrian club, Cubs sports). Parents/guardians are kindly asked to collect their children from AISA campus after the activity.</div>
       </div>
     </div>
   </div>
@@ -95,22 +95,22 @@
     <div class="faq-theme-head">
       <div class="faq-theme-icon">📅</div>
       <div>
-        <div class="faq-theme-title">Scheduling &amp; Duration</div>
-        <div class="faq-theme-sub">Registration, session length, and cancellations.</div>
+        <div class="faq-theme-title" data-i18n="faq_sched_title">Scheduling &amp; Duration</div>
+        <div class="faq-theme-sub" data-i18n="faq_sched_sub">Registration, session length, and cancellations.</div>
       </div>
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">How can my child join an activity?</div>
-        <div class="faq-a">Please scan the QR code provided or follow the link shared via email. You may select activities based on your child's grade-level offerings.</div>
+        <div class="faq-q" data-i18n="faq_sched_q1">How can my child join an activity?</div>
+        <div class="faq-a" data-i18n="faq_sched_a1">Please scan the QR code provided or follow the link shared via email. You may select activities based on your child's grade-level offerings.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">How long does an activity run?</div>
-        <div class="faq-a">Most activities are scheduled to last for approximately 8 weeks. Any changes will be communicated in advance through email.</div>
+        <div class="faq-q" data-i18n="faq_sched_q2">How long does an activity run?</div>
+        <div class="faq-a" data-i18n="faq_sched_a2">Most activities are scheduled to last for approximately 8 weeks. Any changes will be communicated in advance through email.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">What happens if activities are canceled or postponed?</div>
-        <div class="faq-a">Any changes or cancellations will be communicated to your registered email address as early as possible. Adjustments may occur due to operational needs or external factors.</div>
+        <div class="faq-q" data-i18n="faq_sched_q3">What happens if activities are canceled or postponed?</div>
+        <div class="faq-a" data-i18n="faq_sched_a3">Any changes or cancellations will be communicated to your registered email address as early as possible. Adjustments may occur due to operational needs or external factors.</div>
       </div>
     </div>
   </div>
@@ -120,18 +120,18 @@
     <div class="faq-theme-head">
       <div class="faq-theme-icon">🎒</div>
       <div>
-        <div class="faq-theme-title">Requirements &amp; Preparation</div>
-        <div class="faq-theme-sub">What to bring and what parents should do.</div>
+        <div class="faq-theme-title" data-i18n="faq_req_title">Requirements &amp; Preparation</div>
+        <div class="faq-theme-sub" data-i18n="faq_req_sub">What to bring and what parents should do.</div>
       </div>
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">What should my child bring or prepare for each session?</div>
-        <div class="faq-a">Any specific requirements will be shared ahead of time by the activity coordinator via email to ensure students are well-prepared.</div>
+        <div class="faq-q" data-i18n="faq_req_q1">What should my child bring or prepare for each session?</div>
+        <div class="faq-a" data-i18n="faq_req_a1">Any specific requirements will be shared ahead of time by the activity coordinator via email to ensure students are well-prepared.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">What are the expectations for parents and guardians?</div>
-        <div class="faq-a">
+        <div class="faq-q" data-i18n="faq_req_q2">What are the expectations for parents and guardians?</div>
+        <div class="faq-a" data-i18n-html="faq_req_a2">
           Parents and guardians are kindly requested to:<br/>
           • Notify the activity coordinator in advance if their child will be absent.<br/>
           • Ensure timely collection of their child at the conclusion of each session (typically one hour after school dismissal).<br/>
@@ -146,14 +146,14 @@
     <div class="faq-theme-head">
       <div class="faq-theme-icon">📬</div>
       <div>
-        <div class="faq-theme-title">Communication &amp; Updates</div>
-        <div class="faq-theme-sub">How we notify you and how to raise concerns.</div>
+        <div class="faq-theme-title" data-i18n="faq_comm_title">Communication &amp; Updates</div>
+        <div class="faq-theme-sub" data-i18n="faq_comm_sub">How we notify you and how to raise concerns.</div>
       </div>
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">What should I do if my child cannot attend a session?</div>
-        <div class="faq-a">
+        <div class="faq-q" data-i18n="faq_comm_q1">What should I do if my child cannot attend a session?</div>
+        <div class="faq-a" data-i18n-html="faq_comm_a1">
           Notify the school and your child's teacher via email or by calling the school.<br/><br/>
           📧 Elementary: <a href="mailto:attendance@aisa.sch.ae">attendance@aisa.sch.ae</a><br/>
           📧 Secondary: <a href="mailto:secondaryattendance@aisa.sch.ae">secondaryattendance@aisa.sch.ae</a><br/>
@@ -161,16 +161,16 @@
         </div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">How will I receive updates about schedules and events?</div>
-        <div class="faq-a">Updates and any changes will be shared via email through Mograsys by the staff leading the activity.</div>
+        <div class="faq-q" data-i18n="faq_comm_q2">How will I receive updates about schedules and events?</div>
+        <div class="faq-a" data-i18n="faq_comm_a2">Updates and any changes will be shared via email through Mograsys by the staff leading the activity.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Will I be notified about my child's attendance?</div>
-        <div class="faq-a">Yes, you will receive email notifications confirming whether your child has attended or missed a session.</div>
+        <div class="faq-q" data-i18n="faq_comm_q3">Will I be notified about my child's attendance?</div>
+        <div class="faq-a" data-i18n="faq_comm_a3">Yes, you will receive email notifications confirming whether your child has attended or missed a session.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">What is the process for raising concerns or providing feedback?</div>
-        <div class="faq-a">We prioritize open communication and invite parents to share any concerns or feedback through our official school email channels. Please direct your concerns or feedback to the Athletics and Activities department.</div>
+        <div class="faq-q" data-i18n="faq_comm_q4">What is the process for raising concerns or providing feedback?</div>
+        <div class="faq-a" data-i18n="faq_comm_a4">We prioritize open communication and invite parents to share any concerns or feedback through our official school email channels. Please direct your concerns or feedback to the Athletics and Activities department.</div>
       </div>
     </div>
   </div>
@@ -180,14 +180,14 @@
     <div class="faq-theme-head">
       <div class="faq-theme-icon">🛡️</div>
       <div>
-        <div class="faq-theme-title">Safety &amp; Well-Being</div>
-        <div class="faq-theme-sub">Supervision, vetting, and student benefits.</div>
+        <div class="faq-theme-title" data-i18n="faq_safe_title">Safety &amp; Well-Being</div>
+        <div class="faq-theme-sub" data-i18n="faq_safe_sub">Supervision, vetting, and student benefits.</div>
       </div>
     </div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">How are student safety and well-being ensured?</div>
-        <div class="faq-a">
+        <div class="faq-q" data-i18n="faq_safe_q1">How are student safety and well-being ensured?</div>
+        <div class="faq-a" data-i18n-html="faq_safe_a1">
           AISA has implemented the following measures:<br/>
           • A maximum ratio of 15 students per supervising adult<br/>
           • All activity personnel are thoroughly vetted and approved as per ADEK requirements<br/>
@@ -197,8 +197,8 @@
         </div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">How does participation benefit my child?</div>
-        <div class="faq-a">Participation in activities supports students in developing confidence, teamwork, and a strong sense of responsibility. It also encourages positive social interaction, builds resilience, and helps students discover and grow their individual interests in a supportive environment.</div>
+        <div class="faq-q" data-i18n="faq_safe_q2">How does participation benefit my child?</div>
+        <div class="faq-a" data-i18n="faq_safe_a2">Participation in activities supports students in developing confidence, teamwork, and a strong sense of responsibility. It also encourages positive social interaction, builds resilience, and helps students discover and grow their individual interests in a supportive environment.</div>
       </div>
     </div>
   </div>
@@ -209,10 +209,10 @@
 ═══════════════════════════════════════ -->
 <footer>
   <img src="aisa-lions-athletics.png" alt="AISA Lions Athletics" class="footer-logo"/>
-  <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;color:#fff;margin-bottom:8px">
+  <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;color:#fff;margin-bottom:8px" data-i18n="footer_tagline">
     Explore. Create. Grow.
   </div>
-  <p style="margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto">
+  <p style="margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto" data-i18n="footer_invite">
     We invite every student to take part in the ASA program — to discover new interests, build lasting relationships, and continue their journey as confident, capable, and caring AISA Lions.
   </p>
   <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:12px">
@@ -220,7 +220,7 @@
     <span>🌐 <a href="https://www.aisa.sch.ae/" target="_blank">www.aisa.sch.ae</a></span>
     <span>📧 <a href="mailto:attendance@aisa.sch.ae">attendance@aisa.sch.ae</a></span>
   </div>
-  <div style="opacity:.5;font-size:.75rem">American International School Abu Dhabi · ASA Program 2026–2027</div>
+  <div style="opacity:.5;font-size:.75rem" data-i18n="footer_copy">American International School Abu Dhabi · ASA Program 2026–2027</div>
 </footer>
 
 <script src="script.js"></script>
