@@ -19,7 +19,7 @@
       <span>📧 <a href="mailto:attendance@aisa.sch.ae">attendance@aisa.sch.ae</a></span>
     </div>
   </div>
-  <button class="save-btn" onclick="window.print()">🖨️ Save as PDF</button>
+  <button class="save-btn" onclick="window.print()" data-i18n="save_pdf">🖨️ Save as PDF</button>
 </div>
 
 <!-- ═══ HERO ═══ -->
@@ -30,9 +30,9 @@
     <div class="blob blob-orange"></div>
   </div>
   <div style="flex:1;min-width:260px;position:relative;z-index:1">
-    <div class="hero-badge">About the ASA Program</div>
-    <h1 class="hero-title">Registration <span>&amp; Calendar</span></h1>
-    <p class="hero-sub">Everything you need to know about the step-by-step registration process and the full yearly ASA calendar.</p>
+    <div class="hero-badge" data-i18n="hero_badge_about">About the ASA Program</div>
+    <h1 class="hero-title" data-i18n-html="hero_h1_about">Registration <span>&amp; Calendar</span></h1>
+    <p class="hero-sub" data-i18n="hero_sub_about">Everything you need to know about the step-by-step registration process and the full yearly ASA calendar.</p>
   </div>
   <div class="hero-logo">
     <img src="aisa-lions-athletics.png" alt="AISA Lions Athletics"/>
@@ -41,41 +41,41 @@
 
 <!-- ═══ NAV ═══ -->
 <nav class="nav-tabs no-print">
-  <a href="index.html" data-page="index.html">Welcome</a>
-  <a href="about-asas.html" data-page="about-asas.html">About &amp; Registration</a>
-  <a href="terms.html" data-page="terms.html">Current Term</a>
-  <a href="directory.html" data-page="directory.html">Directory</a>
-  <a href="faqs.html" data-page="faqs.html">FAQs</a>
+  <a href="index.html" data-page="index.html" data-i18n="nav_welcome">Welcome</a>
+  <a href="about-asas.html" data-page="about-asas.html" data-i18n="nav_about">About &amp; Registration</a>
+  <a href="terms.html" data-page="terms.html" data-i18n="nav_terms">Current Term</a>
+  <a href="directory.html" data-page="directory.html" data-i18n="nav_directory">Directory</a>
+  <a href="faqs.html" data-page="faqs.html" data-i18n="nav_faqs">FAQs</a>
 </nav>
 
 <!-- ═══════════════════════════════════════
      REGISTRATION PROCESS
 ═══════════════════════════════════════ -->
 <section class="section" id="process">
-  <h2 class="section-title">Registration <span>Process</span></h2>
+  <h2 class="section-title" data-i18n-html="proc_h2">Registration <span>Process</span></h2>
   <div class="divider"></div>
-  <p class="section-sub">Follow the steps below to register your child for an ASA. Times differ slightly between Elementary and Secondary programs.</p>
+  <p class="section-sub" data-i18n="proc_sub">Follow the steps below to register your child for an ASA. Times differ slightly between Elementary and Secondary programs.</p>
 
-  <h3 style="font-size:1rem;color:var(--blue);margin:20px 0 12px;font-weight:800">🏫 Elementary Process</h3>
+  <h3 style="font-size:1rem;color:var(--blue);margin:20px 0 12px;font-weight:800" data-i18n="elem_heading">🏫 Elementary Process</h3>
   <div class="steps" style="margin-bottom:36px">
-    <div class="step"><div class="step-num">01</div><div class="step-title">End of School Day</div><div class="step-desc">School finishes at 14:50.</div></div>
-    <div class="step"><div class="step-num">02</div><div class="step-title">ASA Meet-Up</div><div class="step-desc">Students with an ASA meet their instructor on the Lower Basketball Court.</div></div>
-    <div class="step"><div class="step-num">03</div><div class="step-title">Attendance</div><div class="step-desc">Attendance completed on Mograsys by ASA Instructor.</div></div>
-    <div class="step"><div class="step-num">04</div><div class="step-title">ASA Timing</div><div class="step-desc">15:00–16:00 — Students will be in their ASAs!</div></div>
-    <div class="step"><div class="step-num">05</div><div class="step-title">Dismissal &amp; Pick-Up</div><div class="step-desc">Dismissed at 16:00 from their ASA. Pick-up at Gate 4. Please be prompt!</div></div>
+    <div class="step"><div class="step-num">01</div><div class="step-title" data-i18n="step1_title">End of School Day</div><div class="step-desc" data-i18n="step1_desc">School finishes at 14:50.</div></div>
+    <div class="step"><div class="step-num">02</div><div class="step-title" data-i18n="step2_title">ASA Meet-Up</div><div class="step-desc" data-i18n="step2_elem_desc">Students with an ASA meet their instructor on the Lower Basketball Court.</div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-title" data-i18n="step3_title">Attendance</div><div class="step-desc" data-i18n="step3_desc">Attendance completed on Mograsys by ASA Instructor.</div></div>
+    <div class="step"><div class="step-num">04</div><div class="step-title" data-i18n="step4_title">ASA Timing</div><div class="step-desc" data-i18n="step4_desc">15:00–16:00 — Students will be in their ASAs!</div></div>
+    <div class="step"><div class="step-num">05</div><div class="step-title" data-i18n="step5_title">Dismissal &amp; Pick-Up</div><div class="step-desc" data-i18n="step5_desc">Dismissed at 16:00 from their ASA. Pick-up at Gate 4. Please be prompt!</div></div>
   </div>
 
-  <h3 style="font-size:1rem;color:var(--blue);margin-bottom:12px;font-weight:800">🏫 Secondary Process</h3>
+  <h3 style="font-size:1rem;color:var(--blue);margin-bottom:12px;font-weight:800" data-i18n="sec_heading">🏫 Secondary Process</h3>
   <div class="steps" style="margin-bottom:28px">
-    <div class="step"><div class="step-num">01</div><div class="step-title">End of School Day</div><div class="step-desc">School finishes at 14:50.</div></div>
-    <div class="step"><div class="step-num">02</div><div class="step-title">ASA Meet-Up</div><div class="step-desc">Secondary students head to their assigned ASA location (HS Library, Homeroom, Greenhouse, Soccer Field, etc.)</div></div>
-    <div class="step"><div class="step-num">03</div><div class="step-title">Attendance</div><div class="step-desc">Attendance completed on Mograsys by ASA Instructor.</div></div>
-    <div class="step"><div class="step-num">04</div><div class="step-title">ASA Timing</div><div class="step-desc">15:00–16:00 — Students will be in their ASAs!</div></div>
-    <div class="step"><div class="step-num">05</div><div class="step-title">Dismissal &amp; Pick-Up</div><div class="step-desc">Dismissed at 16:00 from their ASA. Pick-up at Gate 4. Please be prompt!</div></div>
+    <div class="step"><div class="step-num">01</div><div class="step-title" data-i18n="step1_title">End of School Day</div><div class="step-desc" data-i18n="step1_desc">School finishes at 14:50.</div></div>
+    <div class="step"><div class="step-num">02</div><div class="step-title" data-i18n="step2_title">ASA Meet-Up</div><div class="step-desc" data-i18n="step2_sec_desc">Secondary students head to their assigned ASA location (HS Library, Homeroom, Greenhouse, Soccer Field, etc.)</div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-title" data-i18n="step3_title">Attendance</div><div class="step-desc" data-i18n="step3_desc">Attendance completed on Mograsys by ASA Instructor.</div></div>
+    <div class="step"><div class="step-num">04</div><div class="step-title" data-i18n="step4_title">ASA Timing</div><div class="step-desc" data-i18n="step4_desc">15:00–16:00 — Students will be in their ASAs!</div></div>
+    <div class="step"><div class="step-num">05</div><div class="step-title" data-i18n="step5_title">Dismissal &amp; Pick-Up</div><div class="step-desc" data-i18n="step5_desc">Dismissed at 16:00 from their ASA. Pick-up at Gate 4. Please be prompt!</div></div>
   </div>
 
   <div class="warning-box">
-    ⚠️ <div>Please note that all schedules are subject to change based on decisions made by the UAE Government, ADEK (Abu Dhabi Department of Education and Knowledge), and the School Administration.</div>
+    ⚠️ <div data-i18n="warning_schedule">Please note that all schedules are subject to change based on decisions made by the UAE Government, ADEK (Abu Dhabi Department of Education and Knowledge), and the School Administration.</div>
   </div>
 </section>
 
@@ -84,13 +84,13 @@
 ═══════════════════════════════════════ -->
 <div class="band" id="calendar">
   <div class="section" style="padding-top:56px;padding-bottom:56px">
-    <h2 class="section-title">📅 Yearly <span>Calendar</span></h2>
+    <h2 class="section-title" data-i18n-html="cal_h2">📅 Yearly <span>Calendar</span></h2>
     <div class="divider"></div>
-    <p class="section-sub">All ASA terms and registration windows for the 2026–2027 academic year. The next registration period is highlighted in orange.</p>
+    <p class="section-sub" data-i18n="cal_sub">All ASA terms and registration windows for the 2026–2027 academic year. The next registration period is highlighted in orange.</p>
 
     <div id="next-reg-banner" class="next-reg-banner no-print" hidden>
       <div>
-        <div class="nrb-label">Next Registration Period</div>
+        <div class="nrb-label" data-i18n="nrb_label">Next Registration Period</div>
         <div class="nrb-term" id="nrb-term">—</div>
         <div class="nrb-dates" id="nrb-dates">—</div>
       </div>
@@ -106,10 +106,10 @@
 ═══════════════════════════════════════ -->
 <footer>
   <img src="aisa-lions-athletics.png" alt="AISA Lions Athletics" class="footer-logo"/>
-  <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;color:#fff;margin-bottom:8px">
+  <div style="font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:900;color:#fff;margin-bottom:8px" data-i18n="footer_tagline">
     Explore. Create. Grow.
   </div>
-  <p style="margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto">
+  <p style="margin-bottom:12px;max-width:560px;margin-left:auto;margin-right:auto" data-i18n="footer_invite">
     We invite every student to take part in the ASA program — to discover new interests, build lasting relationships, and continue their journey as confident, capable, and caring AISA Lions.
   </p>
   <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:12px">
@@ -117,7 +117,7 @@
     <span>🌐 <a href="https://www.aisa.sch.ae/" target="_blank">www.aisa.sch.ae</a></span>
     <span>📧 <a href="mailto:attendance@aisa.sch.ae">attendance@aisa.sch.ae</a></span>
   </div>
-  <div style="opacity:.5;font-size:.75rem">American International School Abu Dhabi · ASA Program 2026–2027</div>
+  <div style="opacity:.5;font-size:.75rem" data-i18n="footer_copy">American International School Abu Dhabi · ASA Program 2026–2027</div>
 </footer>
 
 <script src="script.js"></script>
