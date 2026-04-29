@@ -126,7 +126,7 @@ const TRANSLATIONS = {
     sec_heading:        '🏫 Secondary Process',
     step1_title:        'End of School Day',     step1_desc:  'School finishes at 14:50.',
     step2_title:        'ASA Meet-Up',
-    step2_elem_desc:    'Students with an ASA meet their instructor on the Lower Basketball Court.',
+    step2_elem_desc:    'Students with an ASA will meet their instructor in the following locations:<br>KG2–Gr2: Lower Mini-Pitch<br>Gr3–Gr5: Upper Mini-Pitch',
     step2_sec_desc:     'Secondary students head to their assigned ASA location (HS Library, Homeroom, Greenhouse, Soccer Field, etc.)',
     step3_title:        'Attendance',            step3_desc:  'Attendance completed on Mograsys by ASA Instructor.',
     step4_title:        'ASA Timing',            step4_desc:  '15:00–16:00 — Students will be in their ASAs!',
@@ -271,7 +271,7 @@ const TRANSLATIONS = {
     sec_heading:        '🏫 مراحل الثانوية',
     step1_title:        'نهاية يوم الدراسة',             step1_desc:  'تنتهي الدراسة في الساعة 14:50.',
     step2_title:        'نقطة التجمع',
-    step2_elem_desc:    'يلتقي الطلاب المسجّلون في نشاط ما بمدرّبهم في ملعب كرة السلة السفلي.',
+    step2_elem_desc:    'سيلتقي الطلاب المسجّلون في نشاط ASA بمدرّبهم في الأماكن التالية:<br>KG2–G2: الملعب الصغير السفلي<br>G3–G5: الملعب الصغير العلوي',
     step2_sec_desc:     'يتوجّه طلاب الثانوية إلى موقع النشاط المخصَّص لهم (مكتبة الثانوية، الفصل، البيت الزجاجي، ملعب كرة القدم، إلخ).',
     step3_title:        'تسجيل الحضور',                  step3_desc:  'يُسجِّل مدرِّب النشاط الحضور عبر نظام Mograsys.',
     step4_title:        'توقيت النشاط',                  step4_desc:  '15:00–16:00 — يكون الطلاب منخرطين في أنشطتهم!',
@@ -616,6 +616,221 @@ function initDayChips(){
   });
 }
 
+/* ── Activity data store (used by openAct when cards aren't in the current page DOM) ── */
+const ACT_STORE={
+  /* ACADEMIC */
+  'act-chess-club-ms':{icon:'♟️',name:'Chess Club',cat:'academic',grades:'G6–G12',day:'Wednesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students develop strategic thinking and compete in friendly matches while learning new tactics and improving their gameplay. Beginner to advanced players welcome.',
+    goals:'🎯 Improve Strategic Thinking · Build Focus · Develop Planning Skills',
+    why:'Think ahead and master the game!'},
+  'act-creative-writing':{icon:'📖',name:'Creative Writing Club',cat:'academic',grades:'G3–G5',day:'Tuesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students develop writing skills through storytelling, poetry, and creative exercises. Encourages imagination and builds confidence in written expression.',
+    goals:'🎯 Improve Writing Skills · Develop Creativity · Build Confidence in Storytelling',
+    why:'Share your stories and find your voice!'},
+  'act-ib-stem':{icon:'🔬',name:'IB STEM Support Club',cat:'academic',grades:'G9–G12',day:'Tuesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students receive targeted support in STEM subjects, helping them understand complex concepts and succeed in their coursework.',
+    goals:'🎯 Strengthen STEM Understanding · Improve Academic Performance · Build Confidence',
+    why:'Get support to succeed in challenging subjects!'},
+  'act-ibdp-business':{icon:'📊',name:'IBDP Business Management',cat:'academic',grades:'G11–G12',day:'Tuesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students deepen their understanding of business concepts and prepare for IB assessments through discussion, case studies, and guided support.',
+    goals:'🎯 Strengthen Business Knowledge · Prepare for IB Assessments · Develop Analytical Thinking',
+    why:'Excel in your business studies!'},
+  'act-intro-chess':{icon:'♟️',name:'Intro to Chess',cat:'academic',grades:'KG2–G5',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students discover the fundamentals of chess in a fun and welcoming environment. Perfect for beginners learning the pieces, rules, and basic strategies.',
+    goals:'🎯 Learn Chess Fundamentals · Develop Strategic Thinking · Build Patience & Focus',
+    why:"A perfect introduction to the world's greatest strategy game!"},
+  'act-lego-club':{icon:'🧱',name:'LEGO Club',cat:'academic',grades:'KG2–G2',day:'Wednesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students use LEGO bricks to build, design, and engineer imaginative creations. Develops spatial thinking, creativity, and collaborative problem-solving in a hands-on environment.',
+    goals:'🎯 Develop Spatial Thinking · Encourage Creativity · Build Collaborative Skills',
+    why:'Build your imagination one brick at a time!'},
+  'act-number-ninjas':{icon:'➕',name:'Number Ninjas Club',cat:'academic',grades:'G3–G5',day:'Tuesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Sharpen math skills through fun games, puzzles, and challenges. Students build confidence while exploring problem-solving in exciting new ways.',
+    goals:'🎯 Strengthen Math Fluency · Develop Problem-Solving · Build Confidence in Mathematics',
+    why:'Become a math champion in a fun, game-based setting!'},
+  'act-pawn-palace':{icon:'♟️',name:"Pawn's Palace Chess Club",cat:'academic',grades:'G3–G5',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students learn and practice chess strategies in a fun and supportive setting. Welcomes beginners and experienced players alike.',
+    goals:'🎯 Develop Strategic Thinking · Improve Focus · Encourage Problem Solving',
+    why:'Challenge your mind and grow through every move!'},
+  'act-read-aloud':{icon:'📖',name:'Read-A-Loud Reading Club',cat:'academic',grades:'KG2–G5',day:'Wednesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students share stories through expressive reading aloud, building fluency, comprehension, and a love of literature in a warm and engaging setting.',
+    goals:'🎯 Build Reading Fluency · Develop Comprehension · Foster a Love of Literature',
+    why:'Fall in love with books and stories!'},
+  'act-robotics':{icon:'🤖',name:'Robotics & Coding',cat:'academic',grades:'G3–G5',day:'Monday',cap:'15',instructor:'Vendor',fee:'paid',feeLabel:'Paid – Vendor',
+    desc:'Students explore coding and robotics through hands-on activities. The club promotes innovation and problem solving.',
+    goals:'🎯 Develop Coding Skills · Encourage Logical Thinking · Explore Technology',
+    why:'Bring your ideas to life through coding and robotics!'},
+  'act-rubiks-elem':{icon:'🧊',name:"Rubik's Cubing",cat:'academic',grades:'G5–G8',day:'Wednesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:"Learn techniques to solve the Rubik's Cube while improving memory, concentration, and problem-solving skills. Prepare for time-driven competitions.",
+    goals:'🎯 Improve Problem-Solving · Develop Persistence · Enhance Memory & Focus',
+    why:'Master the cube and challenge yourself!'},
+  'act-rubiks-ms':{icon:'🧩',name:"Rubik's Cube Club",cat:'academic',grades:'G6–G12',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:"Students learn advanced techniques to solve the Rubik's Cube while building patience, memory, and problem-solving skills. All skill levels welcome.",
+    goals:'🎯 Improve Problem-Solving · Develop Persistence · Enhance Concentration',
+    why:'Master the cube and challenge yourself!'},
+  'act-sh-academic-math':{icon:'📐',name:'Study Hall – Academic Assistance (Math)',cat:'academic',grades:'G6–G10',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students receive additional support in mathematics through guided practice and individualized help to strengthen understanding and confidence.',
+    goals:'🎯 Improve Math Skills · Build Confidence · Develop Problem-Solving Strategies',
+    why:'Get the help you need to succeed in math!'},
+  'act-sh-am-diploma':{icon:'📘',name:'Study Hall – American Diploma',cat:'academic',grades:'G9–G12',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',req:'American Diploma students',
+    desc:'Students receive structured time and support to complete assignments, prepare for assessments, and stay organized in their coursework.',
+    goals:'🎯 Improve Organization · Complete Assignments Efficiently · Build Study Habits',
+    why:'Stay organized and on top of your work!'},
+  'act-sh-ib-english':{icon:'📝',name:'Study Hall – IB English',cat:'academic',grades:'G11–G12',day:'Wednesday',cap:'15',instructor:'AISA Staff',fee:'free',req:'IB students recommended',
+    desc:'Students develop reading, writing, and analysis skills while receiving support for IB English coursework and assessments.',
+    goals:'🎯 Improve Writing & Analysis · Strengthen Comprehension · Build Confidence in English',
+    why:'Enhance your communication and writing skills!'},
+  'act-sh-ib-math':{icon:'📚',name:'Study Hall – IB Math & Science',cat:'academic',grades:'G11–G12',day:'Tuesday',cap:'15',instructor:'AISA Staff',fee:'free',req:'IB students recommended',
+    desc:'Students receive targeted academic support in IB Math and Science, with time for guided practice, review, and clarification of key concepts.',
+    goals:'🎯 Strengthen Subject Understanding · Improve Academic Performance · Build Independent Study Habits',
+    why:'Stay on track and succeed in IB courses!'},
+  'act-stem-club':{icon:'🔬',name:'STEM Club',cat:'academic',grades:'G6–G8',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students explore science, technology, engineering, and math through hands-on projects and engaging challenges that spark curiosity and innovation.',
+    goals:'🎯 Encourage Innovation · Develop Problem-Solving Skills · Explore STEM Concepts',
+    why:'Create, experiment, and discover!'},
+  'act-storytelling':{icon:'📖',name:'Storytelling Time',cat:'academic',grades:'KG2–G5',day:'Wednesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students listen to, discuss, and create their own stories in a warm and interactive setting. Develops language, imagination, and a love for literature.',
+    goals:'🎯 Develop Language & Vocabulary · Foster Imagination · Build a Love of Reading',
+    why:'Ignite your imagination through the power of stories!'},
+
+  /* ATHLETIC */
+  'act-basketball':{icon:'🏀',name:'Basketball Training (GameTime)',cat:'athletic',grades:'KG2–G12',day:'Tuesday',cap:'15',instructor:'GameTime',fee:'paid',feeLabel:'Paid – Vendor',req:'Sports Attire Required',
+    desc:'Students develop basketball fundamentals including dribbling, passing, shooting, and game strategies in a structured and high-energy environment. Sessions focus on skill development, teamwork, and sportsmanship.',
+    goals:'🎯 Develop Basketball Skills · Build Teamwork & Communication · Improve Fitness & Coordination',
+    why:'Develop your game on and off the court!'},
+  'act-bowling':{icon:'🎳',name:'Bowling',cat:'athletic',grades:'KG2–G12',day:'Wednesday',cap:'15',instructor:'Vendor',fee:'paid',feeLabel:'Paid – Vendor',
+    desc:'Students enjoy weekly bowling sessions at a local lane, developing technique, focus, and friendly competition. A fun off-campus activity for all skill levels.',
+    goals:'🎯 Develop Bowling Technique · Build Focus & Patience · Encourage Friendly Competition',
+    why:'Roll your way to a great time!'},
+  'act-equestrians':{icon:'🏇',name:'Early Equestrians',cat:'athletic',grades:'G3–G5',day:'Tuesday',cap:'8',instructor:'Vendor',fee:'paid',feeLabel:'Paid – Vendor',req:'Pants & athletic shoes or boots required. Later pick-up due to off-campus location.',
+    desc:'Introduction to horse riding in a safe, structured environment at the Abu Dhabi Country Club. Students learn basic riding skills and proper etiquette.',
+    goals:'🎯 Develop Coordination & Balance · Build Confidence · Learn Basic Riding Skills',
+    why:'An unforgettable experience connecting with horses!'},
+  'act-football':{icon:'⚽️',name:'Football Training (PASS)',cat:'athletic',grades:'KG1–G12',day:'Monday, Tuesday',cap:'15',instructor:'PASS',fee:'paid',feeLabel:'Paid – Vendor',req:'Sports Attire Required',
+    desc:'Students learn core football skills including dribbling, passing, and teamwork in a fun and supportive environment. Sessions focus on skill development and game play.',
+    goals:'🎯 Develop Fitness & Coordination · Build Teamwork · Improve Football Skills',
+    why:'Develop your football skills in a fun, supportive environment!'},
+  'act-learn-swim':{icon:'🤿',name:'Learn to Swim',cat:'athletic',grades:'KG2–G2',day:'Monday',cap:'15',instructor:'AISA Staff',fee:'paid',feeLabel:'Paid Program',req:'Swimwear required. Students must be capable of changing alone.',
+    desc:'Students build confidence in the water while learning basic swimming techniques. Sessions focus on safety, comfort, and skill development.',
+    goals:'🎯 Develop Water Confidence · Learn Basic Swimming Skills · Promote Safety in Water',
+    why:'Build water confidence and essential life skills!'},
+  'act-learn-swim-g35':{icon:'🏊',name:'Learn to Swim (G3–G5)',cat:'athletic',grades:'G3–G5',day:'Monday',cap:'15',instructor:'AISA Staff',fee:'paid',feeLabel:'Paid – Lifeguard Fee',req:'Swimming Attire Required',
+    desc:'Students learn and improve swimming techniques while building endurance and confidence. Designed for those who do not yet know how to swim or need practice.',
+    goals:'🎯 Increase Water Safety · Build Endurance · Improve Swimming Technique',
+    why:'Build endurance and confidence in the water!'},
+  'act-little-ath-kg1':{icon:'🏃',name:'Little Athletics Program (KG1)',cat:'athletic',grades:'KG1',day:'Monday',cap:'15',instructor:'Origo',fee:'paid',feeLabel:'Paid – Vendor',
+    desc:'Students develop fundamental movement skills through fun, structured activities that build coordination, balance, and confidence. Energetic, engaging, and age-appropriate.',
+    goals:'🎯 Develop Motor Skills · Build Confidence in Movement · Encourage Teamwork',
+    why:'A perfect first step into the world of athletics!'},
+  'act-little-ath-kg2':{icon:'🏃',name:'Little Athletics Program (KG2–G2)',cat:'athletic',grades:'KG2–G2',day:'Monday',cap:'15',instructor:'Origo',fee:'paid',feeLabel:'Paid – Vendor',
+    desc:'Continue developing fundamental movement skills through structured games and activities that enhance coordination, balance, and teamwork.',
+    goals:'🎯 Improve Coordination & Balance · Build Confidence in Movement · Encourage Teamwork',
+    why:'Keep moving and growing through structured sport!'},
+  'act-playground':{icon:'🛝',name:'Playground Games',cat:'athletic',grades:'KG2–G5',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students enjoy a variety of organised outdoor games that encourage movement, laughter, and teamwork. Activities rotate each week to keep things fresh and engaging.',
+    goals:'🎯 Promote Active Play · Build Social Skills · Encourage Teamwork & Fun',
+    why:'Get outside and have fun with friends!'},
+  'act-raze':{icon:'🌟',name:'RAZE Leadership',cat:'athletic',grades:'G3–G5',cap:'15',instructor:'Vendor',fee:'paid',feeLabel:'Paid – Vendor',
+    desc:'A forward-thinking youth leadership program that complements and challenges traditional education. Focused on Resilience, Adaptability, and Zero Excuses.',
+    goals:'🎯 Take Ownership of Growth · Build Strong Team Connections · Lead with Confidence & Integrity',
+    why:'Step up, lead, and make your mark!'},
+  'act-splash':{icon:'💦',name:'Splash Fun Day',cat:'athletic',grades:'G3–G5',day:'Monday',cap:'15',instructor:'AISA Staff',fee:'paid',feeLabel:'Paid – Lifeguard Fee',req:'Students must be able to swim',
+    desc:'Game-based water activities that build confidence and reinforce swimming skills in a relaxed setting.',
+    goals:'🎯 Build Water Confidence · Reinforce Swimming Skills · Encourage Fun & Teamwork',
+    why:'Make a splash and have an amazing time!'},
+  'act-zumba':{icon:'💃',name:'ZUMBA Kids',cat:'athletic',grades:'KG2–G2',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'High-energy dance routines set to fun music while improving fitness and coordination. Sessions are lively and engaging.',
+    goals:'🎯 Improve Fitness · Build Confidence · Encourage Self-Expression',
+    why:'Move, dance, and have a great time!'},
+
+  /* ARTS */
+  'act-ballet':{icon:'🩰',name:'Ballet Bloom',cat:'arts',grades:'KG1–G5',day:'Monday, Wednesday',cap:'15',instructor:'BodyTree',fee:'paid',feeLabel:'Paid – Vendor',req:'Ballet Attire Required',
+    desc:'Students learn foundational ballet techniques while expressing themselves through movement and music. Inclusive to all ability levels.',
+    goals:'🎯 Develop Coordination · Build Confidence · Learn Dance Fundamentals',
+    why:'Discover the joy of dance and movement!'},
+  'act-diy':{icon:'💡',name:'DIY Club',cat:'arts',grades:'KG2–G2',day:'Tuesday',cap:'15',instructor:'AISA Staff',fee:'paid',feeLabel:'Paid – Supplies',
+    desc:'Students explore creativity and hands-on projects using a variety of materials. Each session encourages imagination, problem-solving, and artistic expression.',
+    goals:'🎯 Encourage Creativity · Develop Fine Motor Skills · Explore Design & Building',
+    why:'Create something amazing every session!'},
+  'act-drawing':{icon:'✍️',name:'Drawing & Coloring Practice',cat:'arts',grades:'KG2–G12',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students practice drawing and coloring techniques in a relaxed and creative setting. Sessions cover a range of styles and subjects that inspire self-expression and artistic growth.',
+    goals:'🎯 Develop Drawing Skills · Encourage Self-Expression · Build Artistic Confidence',
+    why:'Express yourself through art every week!'},
+  'act-guitar-g35':{icon:'🎸',name:'Guitar Strings (G3–G5)',cat:'arts',grades:'G3–G5',day:'Wednesday',cap:'15',instructor:'Notes & Chords',fee:'paid',feeLabel:'Paid – Vendor',req:'Guitar Required',
+    desc:'Students learn guitar basics including chords, rhythm, and simple songs while building confidence and skills. Built for beginners and those developing their musical skills.',
+    goals:'🎯 Learn Guitar Fundamentals · Develop Rhythm & Timing · Explore Creative Side',
+    why:'Pick up the guitar and start playing songs you love!'},
+  'act-guitar-g68':{icon:'🎸',name:'Guitar Strings (G6–G8)',cat:'arts',grades:'G6–G8',day:'Wednesday',cap:'15',instructor:'Notes & Chords',fee:'paid',feeLabel:'Paid – Vendor',req:'Guitar Required',
+    desc:'Guitar basics including chords, rhythm, and simple songs for middle school students. Built for beginners and those developing their musical skills.',
+    goals:'🎯 Learn Guitar Fundamentals · Develop Rhythm & Timing · Explore Creative Side',
+    why:'Pick up the guitar and start playing songs you love!'},
+  'act-hip-hop':{icon:'💃',name:'Hip-Hop Dance Club',cat:'arts',grades:'G6–G12',day:'Wednesday, Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students learn dynamic hip-hop routines while expressing themselves through movement and music in an energetic environment. Open to all experience levels.',
+    goals:'🎯 Develop Dance Skills · Build Confidence · Encourage Self-Expression',
+    why:'Move, groove, and express yourself!'},
+  'act-intro-music':{icon:'🎹',name:'Intro to Music',cat:'arts',grades:'KG1',day:'Wednesday',cap:'15',instructor:'Notes & Chords',fee:'paid',feeLabel:'Paid – Vendor',
+    desc:'Young learners are introduced to the world of music through fun, age-appropriate activities covering rhythm, melody, and basic keyboard skills. A joyful and engaging start to musical learning.',
+    goals:'🎯 Discover Music Fundamentals · Develop Rhythm & Listening · Encourage Creative Expression',
+    why:'Discover the magic of music from the very beginning!'},
+  'act-piano':{icon:'🎹',name:'Piano Practicers',cat:'arts',grades:'G1–G5',day:'Monday, Wednesday',cap:'15',instructor:'Notes & Chords',fee:'paid',feeLabel:'Paid – Vendor',
+    desc:'Learn the fundamentals of keyboard playing including rhythm, melody, and basic music reading in a fun and engaging way. Suitable for beginners and those developing skills.',
+    goals:'🎯 Learn Basic Keyboard Skills · Develop Musical Understanding · Promote Memorization & Routines',
+    why:'Learn to play beautiful music on the piano!'},
+  'act-stop-motion':{icon:'🎭',name:'Stop Motion Animation Club',cat:'arts',grades:'G3–G5',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students create their own animated videos using stop-motion techniques. This club blends storytelling, design, and technology.',
+    goals:'🎯 Develop Creativity · Learn Animation Techniques · Build Storytelling Skills',
+    why:'Bring your imagination to life, frame by frame!'},
+
+  /* WELLNESS */
+  'act-brain-gym':{icon:'🧠',name:'Brain Gym',cat:'wellness',grades:'KG2–G2',day:'Tuesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Fun physical and mental exercises to improve focus, coordination, and learning readiness. Activities are playful and engaging.',
+    goals:'🎯 Improve Concentration · Enhance Coordination · Support Learning Readiness',
+    why:'A fun and active way to sharpen your mind!'},
+  'act-early-sprouts':{icon:'🌱',name:'Early Sprouts Club',cat:'wellness',grades:'KG2–G3',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students explore nature by planting, growing, and caring for plants in the AISA greenhouse. Develops a deeper understanding of biological processes.',
+    goals:'🎯 Learn about Plants & Nature · Build Responsibility · Promote Sustainability',
+    why:'Get your hands in the soil and grow something incredible!'},
+  'act-every-piece':{icon:'🧩',name:'Every Piece Fits',cat:'wellness',grades:'KG2–G2',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students solve puzzles and challenges that build logic and critical thinking in an environment that encourages wellness-based conversation.',
+    goals:'🎯 Improve Problem-Solving · Develop Logical Thinking · Relaxing Environment',
+    why:'Find calm, focus, and fun through puzzles!'},
+  'act-greenhouse':{icon:'🌿',name:'Greenhouse Care',cat:'wellness',grades:'G6–G12',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students take care of plants and learn about sustainability through hands-on gardening and environmental stewardship in the AISA greenhouse.',
+    goals:'🎯 Learn Plant Care · Build Responsibility · Promote Sustainability',
+    why:'Grow something meaningful and make a difference!'},
+  'act-peace-leader':{icon:'☮️',name:'Peace Leader Academy',cat:'wellness',grades:'G3–G5',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students learn conflict resolution, empathy, and leadership through interactive activities and discussions that promote a positive school culture.',
+    goals:'🎯 Develop Leadership Skills · Build Empathy · Encourage Positive Communication',
+    why:'Be the change your school community needs!'},
+  'act-power-up':{icon:'🔋',name:'Power-Up with Affirmations',cat:'wellness',grades:'KG2–G12',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students build a positive mindset through guided affirmations, reflection, and wellbeing activities. Each session fosters self-confidence, gratitude, and emotional resilience.',
+    goals:'🎯 Build a Positive Mindset · Develop Emotional Resilience · Promote Self-Confidence & Gratitude',
+    why:'Start strong with a positive mindset every week!'},
+  'act-puzzle-nook':{icon:'🧩',name:'Puzzle Nook',cat:'wellness',grades:'G3–G5',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'A variety of puzzles including speed completions, problem solving, and relaxation challenges. A perfect piece of mind to relax.',
+    goals:'🎯 Improve Problem-Solving · Develop Logical Thinking · Relaxing Environment',
+    why:'Relax, focus, and enjoy the satisfying click of every piece!'},
+  'act-quran-elem':{icon:'🌙',name:'Quran Club',cat:'wellness',grades:'G3–G5',day:'Tuesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students engage in reflection, recitation, and discussion in a calm and respectful environment. The club promotes personal growth and mindfulness.',
+    goals:'🎯 Encourage Respectful Discussion · Build Personal Discipline · Develop Understanding & Reflection',
+    why:'A meaningful space for reflection and growth.'},
+  'act-quran-female':{icon:'🌙',name:'Quran Club (Female)',cat:'wellness',grades:'G6–G12',day:'Tuesday',cap:'15',instructor:'AISA Staff',fee:'free',req:'Open to female students',
+    desc:'Students engage in reflection, recitation, and discussion in a supportive and respectful environment. The club promotes personal growth, mindfulness, and community.',
+    goals:'🎯 Develop Understanding & Reflection · Encourage Respectful Dialogue · Build Personal Discipline',
+    why:'A meaningful space for reflection and connection.'},
+  'act-quran-male':{icon:'🌙',name:'Quran Club (Male)',cat:'wellness',grades:'G6–G12',day:'Wednesday',cap:'15',instructor:'AISA Staff',fee:'free',req:'Open to male students',
+    desc:'Students explore recitation and reflection in a structured and respectful setting. The club encourages mindfulness, discipline, and personal growth.',
+    goals:'🎯 Strengthen Reflection & Understanding · Build Discipline · Encourage Respectful Engagement',
+    why:'Grow through reflection in a supportive environment.'},
+  'act-relax-color':{icon:'🖍️',name:'Relax & Color Journaling',cat:'wellness',grades:'KG2–G12',day:'Wednesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students engage in mindful coloring and reflective journaling to decompress, express their feelings, and develop a healthy creative outlet. A calming, structured activity.',
+    goals:'🎯 Promote Mindfulness · Encourage Self-Expression · Build Emotional Awareness',
+    why:'Unwind and express yourself through color!'},
+  'act-sustainability':{icon:'🌱',name:'Sustainability Club',cat:'wellness',grades:'G6–G12',day:'Tuesday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students explore environmental issues and lead initiatives that promote sustainability within the school and community. Hands-on projects and discussions drive real change.',
+    goals:'🎯 Build Environmental Awareness · Encourage Leadership · Promote Sustainable Practices',
+    why:'Make a positive impact on the world!'},
+};
+
 /* ── Activity modal ── */
 function catLabel(cat){
   return{wellness:'🌿 Wellness',academic:'📚 Academic',athletic:'⚽️ Athletic',arts:'🎨 Arts'}[cat]||cat;
@@ -633,36 +848,39 @@ function openAct(id){
   ensureActOverlay();
   const card=document.getElementById(id);
   if(!card){
-    // Build a compact modal from the schedule table row — no redirect
-    const row=document.querySelector('tr[data-act="'+id+'"]');
-    if(!row) return;
-    const cells=row.querySelectorAll('td');
-    const nameText=cells[0]?cells[0].textContent.trim():'';
-    const dayText =cells[1]?cells[1].textContent.trim():'';
-    const catText =cells[2]?cells[2].textContent.trim():'';
-    const feeText =cells[3]?cells[3].textContent.trim():'';
-    const feeClass=feeText.toLowerCase().includes('free')?'free':'paid';
-    const dayChip =dayText?(DAY_CLASS[dayText]
-      ?`<span class="act-chip day-chip ${DAY_CLASS[dayText]}">${dayText}</span>`
-      :`<span class="act-chip">${dayText}</span>`):'';
-    const content=document.getElementById('actContent');
-    const overlay=document.getElementById('actOverlay');
-    if(!content||!overlay) return;
-    content.innerHTML=`
-      <div class="act-modal-name">${nameText}</div>
-      <div class="act-chips">
-        ${catText?`<span class="act-chip">${catText}</span>`:''}
-        ${dayChip}
-      </div>
-      <div class="act-footer" style="margin-top:16px">
-        <span class="act-fee ${feeClass}">💲 ${feeText||'—'}</span>
-      </div>
-      <p style="margin-top:20px;color:var(--muted);font-size:.85rem">
-        For full activity details, visit the
-        <a href="directory.html#${id}" style="color:var(--blue);font-weight:700">Activity Directory</a>.
-      </p>`;
-    overlay.classList.add('open');
-    document.body.style.overflow='hidden';
+    const a=ACT_STORE[id];
+    if(a){
+      const feeClass=a.fee==='free'?'free':'paid';
+      const feeLabel=a.fee==='free'?'Free':(a.feeLabel||'Paid');
+      const chips=[
+        a.cat?`<span class="act-chip">${catLabel(a.cat)}</span>`:'',
+        a.grades?`<span class="act-chip">📐 ${a.grades}</span>`:'',
+        a.day?a.day.split(',').map(dy=>`<span class="act-chip day-chip ${DAY_CLASS[dy.trim()]||''}">${dy.trim()}</span>`).join(''):'',
+        a.cap?`<span class="act-chip">Cap: ${a.cap}</span>`:'',
+        a.instructor?`<span class="act-chip">👤 ${a.instructor}</span>`:'',
+      ].join('');
+      const goalItems=a.goals.split('·').map(g=>g.replace(/^🎯\s*/,'').trim()).filter(Boolean).map(g=>`<li>${g}</li>`).join('');
+      const req=a.req?`<div class="act-req">📌 ${a.req}</div>`:'';
+      const why=a.why?`<div class="act-why"><strong>💡 Why Join?</strong>${a.why}</div>`:'';
+      const content=document.getElementById('actContent');
+      const overlay=document.getElementById('actOverlay');
+      if(!content||!overlay)return;
+      content.innerHTML=`
+        <div class="act-icon-lg">${a.icon}</div>
+        <div class="act-modal-name">${a.name}</div>
+        <div class="act-chips">${chips}</div>
+        <div class="act-desc">${a.desc}</div>
+        <ul class="act-goals-list">${goalItems}</ul>
+        <div class="act-footer">
+          <span class="act-fee ${feeClass}">💲 ${feeLabel}</span>
+          ${req}
+        </div>
+        ${why}
+      `;
+      overlay.classList.add('open');
+      document.body.style.overflow='hidden';
+      return;
+    }
     return;
   }
   const icon=card.querySelector('.dc-icon')?.textContent||'';
@@ -714,7 +932,18 @@ function handleOverlayClick(e){
   if(e.target===overlay)closeAct();
 }
 
+function sortDirectory(){
+  const grid=document.getElementById('dirGrid');
+  if(!grid)return;
+  [...grid.querySelectorAll('.dir-card')].sort((a,b)=>{
+    const na=(a.querySelector('.dc-name')?.textContent||'').toLowerCase();
+    const nb=(b.querySelector('.dc-name')?.textContent||'').toLowerCase();
+    return na.localeCompare(nb);
+  }).forEach(c=>grid.appendChild(c));
+}
+
 function initDirectory(){
+  sortDirectory();
   document.querySelectorAll('#dirGrid .dir-card[id]').forEach(card=>{
     card.addEventListener('click',(e)=>{
       if(e.target.closest('.dir-info-btn'))return;
