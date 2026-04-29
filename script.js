@@ -620,12 +620,49 @@ function initDayChips(){
 function catLabel(cat){
   return{wellness:'🌿 Wellness',academic:'📚 Academic',athletic:'⚽️ Athletic',arts:'🎨 Arts'}[cat]||cat;
 }
+function ensureActOverlay(){
+  if(document.getElementById('actOverlay')) return;
+  const div=document.createElement('div');
+  div.className='act-overlay';
+  div.id='actOverlay';
+  div.addEventListener('click',handleOverlayClick);
+  div.innerHTML=`<div class="act-box" id="actBox"><button class="act-close" onclick="closeAct()">✕</button><div id="actContent"></div></div>`;
+  document.body.appendChild(div);
+}
 function openAct(id){
+  ensureActOverlay();
   const card=document.getElementById(id);
   if(!card){
-    if(location.pathname.split('/').pop()!=='directory.html'){
-      location.href='directory.html?open='+encodeURIComponent(id);
-    }
+    // Build a compact modal from the schedule table row — no redirect
+    const row=document.querySelector('tr[data-act="'+id+'"]');
+    if(!row) return;
+    const cells=row.querySelectorAll('td');
+    const nameText=cells[0]?cells[0].textContent.trim():'';
+    const dayText =cells[1]?cells[1].textContent.trim():'';
+    const catText =cells[2]?cells[2].textContent.trim():'';
+    const feeText =cells[3]?cells[3].textContent.trim():'';
+    const feeClass=feeText.toLowerCase().includes('free')?'free':'paid';
+    const dayChip =dayText?(DAY_CLASS[dayText]
+      ?`<span class="act-chip day-chip ${DAY_CLASS[dayText]}">${dayText}</span>`
+      :`<span class="act-chip">${dayText}</span>`):'';
+    const content=document.getElementById('actContent');
+    const overlay=document.getElementById('actOverlay');
+    if(!content||!overlay) return;
+    content.innerHTML=`
+      <div class="act-modal-name">${nameText}</div>
+      <div class="act-chips">
+        ${catText?`<span class="act-chip">${catText}</span>`:''}
+        ${dayChip}
+      </div>
+      <div class="act-footer" style="margin-top:16px">
+        <span class="act-fee ${feeClass}">💲 ${feeText||'—'}</span>
+      </div>
+      <p style="margin-top:20px;color:var(--muted);font-size:.85rem">
+        For full activity details, visit the
+        <a href="directory.html#${id}" style="color:var(--blue);font-weight:700">Activity Directory</a>.
+      </p>`;
+    overlay.classList.add('open');
+    document.body.style.overflow='hidden';
     return;
   }
   const icon=card.querySelector('.dc-icon')?.textContent||'';
