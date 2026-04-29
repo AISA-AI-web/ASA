@@ -932,7 +932,18 @@ function handleOverlayClick(e){
   if(e.target===overlay)closeAct();
 }
 
+function sortDirectory(){
+  const grid=document.getElementById('dirGrid');
+  if(!grid)return;
+  [...grid.querySelectorAll('.dir-card')].sort((a,b)=>{
+    const na=(a.querySelector('.dc-name')?.textContent||'').toLowerCase();
+    const nb=(b.querySelector('.dc-name')?.textContent||'').toLowerCase();
+    return na.localeCompare(nb);
+  }).forEach(c=>grid.appendChild(c));
+}
+
 function initDirectory(){
+  sortDirectory();
   document.querySelectorAll('#dirGrid .dir-card[id]').forEach(card=>{
     card.addEventListener('click',(e)=>{
       if(e.target.closest('.dir-info-btn'))return;
