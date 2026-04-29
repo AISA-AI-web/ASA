@@ -11,6 +11,11 @@ const SEASONS = [
     breaks:[
       { start:'2026-10-12', end:'2026-10-16', label:'Mid-Term Break (Oct. 12 – 16)' }
     ],
+    comms:[
+      { date:'2026-09-09', type:'pre', label:'Pre-Communication — Sep. 9, 2026' },
+      { date:'2026-10-07', type:'mid', label:'Mid-Term Communication — Oct. 7, 2026' },
+      { date:'2026-11-12', type:'end', label:'End-of-Season Communication — Nov. 12, 2026' }
+    ],
     months:[
       { year:2026, month:8 },
       { year:2026, month:9 },
@@ -25,6 +30,11 @@ const SEASONS = [
       { start:'2026-11-30', end:'2026-12-04', label:'UAE National Day Celebrations (week of Dec. 1)' },
       { start:'2026-12-14', end:'2027-01-03', label:'Winter Holiday Break (Dec. 14 – Jan. 3)' }
     ],
+    comms:[
+      { date:'2026-11-18', type:'pre', label:'Pre-Communication — Nov. 18, 2026' },
+      { date:'2027-01-13', type:'mid', label:'Mid-Term Communication — Jan. 13, 2027' },
+      { date:'2027-02-04', type:'end', label:'End-of-Season Communication — Feb. 4, 2027' }
+    ],
     months:[
       { year:2026, month:10 },
       { year:2026, month:11 },
@@ -38,6 +48,11 @@ const SEASONS = [
     asa:{ start:'2027-03-15', end:'2027-05-14', label:'Week of March 15 – Week of May 14, 2027' },
     breaks:[
       { start:'2027-04-05', end:'2027-04-09', label:'Spring Break (Apr. 5 – 9)' }
+    ],
+    comms:[
+      { date:'2027-03-17', type:'pre', label:'Pre-Communication — Mar. 17, 2027' },
+      { date:'2027-04-14', type:'mid', label:'Mid-Term Communication — Apr. 14, 2027' },
+      { date:'2027-05-13', type:'end', label:'End-of-Season Communication — May 13, 2027' }
     ],
     months:[
       { year:2027, month:2 },
@@ -392,15 +407,20 @@ function buildMonth(year, month, season, today){
   for(let d=1;d<=daysInMonth;d++){
     const cur=new Date(year,month,d);
     const dow=cur.getDay();
-    const isWeekend=(dow===0||dow===6);
+    const isWeekend=(dow===0||dow===5||dow===6); // Sun=0, Fri=5, Sat=6
     const classes=['cal-day'];
     const inReg=isBetween(cur,regStart,regEnd);
     const inAsaWindow=isBetween(cur,asaStartMon,asaEndFri) && !isWeekend;
     const inBreak=breaks.some(([s,e])=>isBetween(cur,s,e)) && !isWeekend;
+    const commMatch=(season.comms||[]).find(c=>{
+      const cd=parseDate(c.date);
+      return cd.getFullYear()===year&&cd.getMonth()===month&&cd.getDate()===d;
+    });
     if(inBreak) classes.push('noasa');
     else if(inAsaWindow) classes.push('asa');
     if(inReg) classes.push('reg');
     if(isWeekend && !inReg) classes.push('weekend');
+    if(commMatch) classes.push('comm','comm-'+commMatch.type);
     if(today && cur.getFullYear()===today.getFullYear() && cur.getMonth()===today.getMonth() && cur.getDate()===today.getDate()){
       classes.push('today');
     }
@@ -477,6 +497,8 @@ function renderSeasonCalendars(filterIds){
     const isNext=next && next.id===s.id;
     const months=s.months.map(m=>buildMonth(m.year,m.month,s,today)).join('');
     const breaksHtml=s.breaks.map(b=>`<div class="cal-fact break"><strong>No ASAs</strong>${b.label}</div>`).join('');
+    const COMM_LABELS={pre:'Pre-Communication',mid:'Mid-Term Communication',end:'End-of-Season Communication'};
+    const commsHtml=(s.comms||[]).map(c=>`<div class="cal-fact comm"><strong>${COMM_LABELS[c.type]||c.type}</strong>${c.label}</div>`).join('');
     return `
       <div class="cal-wrap ${isNext?'is-next':''}" id="cal-${s.id}">
         <div class="cal-head">
@@ -487,12 +509,14 @@ function renderSeasonCalendars(filterIds){
           <div class="cal-fact reg"><strong>Registration</strong>${s.registration.label}</div>
           <div class="cal-fact asa"><strong>ASAs Active</strong>${s.asa.label}</div>
           ${breaksHtml}
+          ${commsHtml}
         </div>
         <div class="cal-months">${months}</div>
         <div class="cal-legend">
           <span><i class="reg"></i>Registration Period</span>
           <span><i class="asa"></i>ASAs Active</span>
           <span><i class="noasa"></i>No ASAs (Break)</span>
+          <span><i class="comm"></i>Instructor Communication</span>
         </div>
       </div>`;
   }).join('');
