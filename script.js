@@ -126,7 +126,7 @@ const TRANSLATIONS = {
     sec_heading:        '🏫 Secondary Process',
     step1_title:        'End of School Day',     step1_desc:  'School finishes at 14:50.',
     step2_title:        'ASA Meet-Up',
-    step2_elem_desc:    'Students with an ASA meet their instructor on the Lower Basketball Court.',
+    step2_elem_desc:    'Students with an ASA will meet their instructor in the following locations:<br>KG2–Gr2: Lower Mini-Pitch<br>Gr3–Gr5: Upper Mini-Pitch',
     step2_sec_desc:     'Secondary students head to their assigned ASA location (HS Library, Homeroom, Greenhouse, Soccer Field, etc.)',
     step3_title:        'Attendance',            step3_desc:  'Attendance completed on Mograsys by ASA Instructor.',
     step4_title:        'ASA Timing',            step4_desc:  '15:00–16:00 — Students will be in their ASAs!',
