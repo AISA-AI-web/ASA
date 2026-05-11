@@ -11,6 +11,11 @@ const SEASONS = [
     breaks:[
       { start:'2026-10-12', end:'2026-10-16', label:'Mid-Term Break (Oct. 12 – 16)' }
     ],
+    noasaDays:[
+      { date:'2026-10-19', label:'Oct. 19 – Professional Development (No School for Students)' },
+      { date:'2026-10-20', label:'Oct. 20 – Professional Development (No School for Students)' },
+      { date:'2026-11-09', label:'Nov. 9 – Parent-Teacher Conferences' }
+    ],
     comms:[
       { date:'2026-09-09', type:'pre', label:'Pre-Communication — Sep. 9, 2026' },
       { date:'2026-10-07', type:'mid', label:'Mid-Term Communication — Oct. 7, 2026' },
@@ -49,6 +54,10 @@ const SEASONS = [
     breaks:[
       { start:'2027-04-05', end:'2027-04-09', label:'Spring Break (Apr. 5 – 9)' }
     ],
+    noasaDays:[
+      { date:'2027-03-15', label:'Mar. 15 – Professional Development (No School for Students)' },
+      { date:'2027-05-03', label:'May 3 – Parent-Teacher Conferences' }
+    ],
     comms:[
       { date:'2027-03-17', type:'pre', label:'Pre-Communication — Mar. 17, 2027' },
       { date:'2027-04-14', type:'mid', label:'Mid-Term Communication — Apr. 14, 2027' },
@@ -75,7 +84,7 @@ const TRANSLATIONS = {
   en: {
     /* nav */
     nav_welcome:   'Welcome',
-    nav_about:     'About & Registration',
+    nav_about:     'Register & Calendars',
     nav_terms:     'Current Term',
     nav_directory: 'Directory',
     nav_faqs:      'FAQs',
@@ -87,9 +96,9 @@ const TRANSLATIONS = {
     footer_invite:  'We invite every student to take part in the ASA program — to discover new interests, build lasting relationships, and continue their journey as confident, capable, and caring AISA Lions.',
     footer_copy:    'American International School Abu Dhabi · ASA Program 2026–2027',
     /* chatbot */
-    chatbot_title:       'AISA ASA Assistant',
-    chatbot_greeting:    "Hi! I'm the AISA ASA Assistant. Ask me about registration, activities, fees, or schedules.",
-    chatbot_placeholder: 'Type a message…',
+    chatbot_title:       'Leo — ASA Assistant',
+    chatbot_greeting:    "Hi! I'm Leo, your AISA ASA guide 🦁 Ask me about registration, activities, fees, no-ASA days, or schedules!",
+    chatbot_placeholder: 'Ask Leo…',
     chatbot_reply:       'Thanks! A staff member will follow up via email. For urgent questions, call +971 2 444 4333.',
     /* next-reg banner */
     nrb_label: 'Next Registration Period',
@@ -220,7 +229,7 @@ const TRANSLATIONS = {
   ar: {
     /* nav */
     nav_welcome:   'الرئيسية',
-    nav_about:     'حول البرنامج والتسجيل',
+    nav_about:     'التسجيل والتقاويم',
     nav_terms:     'الفصل الحالي',
     nav_directory: 'الدليل',
     nav_faqs:      'الأسئلة الشائعة',
@@ -232,9 +241,9 @@ const TRANSLATIONS = {
     footer_invite:  'ندعو كل طالب للمشاركة في برنامج الأنشطة — لاستكشاف اهتمامات جديدة وبناء علاقات دائمة ومواصلة رحلته كأسد أيسا واثق وقادر ومُهتم.',
     footer_copy:    'المدرسة الدولية الأمريكية أبوظبي · برنامج الأنشطة 2026–2027',
     /* chatbot */
-    chatbot_title:       'مساعد أنشطة أيسا',
-    chatbot_greeting:    'مرحباً! أنا مساعد أنشطة أيسا. اسألني عن التسجيل والأنشطة والرسوم أو الجداول.',
-    chatbot_placeholder: 'اكتب رسالتك…',
+    chatbot_title:       'ليو — مساعد الأنشطة',
+    chatbot_greeting:    'مرحباً! أنا ليو، مرشدك لأنشطة أيسا 🦁 اسألني عن التسجيل والأنشطة والرسوم وأيام بدون أنشطة أو الجداول!',
+    chatbot_placeholder: 'اسأل ليو…',
     chatbot_reply:       'شكراً! سيتابع معك أحد أعضاء الفريق عبر البريد الإلكتروني. للاستفسارات العاجلة اتصل على: 4333 444 2 971+.',
     /* next-reg banner */
     nrb_label: 'فترة التسجيل التالية',
@@ -399,6 +408,7 @@ function buildMonth(year, month, season, today){
     const [,me]=weekRange(b.end);
     return [ms,me];
   });
+  const noasaDates=(season.noasaDays||[]).map(nd=>parseDate(nd.date));
 
   let html=`<div class="cal-month"><div class="cal-month-title">${MONTH_NAMES[month]} ${year}</div>`;
   html+=`<div class="cal-dow-row">${DOW_SHORT.map(d=>`<div class="cal-dow">${d.charAt(0)}</div>`).join('')}</div>`;
@@ -412,11 +422,12 @@ function buildMonth(year, month, season, today){
     const inReg=isBetween(cur,regStart,regEnd);
     const inAsaWindow=isBetween(cur,asaStartMon,asaEndFri) && !isWeekend;
     const inBreak=breaks.some(([s,e])=>isBetween(cur,s,e)) && !isWeekend;
+    const isNoasaDay=noasaDates.some(nd=>nd.getFullYear()===year&&nd.getMonth()===month&&nd.getDate()===d)&&!isWeekend;
     const commMatch=(season.comms||[]).find(c=>{
       const cd=parseDate(c.date);
       return cd.getFullYear()===year&&cd.getMonth()===month&&cd.getDate()===d;
     });
-    if(inBreak) classes.push('noasa');
+    if(inBreak||isNoasaDay) classes.push('noasa');
     else if(inAsaWindow) classes.push('asa');
     if(inReg) classes.push('reg');
     if(isWeekend && !inReg) classes.push('weekend');
@@ -496,7 +507,8 @@ function renderSeasonCalendars(filterIds){
   root.innerHTML=seasonList.map(s=>{
     const isNext=next && next.id===s.id;
     const months=s.months.map(m=>buildMonth(m.year,m.month,s,today)).join('');
-    const breaksHtml=s.breaks.map(b=>`<div class="cal-fact break"><strong>No ASAs</strong>${b.label}</div>`).join('');
+    const breaksHtml=s.breaks.map(b=>`<div class="cal-fact break"><strong>No ASAs</strong> ${b.label}</div>`).join('');
+    const noasaDaysHtml=(s.noasaDays||[]).map(nd=>`<div class="cal-fact break"><strong>No ASAs</strong> ${nd.label}</div>`).join('');
     const COMM_LABELS={pre:'Pre-Communication',mid:'Mid-Term Communication',end:'End-of-Season Communication'};
     const commsHtml=(s.comms||[]).map(c=>`<div class="cal-fact comm"><strong>${COMM_LABELS[c.type]||c.type}</strong>${c.label}</div>`).join('');
     return `
@@ -506,9 +518,10 @@ function renderSeasonCalendars(filterIds){
           ${isNext?'<div class="cal-next-chip">Next Registration</div>':''}
         </div>
         <div class="cal-facts">
-          <div class="cal-fact reg"><strong>Registration</strong>${s.registration.label}</div>
-          <div class="cal-fact asa"><strong>ASAs Active</strong>${s.asa.label}</div>
+          <div class="cal-fact reg"><strong>Registration</strong> ${s.registration.label}</div>
+          <div class="cal-fact asa"><strong>ASAs Active</strong> ${s.asa.label}</div>
           ${breaksHtml}
+          ${noasaDaysHtml}
           ${commsHtml}
         </div>
         <div class="cal-months">${months}</div>
@@ -1083,80 +1096,77 @@ function initLanguageToggle(){
   setLanguage(saved);
 }
 
-/* ── Animated Lion Chatbot ── */
-const LION_SVG = `
-<svg class="lion-face" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <!-- Mane (layered tufts for a fluffy look) -->
-  <g class="lion-mane">
-    <circle cx="50" cy="52" r="46" fill="#8B4513"/>
-    <circle cx="50" cy="52" r="42" fill="#B8651A"/>
-    <g fill="#A0531C">
-      <circle cx="18" cy="36" r="9"/><circle cx="82" cy="36" r="9"/>
-      <circle cx="14" cy="56" r="9"/><circle cx="86" cy="56" r="9"/>
-      <circle cx="22" cy="76" r="9"/><circle cx="78" cy="76" r="9"/>
-      <circle cx="50" cy="12" r="8"/><circle cx="50" cy="92" r="8"/>
-      <circle cx="32" cy="18" r="8"/><circle cx="68" cy="18" r="8"/>
-      <circle cx="30" cy="86" r="8"/><circle cx="70" cy="86" r="8"/>
-    </g>
-  </g>
-  <!-- Ears -->
-  <g class="lion-ears">
-    <polygon points="22,22 34,40 12,38" fill="#B8651A"/>
-    <polygon points="78,22 66,40 88,38" fill="#B8651A"/>
-    <polygon points="23,26 31,38 17,36" fill="#F5C88A"/>
-    <polygon points="77,26 69,38 83,36" fill="#F5C88A"/>
-  </g>
-  <!-- Head/face -->
-  <circle cx="50" cy="52" r="32" fill="#F5C842"/>
-  <ellipse cx="50" cy="44" rx="24" ry="18" fill="#FFD96A"/>
-  <!-- Cheeks -->
-  <ellipse cx="28" cy="62" rx="7" ry="5" fill="rgba(240,100,100,.28)"/>
-  <ellipse cx="72" cy="62" rx="7" ry="5" fill="rgba(240,100,100,.28)"/>
-  <!-- Eyes -->
-  <g class="lion-eyes">
-    <ellipse cx="38" cy="48" rx="6" ry="6.5" fill="#fff"/>
-    <ellipse cx="62" cy="48" rx="6" ry="6.5" fill="#fff"/>
-    <circle cx="39" cy="49" r="4" fill="#3D2010"/>
-    <circle cx="63" cy="49" r="4" fill="#3D2010"/>
-    <circle cx="40.5" cy="47" r="1.5" fill="#fff"/>
-    <circle cx="64.5" cy="47" r="1.5" fill="#fff"/>
-  </g>
-  <!-- Brows -->
-  <path d="M 31 40 Q 38 36 45 40" stroke="#5A3410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M 55 40 Q 62 36 69 40" stroke="#5A3410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <!-- Nose -->
-  <path d="M 46 58 Q 50 63 54 58 Q 50 60 46 58 Z" fill="#5A3410"/>
-  <ellipse cx="50" cy="57" rx="4.5" ry="3" fill="#8B4513"/>
-  <!-- Nose-to-mouth line -->
-  <line x1="50" y1="60" x2="50" y2="65" stroke="#5A3410" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Mouth: closed (smile) -->
-  <path class="lion-mouth-closed" d="M 40 66 Q 45 72 50 68 Q 55 72 60 66" stroke="#5A3410" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <!-- Mouth: open (talking) -->
-  <g class="lion-mouth-open" opacity="0">
-    <path d="M 40 65 Q 50 82 60 65 Q 50 72 40 65 Z" fill="#3D1010"/>
-    <ellipse cx="50" cy="73" rx="5" ry="4" fill="#D4425A"/>
-    <rect x="44" y="65" width="4" height="5" rx="1" fill="#fff"/>
-    <rect x="52" y="65" width="4" height="5" rx="1" fill="#fff"/>
-  </g>
-  <!-- Whiskers -->
-  <g class="lion-whiskers" stroke="#8B4513" stroke-width="1.2" stroke-linecap="round" fill="none">
-    <line x1="6"  y1="58" x2="30" y2="60"/>
-    <line x1="4"  y1="64" x2="28" y2="64"/>
-    <line x1="6"  y1="70" x2="30" y2="68"/>
-    <line x1="94" y1="58" x2="70" y2="60"/>
-    <line x1="96" y1="64" x2="72" y2="64"/>
-    <line x1="94" y1="70" x2="70" y2="68"/>
-  </g>
-</svg>`;
+/* ── Leo Lion Chatbot ── */
+const LION_EMOJI = '🦁';
+
+/* ── Leo's knowledge base ── */
+function getLeoResponse(text){
+  const t=text.toLowerCase();
+  if(/register|registration|sign.?up|enrol|enroll|how.*(join|start)|qr/.test(t)){
+    return 'To register for an ASA, scan the QR code or follow the link shared via email 📧\n\nRegistration windows:\n🍂 Autumn: Sep. 1–8, 2026\n❄️ Winter: Nov. 2–15, 2026\n🌸 Spring: Mar. 1–14, 2027\n\nVisit the Register & Calendars page for the full calendar!';
+  }
+  if(/no.?asa|no school|prof.*dev|professional development|parent.?teacher|conference/.test(t)){
+    return 'Upcoming No-ASA days:\n🍂 Autumn:\n  • Oct. 19 & 20 – Professional Development (No School)\n  • Nov. 9 – Parent-Teacher Conferences\n🌸 Spring:\n  • Mar. 15 – Professional Development (No School)\n  • May 3 – Parent-Teacher Conferences\n\nPlus term breaks (Mid-Term, UAE National Day, Winter Holiday, Spring Break).';
+  }
+  if(/break|holiday|vacation|mid.?term|national day|winter.?break|spring.?break/.test(t)){
+    return 'School breaks with no ASAs:\n🍂 Autumn: Oct. 12–16 Mid-Term Break\n❄️ Winter: Week of Dec. 1 (UAE National Day) · Dec. 14 – Jan. 3 Winter Holiday\n🌸 Spring: Apr. 5–9 Spring Break\n\nIndividual no-school days are also marked on the Register & Calendars page.';
+  }
+  if(/time|timing|hour|start|finish|end|dismiss|pick.?up|gate|when.*asa|asa.*when/.test(t)){
+    return 'ASAs run from 15:00 to 16:00 (3 pm – 4 pm) every school day.\n\nSchool finishes at 14:50. Students head to their ASA meet-up point, then activities begin at 15:00.\n\n🚪 Pick-up is at Gate 4 at 16:00. Please be prompt!';
+  }
+  if(/fee|cost|price|paid|free|pay|charge/.test(t)){
+    return 'Fees vary by activity:\n✅ Many ASAs are FREE (e.g. Chess, Power-Up, Playground Games, Quran Club)\n💳 Some require vendor payment (e.g. Football/PASS, Ballet/BodyTree, Basketball/GameTime, Bowling, Piano)\n\nRegistration is required even for free activities. Check the Directory page for each activity\'s fee details.';
+  }
+  if(/contact|email|phone|call|reach|staff|mr.*zischka|ms.*cristobal/.test(t)){
+    return 'You can reach the Athletics & Activities team at:\n📧 attendance@aisa.sch.ae\n📞 +971 2 444 4333\n🌐 www.aisa.sch.ae\n\nHead of Athletics: Mr. Luka Zischka (lzischka@aisa.sch.ae)\nAssistant Head: Ms. Ledinia Cristobal (lcristobal@aisa.sch.ae)';
+  }
+  if(/activit|asa|club|sport|what.*offer|what.*available|list|categor/.test(t)){
+    return 'ASAs fall into 4 categories:\n🌿 Reflective & Wellness (Quran Club, Sustainability, Greenhouse…)\n📚 Academics & Enrichment (Chess, Math Ninjas, STEM Club, Robotics…)\n⚽️ Athletics & Movement (Football, Basketball, Swimming, CUBS Sports…)\n🎨 Arts & Creativity (Ballet, Piano, Guitar, Hip-Hop Dance…)\n\nVisit the Directory page to browse all activities with full details!';
+  }
+  if(/football|soccer|pass/.test(t)){
+    return '⚽️ Football Training (PASS) is available for KG1–G12 on Mondays & Tuesdays. It\'s a paid vendor activity. Students develop dribbling, passing, and teamwork skills. Sports attire required!';
+  }
+  if(/basketball|gametime/.test(t)){
+    return '🏀 Basketball Training (GameTime) is available for KG2–G12 on Tuesdays. It\'s a paid vendor activity. CUBS Basketball teams also compete in local Abu Dhabi/Dubai competitions (free for CUBS).';
+  }
+  if(/swim|pool|water/.test(t)){
+    return '🏊 Swimming options:\n• Learn to Swim (KG2–G2, Mondays) – fee applies\n• Learn to Swim G3–G5 (Mondays) – lifeguard fee applies\n• Splash Fun Day (G3–G5 Spring, Mondays) – lifeguard fee · must be able to swim\n\nSwimwear required. Students must be capable of changing alone.';
+  }
+  if(/ballet|dance|bodytree/.test(t)){
+    return '🩰 Ballet Bloom (BodyTree) is available for KG1–G5 on Mondays & Wednesdays. It\'s a paid vendor activity. Ballet attire is required. All ability levels welcome!';
+  }
+  if(/chess/.test(t)){
+    return '♟️ Chess options:\n• Intro to Chess – KG2–G5, Thursdays (free)\n• Chess Club – G6–G12, Thursdays (free)\n\nAll skill levels welcome – from absolute beginners to experienced players!';
+  }
+  if(/grade|kg|kindergarten|elementary|middle|high.?school|secondary|who.*(can|eligible)/.test(t)){
+    return 'ASAs are available for all grades from KG1 through Grade 12!\n\nGrade groups per term:\n• KG1 – smaller selection of age-appropriate activities\n• KG2–G2 – broad Elementary selection\n• G3–G5 – Elementary+ selection including CUBS sports\n• Middle & High School – includes study halls, IB support, and competitive CUBS teams\n\nCheck the Current Term page for grade-specific offerings.';
+  }
+  if(/calendar|schedule|term|season|date|autumn|winter|spring|when.*start|when.*end/.test(t)){
+    return '📅 2026–2027 ASA Seasons:\n🍂 Autumn ASAs: Sep. 14 – Nov. 13, 2026\n  Registration: Sep. 1–8\n❄️ Winter ASAs: Nov. 23, 2026 – Feb. 5, 2027\n  Registration: Nov. 2–15\n🌸 Spring ASAs: Mar. 15 – May 14, 2027\n  Registration: Mar. 1–14\n\nFull calendar on the Register & Calendars page!';
+  }
+  if(/absent|absence|miss|attendance|cannot attend|can't attend/.test(t)){
+    return 'If your child cannot attend a session, please notify us as early as possible:\n📧 Elementary: attendance@aisa.sch.ae\n📧 Secondary: secondaryattendance@aisa.sch.ae\n📞 +971 2 444 4333\n\nAttendance is recorded via Mograsys by the ASA instructor.';
+  }
+  if(/safe|safety|ratio|nurse|supervisi|vett/.test(t)){
+    return 'Safety at AISA ASAs:\n• Max 15 students per supervising adult\n• All activity staff are vetted per ADEK requirements\n• Staff trained in health & safety protocols\n• On-site school nurses available\n• Parent consent required before participation\n\nYour child\'s well-being is our top priority!';
+  }
+  if(/transport|bus|off.?campus|bowling|equestrian/.test(t)){
+    return '🚌 Transportation is provided for selected off-campus activities (e.g. Bowling, Equestrian Club, CUBS sports).\n\nParents/guardians collect their children from AISA campus after the activity. Pick-up at Gate 4 at 16:00.';
+  }
+  if(/quran|islam|reflect|wellbeing|wellness/.test(t)){
+    return '🌙 Quran Club options:\n• Quran Club (KG2–G5 general) – Tuesdays, free\n• Quran Club Female (G6–G12) – Tuesdays, free\n• Quran Club Male (G6–G12) – Wednesdays, free\n\nA calm, reflective space for recitation, discussion, and personal growth.';
+  }
+  return null;
+}
 
 function initChatbot(){
   if(document.getElementById('chatbot-launcher'))return;
   const launcher=document.createElement('button');
   launcher.id='chatbot-launcher';
   launcher.className='chatbot-launcher lion-launcher no-print';
-  launcher.setAttribute('aria-label','Open AI assistant');
+  launcher.setAttribute('aria-label','Open Leo ASA Assistant');
   launcher.setAttribute('data-i18n-aria-label','chatbot_title');
-  launcher.innerHTML = LION_SVG + '<span class="chatbot-dot"></span>';
+  launcher.innerHTML = `<span class="leo-emoji" aria-hidden="true">${LION_EMOJI}</span><span class="chatbot-dot"></span>`;
 
   const panel=document.createElement('div');
   panel.id='chatbot-panel';
@@ -1164,16 +1174,16 @@ function initChatbot(){
   panel.innerHTML=`
     <div class="chatbot-head">
       <div class="chatbot-title">
-        <span class="chatbot-title-lion">${LION_SVG}</span>
-        <span data-i18n="chatbot_title">AISA ASA Assistant</span>
+        <span class="chatbot-title-lion" aria-hidden="true">${LION_EMOJI}</span>
+        <span data-i18n="chatbot_title">Leo — ASA Assistant</span>
       </div>
       <button class="chatbot-close" aria-label="Close">✕</button>
     </div>
     <div class="chatbot-body" id="chatbot-body">
-      <div class="chatbot-msg bot greeting" data-i18n="chatbot_greeting">Hi! I'm the AISA ASA Assistant. Ask me about registration, activities, fees, or schedules.</div>
+      <div class="chatbot-msg bot greeting" data-i18n="chatbot_greeting">Hi! I'm Leo, your AISA ASA guide 🦁 Ask me about registration, activities, fees, no-ASA days, or schedules!</div>
     </div>
     <form class="chatbot-input-row" id="chatbot-form">
-      <input type="text" id="chatbot-input" data-i18n-placeholder="chatbot_placeholder" placeholder="Type a message…" autocomplete="off"/>
+      <input type="text" id="chatbot-input" data-i18n-placeholder="chatbot_placeholder" placeholder="Ask Leo…" autocomplete="off"/>
       <button type="submit" aria-label="Send">➤</button>
     </form>
   `;
@@ -1183,8 +1193,6 @@ function initChatbot(){
 
   launcher.addEventListener('click',()=>{
     panel.classList.toggle('open');
-    // A little greeting roar when the lion is opened
-    if(panel.classList.contains('open')) roar(1200);
   });
   panel.querySelector('.chatbot-close').addEventListener('click',()=>panel.classList.remove('open'));
 
@@ -1202,51 +1210,23 @@ function initChatbot(){
     input.value='';
     body.scrollTop=body.scrollHeight;
 
-    // Lion "thinks"… then "talks" for a beat while the reply appears
-    startTalking();
     setTimeout(()=>{
       const b=document.createElement('div');
       b.className='chatbot-msg bot';
-      const dict = TRANSLATIONS[currentLang] || TRANSLATIONS.en;
-      b.textContent = dict.chatbot_reply;
+      const smart=getLeoResponse(text);
+      if(smart){
+        b.style.whiteSpace='pre-line';
+        b.textContent=smart;
+      }else{
+        const dict=TRANSLATIONS[currentLang]||TRANSLATIONS.en;
+        b.textContent=dict.chatbot_reply;
+      }
       body.appendChild(b);
       body.scrollTop=body.scrollHeight;
-      // Keep the mouth moving for the length of the reply
-      setTimeout(stopTalking, 1400);
-    },600);
+    },500);
   });
 }
 
-/* ── Lion talking animation ── */
-let _talkInterval = null;
-function startTalking(){
-  stopTalking();
-  document.querySelectorAll('.lion-face').forEach(el => el.classList.add('talking'));
-  let open = false;
-  _talkInterval = setInterval(()=>{
-    open = !open;
-    document.querySelectorAll('.lion-face').forEach(el=>{
-      const closed = el.querySelector('.lion-mouth-closed');
-      const openEl = el.querySelector('.lion-mouth-open');
-      if(closed) closed.style.opacity = open ? '0' : '1';
-      if(openEl) openEl.style.opacity = open ? '1' : '0';
-    });
-  }, 160);
-}
-function stopTalking(){
-  if(_talkInterval){ clearInterval(_talkInterval); _talkInterval = null; }
-  document.querySelectorAll('.lion-face').forEach(el=>{
-    el.classList.remove('talking');
-    const closed = el.querySelector('.lion-mouth-closed');
-    const openEl = el.querySelector('.lion-mouth-open');
-    if(closed) closed.style.opacity = '1';
-    if(openEl) openEl.style.opacity = '0';
-  });
-}
-function roar(ms){
-  startTalking();
-  setTimeout(stopTalking, ms || 900);
-}
 
 /* ── Boot ── */
 document.addEventListener('DOMContentLoaded',()=>{
