@@ -78,6 +78,7 @@ const DAY_CLASS={
   'Monday':'day-monday','Tuesday':'day-tuesday',
   'Wednesday':'day-wednesday','Thursday':'day-thursday','Friday':'day-friday'
 };
+const DAY_ORDER={'Monday':0,'Tuesday':1,'Wednesday':2,'Thursday':3,'Friday':4};
 
 /* ── Translations — shared UI strings ── */
 const TRANSLATIONS = {
@@ -766,11 +767,11 @@ const ACT_STORE={
     desc:'Students refine basketball techniques and develop game strategies through structured sessions and competitive play opportunities.',
     goals:'🎯 Enhance Technical Skills · Develop Game Understanding · Build Teamwork',
     why:'Take your basketball skills to the next level!'},
-  'act-cubs-basketball-girls-g45':{icon:'🏀',name:'CUBS Basketball – Girls (G4–G5)',cat:'athletic',grades:'G4–G5 (Girls)',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',req:'Sports Attire Required',
+  'act-cubs-basketball-girls-g45':{icon:'🏀',name:'CUBS Basketball – Girls (G4–G5)',cat:'athletic',grades:'G4–G5 (Girls)',day:'Wednesday',cap:'15',instructor:'AISA Staff',fee:'free',req:'Sports Attire Required',
     desc:'Students build basketball fundamentals in a supportive and engaging environment, with opportunities to participate in local competitions.',
     goals:'🎯 Build Basketball Skills · Develop Confidence · Encourage Teamwork',
     why:'Play, learn, and grow as a team!'},
-  'act-cubs-basketball-girls-g6':{icon:'🏀',name:'CUBS Basketball – Girls (G6)',cat:'athletic',grades:'G6 (Girls)',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',req:'Sports Attire Required',
+  'act-cubs-basketball-girls-g6':{icon:'🏀',name:'CUBS Basketball – Girls (G6)',cat:'athletic',grades:'G6 (Girls)',day:'Wednesday',cap:'15',instructor:'AISA Staff',fee:'free',req:'Sports Attire Required',
     desc:'Students improve basketball performance through structured training and game play, with opportunities to compete locally.',
     goals:'🎯 Improve Technical Ability · Build Teamwork · Develop Competitive Confidence',
     why:'Compete, improve, and have fun!'},
@@ -782,11 +783,11 @@ const ACT_STORE={
     desc:'Students continue developing football skills through structured training and game play. The program includes opportunities to compete in local competitions in Abu Dhabi or Dubai.',
     goals:'🎯 Enhance Technical Skills · Develop Game Understanding · Build Teamwork & Leadership',
     why:'Take your game to the next level!'},
-  'act-cubs-football-girls-g45':{icon:'🏃',name:'CUBS Football – Girls (G4–G5)',cat:'athletic',grades:'G4–G5 (Girls)',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',req:'Sports Attire Required',
+  'act-cubs-football-girls-g45':{icon:'🏃',name:'CUBS Football – Girls (G4–G5)',cat:'athletic',grades:'G4–G5 (Girls)',day:'Wednesday',cap:'15',instructor:'AISA Staff',fee:'free',req:'Sports Attire Required',
     desc:'Students develop football skills in a supportive and engaging environment, focusing on teamwork, confidence, and game play. Opportunities for local competitions are included.',
     goals:'🎯 Build Football Skills · Develop Confidence · Encourage Teamwork',
     why:'Play, learn, and grow as a team!'},
-  'act-cubs-football-girls-g6':{icon:'🏃',name:'CUBS Football – Girls (G6)',cat:'athletic',grades:'G6 (Girls)',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',req:'Sports Attire Required',
+  'act-cubs-football-girls-g6':{icon:'🏃',name:'CUBS Football – Girls (G6)',cat:'athletic',grades:'G6 (Girls)',day:'Wednesday',cap:'15',instructor:'AISA Staff',fee:'free',req:'Sports Attire Required',
     desc:'Students refine football techniques and develop game strategies through structured sessions. Participation in local competitions helps build confidence and teamwork.',
     goals:'🎯 Improve Technical Ability · Develop Teamwork · Build Confidence in Competition',
     why:'Compete, improve, and have fun!'},
@@ -1051,6 +1052,16 @@ function sortDirectory(){
   }).forEach(c=>grid.appendChild(c));
 }
 
+function sortTermTables(){
+  document.querySelectorAll('table.asa-table tbody').forEach(tbody=>{
+    [...tbody.querySelectorAll('tr[data-act]')].sort((a,b)=>{
+      const da=DAY_ORDER[a.children[1]?.textContent.trim()]??99;
+      const db=DAY_ORDER[b.children[1]?.textContent.trim()]??99;
+      return da-db;
+    }).forEach(tr=>tbody.appendChild(tr));
+  });
+}
+
 function initDirectory(){
   sortDirectory();
   document.querySelectorAll('#dirGrid .dir-card[id]').forEach(card=>{
@@ -1266,6 +1277,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   renderSeasonCalendars();
   initFaqAccordion();
   initTermTabs();
+  sortTermTables();
   initDayChips();
   initDirectory();
   initCatInfoButtons();
