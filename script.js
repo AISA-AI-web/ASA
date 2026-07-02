@@ -927,7 +927,7 @@ const ACT_STORE={
     desc:'Students explore environmental issues and lead initiatives that promote sustainability within the school and community. Hands-on projects and discussions drive real change.',
     goals:'🎯 Build Environmental Awareness · Encourage Leadership · Promote Sustainable Practices',
     why:'Make a positive impact on the world!'},
-  'act-vr-explorers':{icon:'🥽',name:'VR Explorers',cat:'wellness',grades:'G6–G12',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+  'act-vr-explorers':{icon:'🥽',name:'VR Explorers',cat:'academic',grades:'G6–G12',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
     desc:'Students unwind and recharge through guided virtual reality experiences that spark curiosity, calm the mind, and offer a fresh way to explore new worlds — a screen-based space to relax, reflect, and reset after the school day. 🥽',
     goals:'🎯 Encourage Mindful Exploration · Build Focus & Curiosity · Promote Relaxation & Reset',
     why:'Step into new worlds and unwind, one experience at a time!'},
