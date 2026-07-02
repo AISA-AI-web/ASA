@@ -747,10 +747,6 @@ const ACT_STORE={
     why:'Discover the joy of Arabic stories!'},
 
   /* ATHLETIC */
-  'act-basketball':{icon:'🏀',name:'Basketball Training (GameTime)',cat:'athletic',grades:'KG2–G12',day:'Tuesday',cap:'15',instructor:'GameTime',fee:'paid',feeLabel:'Paid – Vendor',req:'Sports Attire Required',
-    desc:'Students develop basketball fundamentals including dribbling, passing, shooting, and game strategies in a structured and high-energy environment. Sessions focus on skill development, teamwork, and sportsmanship.',
-    goals:'🎯 Develop Basketball Skills · Build Teamwork & Communication · Improve Fitness & Coordination',
-    why:'Develop your game on and off the court!'},
   'act-bowling':{icon:'🎳',name:'Bowling',cat:'athletic',grades:'KG2–G12',day:'Wednesday',cap:'15',instructor:'Vendor',fee:'paid',feeLabel:'Paid – Vendor',
     desc:'Students enjoy weekly bowling sessions at a local lane, developing technique, focus, and friendly competition. A fun off-campus activity for all skill levels.',
     goals:'🎯 Develop Bowling Technique · Build Focus & Patience · Encourage Friendly Competition',
@@ -901,10 +897,6 @@ const ACT_STORE={
     desc:'Young learners are introduced to the world of music through fun, age-appropriate activities covering rhythm, melody, and basic keyboard skills. A joyful and engaging start to musical learning.',
     goals:'🎯 Discover Music Fundamentals · Develop Rhythm & Listening · Encourage Creative Expression',
     why:'Discover the magic of music from the very beginning!'},
-  'act-intro-music-spr':{icon:'🎹',name:'Intro to Music',cat:'arts',grades:'KG1',day:'Wednesday',cap:'15',instructor:'Notes & Chords',fee:'paid',feeLabel:'Paid – Vendor',
-    desc:'Young learners are introduced to the world of music through fun, age-appropriate activities covering rhythm, melody, and basic keyboard skills. A joyful and engaging start to musical learning.',
-    goals:'🎯 Discover Music Fundamentals · Develop Rhythm & Listening · Encourage Creative Expression',
-    why:'Discover the magic of music from the very beginning!'},
   'act-piano':{icon:'🎹',name:'Piano Practicers',cat:'arts',grades:'KG2–G5',day:'Monday',cap:'15',instructor:'Notes & Chords',fee:'paid',feeLabel:'Paid – Vendor',
     desc:'Learn the fundamentals of keyboard playing including rhythm, melody, and basic music reading in a fun and engaging way. Suitable for beginners and those developing skills.',
     goals:'🎯 Learn Basic Keyboard Skills · Develop Musical Understanding · Promote Memorization & Routines',
@@ -979,6 +971,14 @@ const ACT_STORE={
     desc:'Students explore environmental issues and lead initiatives that promote sustainability within the school and community. Hands-on projects and discussions drive real change.',
     goals:'🎯 Build Environmental Awareness · Encourage Leadership · Promote Sustainable Practices',
     why:'Make a positive impact on the world!'},
+  'act-vr-explorers':{icon:'🥽',name:'VR Explorers',cat:'wellness',grades:'G6–G12',day:'Thursday',cap:'15',instructor:'AISA Staff',fee:'free',
+    desc:'Students unwind and recharge through guided virtual reality experiences that spark curiosity, calm the mind, and offer a fresh way to explore new worlds — a screen-based space to relax, reflect, and reset after the school day. 🥽',
+    goals:'🎯 Encourage Mindful Exploration · Build Focus & Curiosity · Promote Relaxation & Reset',
+    why:'Step into new worlds and unwind, one experience at a time!'},
+  'act-student-ambassadors':{icon:'🤝',name:'Student Ambassadors at AISA',cat:'wellness',grades:'G3–G5',day:'Thursday',cap:'15',instructor:'Sonya Davis & Amy Classen',fee:'free',req:'Contact: Sonya Davis (sdavis@aisa.sch.ae) · Amy Classen (aclassen@aisa.sch.ae)',
+    desc:'Student Ambassadors welcome new students, support schoolwide events, assist during assemblies and special activities, mentor younger students when appropriate, and help reinforce our culture of being Responsible, Safe, Respectful, and Kind. 🤝',
+    goals:'🎯 Build Leadership & Confidence · Foster a Welcoming Community · Reinforce the AISA Lion Way',
+    why:'Be a Lion others look up to — welcome, lead, and represent AISA with pride!'},
 };
 
 /* ── Activity modal ── */
@@ -1198,19 +1198,19 @@ function getLeoResponse(text){
     return 'ASAs run from 15:00 to 16:00 (3 pm – 4 pm) every school day.\n\nSchool finishes at 14:50. Students head to their ASA meet-up point, then activities begin at 15:00.\n\n🚪 Pick-up is at Gate 4 at 16:00. Please be prompt!';
   }
   if(/fee|cost|price|paid|free|pay|charge/.test(t)){
-    return 'Fees vary by activity:\n✅ Many ASAs are FREE (e.g. Chess, Power-Up, Playground Games, Quran Club)\n💳 Some require vendor payment (e.g. Football/PASS, Ballet/BodyTree, Basketball/GameTime, Bowling, Piano)\n\nRegistration is required even for free activities. Check the Directory page for each activity\'s fee details.';
+    return 'Fees vary by activity:\n✅ Many ASAs are FREE (e.g. Chess, Power-Up, Playground Games, Quran Club)\n💳 Some require vendor payment (e.g. Football/PASS, Ballet/BodyTree, Bowling, Piano)\n\nRegistration is required even for free activities. Check the Directory page for each activity\'s fee details.';
   }
   if(/contact|email|phone|call|reach|staff|mr.*zischka|ms.*cristobal/.test(t)){
     return 'You can reach the Athletics & Activities team at:\n📧 attendance@aisa.sch.ae\n📞 +971 2 444 4333\n🌐 www.aisa.sch.ae\n\nHead of Athletics: Mr. Luka Zischka (lzischka@aisa.sch.ae)\nAssistant Head: Ms. Ledinia Cristobal (lcristobal@aisa.sch.ae)';
   }
   if(/activit|asa|club|sport|what.*offer|what.*available|list|categor/.test(t)){
-    return 'ASAs fall into 4 categories:\n🌿 Reflective & Wellness (Quran Club, Sustainability, Greenhouse…)\n📚 Academics & Enrichment (Chess, Math Ninjas, STEM Club, Robotics…)\n⚽️ Athletics & Movement (Football, Basketball, Swimming, CUBS Sports…)\n🎨 Arts & Creativity (Ballet, Piano, Guitar, Hip-Hop Dance…)\n\nVisit the Directory page to browse all activities with full details!';
+    return 'ASAs fall into 4 categories:\n🌿 Reflective & Wellness (Quran Club, Sustainability, Greenhouse…)\n📚 Academics & Enrichment (Chess, Math Ninjas, STEM Club, Robotics…)\n⚽️ Athletics & Movement (Football, Swimming, CUBS Sports…)\n🎨 Arts & Creativity (Ballet, Piano, Guitar, Hip-Hop Dance…)\n\nVisit the Directory page to browse all activities with full details!';
   }
   if(/football|soccer|pass/.test(t)){
     return '⚽️ Football Training (PASS) is available for KG1–G12 on Mondays & Tuesdays. It\'s a paid vendor activity. Students develop dribbling, passing, and teamwork skills. Sports attire required!';
   }
   if(/basketball|gametime/.test(t)){
-    return '🏀 Basketball Training (GameTime) is available for KG2–G12 on Tuesdays. It\'s a paid vendor activity. CUBS Basketball teams also compete in local Abu Dhabi/Dubai competitions (free for CUBS).';
+    return '🏀 CUBS Basketball teams (G4–G5 and G6, Boys & Girls) train on Wednesdays and compete in local Abu Dhabi/Dubai competitions — free, sports attire required.';
   }
   if(/swim|pool|water/.test(t)){
     return '🏊 Swimming options:\n• Learn to Swim (KG2–G2, Mondays) – fee applies\n• Learn to Swim G3–G5 (Mondays) – lifeguard fee applies\n• Splash Fun Day (G3–G5 Spring, Mondays) – lifeguard fee · must be able to swim\n\nSwimwear required. Students must be capable of changing alone.';
